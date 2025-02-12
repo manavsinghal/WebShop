@@ -23,13 +23,13 @@ const routes: Routes = [
 		children: [
 			{
                 path: 'home',
-				loadChildren: () => import('./modules/home/home.module')
-					.then(mod => mod.HomeModule)
+                loadChildren: () => import('./modules/home/home-routing.module')
+					.then(mod => mod.routes)
 			},
 			{
-				path: 'administration',
-				loadChildren: () => import('./modules/admin/admin.module')
-					.then(mod => mod.AdminModule)
+                path: 'administration',
+                loadChildren: () => import('./modules/admin/admin-routing.module')
+					.then(mod => mod.routes)
 			},
 			{
                 path: '', pathMatch: 'full', redirectTo: 'home'

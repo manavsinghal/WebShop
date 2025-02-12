@@ -17,15 +17,18 @@ import { DefaultFields } from './shared/models/default-fields.model';
 import { Theme } from './shared/models/theme.model';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { RouterOutlet } from '@angular/router';
+import { CoreNotificationService } from './core/services/core.notification.service';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    imports: [NgxUiLoaderModule, RouterOutlet]
+    imports: [NgxUiLoaderModule, RouterOutlet],
+    providers: [CoreNotificationService]
 })
 export class AppComponent implements OnInit {
 	private readonly translateService = inject(TranslateService);
-	readonly coreSessionService = inject(CoreSessionService);
+    readonly coreSessionService = inject(CoreSessionService);
+    coreNotificationService = inject(CoreNotificationService);
 
 	title: string = 'Console';
 	isIframe: boolean = false;

@@ -8,11 +8,7 @@
 // </copyright>
 */
 
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-
-
-
+import { Routes } from '@angular/router';
 
 
 
@@ -20,7 +16,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 // Define the routes for the CustomerRoutingModule module
-const routes: Routes = [
+export const routes: Routes = [
     {
         path: 'domain',       
         children: [
@@ -35,11 +31,3 @@ const routes: Routes = [
         ]
     }  
 ];
-
-// Define the  CustomerRoutingModule routing module
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-// Export the CustomerRoutingModule class
-export class CustomerRoutingModule { }
