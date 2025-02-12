@@ -20,6 +20,7 @@ import { LoaderInterceptor } from './app/core/interceptors/loader.interceptor';
 import { provideRouter } from '@angular/router';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { ResourceLoader } from './app/core/translator/resource-loader';
+import { SortPipe } from './app/shared/pipes/sort.pipe';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     fgsSize: 36,
@@ -51,6 +52,7 @@ bootstrapApplication(AppComponent, {
                     deps: [HttpClient],
                 }
             })),
+            SortPipe,
         { provide: 'APP_ID', useValue: 'ng-cli-universal' },
         {
             provide: APP_INITIALIZER,
