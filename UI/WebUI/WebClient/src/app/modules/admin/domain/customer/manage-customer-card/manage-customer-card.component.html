@@ -1,0 +1,385 @@
+<div class="c-breadcrumbs">
+    <div class="container">
+		<div class="c-breadcrumbs__wrapper">
+			<ul class="c-breadcrumbs__list">
+                <li class="c-breadcrumbs__item"><a (click)="backToAdministration()" translate>Administration</a></li>
+	            @if (screenGroup) {
+                    <li class="c-breadcrumbs__item">
+		                <a (click)="navigateToManageEntity()">
+		            	    Manage <span translate>{{screenGroup}}</span><span translate> Entities</span>
+		                </a>
+	                </li>
+                }
+	 <li class="c-breadcrumbs__item"><a (click)="backToManageCustomerCard()" translate>CustomerCard</a></li>
+        <li class="c-breadcrumbs__item -active" translate>{{action}} <span translate>CustomerCard</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container">
+	<div class="c-text-banner__wrapper">
+		<h2 class="c-text-banner__title">
+			<a (click)="backToManageCustomerCard()">
+				<i class="c-text-banner__backicon icon-arrow"></i>
+			</a>
+			<span translate>{{action}}</span>
+			<span translate> CustomerCard</span>
+		</h2>
+		<p class="c-text-banner__desc" translate>
+			{{action}} <span translate>CustomerCard</span> <span translate> Details</span>
+		</p>
+	</div>
+</div>
+<div class="c-add-new-account">
+	@if (customerCard) {
+        <div class="container">
+		        <form name="customerCardForm" #customerCardForm="ngForm">
+			        <div class="c-add-new-account__wrapper">
+				        <div class="c-add-new-account__left">
+					        <div class="c-add-new-account__basic-details -data-block" id="data-block-1">
+						        <div class="c-basic-details">
+							        <span translate>CustomerCard</span>
+							        <span translate> Details</span>
+	                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                    CustomerCardUId
+                                                @if (action !== 'View' && action !== 'Edit') {
+                                                    <span class="c-basic-details__inputrequired">*</span>
+                                                }
+                                            </label>
+                                            <input type="text" name="CustomerCardUId" whiteSpaceValidator
+                                                    class="o-input__input" 	                                            
+                                                    disabled
+                                                    [(ngModel)]="customerCard.CustomerCardUId" required />                                              
+                                        </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                    CustomerCardId
+                                            </label>
+                                            <input type="number" name="CustomerCardId"
+                                                    class="o-input__input" 
+                                                    min="0"						
+                                                    step="False"
+                                                    [(ngModel)]="customerCard.CustomerCardId"
+                                                    required appInputRestriction
+                                                    disabled />
+                                        </div>
+                                 </div>
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                Customer
+                                                @if (action !== 'View') {
+                                                    <span class="c-basic-details__inputrequired">*</span>
+                                                }
+                                            </label>
+                                            <div class="c-select-wrapper" [ngClass]="action === 'View' ? '-disabled' : ''">
+                                                <select name="CustomerUId" appValidateEmptyGuid                                                        class="c-select" [disabled]="action === 'View' ? 'disabled' : false"
+                                                        [(ngModel)]="customerCard.CustomerUId"  required >                                                        
+                                                    <option [ngValue]="emptyGuid" class="c-select__selected-text icon-arrow-up" translate>
+                                                                    Select
+                                                    </option>
+	                                                @if (customers) {
+                                                        <ng-container>		
+                                                            @for (customer of customers; track customer) {
+                                                                <option class="c-select__option" [disabled]="action === 'View' ? 'disabled' : false" [ngValue]="customer.CustomerUId">
+                                                                        {{customer.Name}}
+                                                                </option>
+                                                            }
+				    	                                </ng-container>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                CardType
+                                                @if (action !== 'View') {
+                                                    <span class="c-basic-details__inputrequired">*</span>
+                                                }
+                                            </label>
+                                            <div class="c-select-wrapper" [ngClass]="action === 'View' ? '-disabled' : ''">
+                                                <select name="CardTypeUId" appValidateEmptyGuid                                                        class="c-select" [disabled]="action === 'View' ? 'disabled' : false"
+                                                        [(ngModel)]="customerCard.CardTypeUId"  required >                                                        
+                                                    <option [ngValue]="emptyGuid" class="c-select__selected-text icon-arrow-up" translate>
+                                                                    Select
+                                                    </option>
+	                                                @if (cardTypes) {
+                                                        <ng-container>		
+                                                            @for (masterListItem of cardTypes; track masterListItem) {
+                                                                <option class="c-select__option" [disabled]="action === 'View' ? 'disabled' : false" [ngValue]="masterListItem.MasterListItemUId">
+                                                                        {{masterListItem.Name}}
+                                                                </option>
+                                                            }
+				    	                                </ng-container>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                 </div>
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                    NameOnCard
+                                                @if (action !== 'View') {
+                                                    <span class="c-basic-details__inputrequired">*</span>
+                                                }
+                                            </label>
+                                            <input type="text" name="NameOnCard" whiteSpaceValidator
+                                                        class="o-input__input"  maxlength="150" [disabled]="action === 'View' ?  'disabled' : false" 
+                                                        [(ngModel)]="customerCard.NameOnCard" required />                                                   
+                                        </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                    Number
+                                                @if (action !== 'View') {
+                                                    <span class="c-basic-details__inputrequired">*</span>
+                                                }
+                                            </label>
+                                            <input type="text" name="Number" whiteSpaceValidator
+                                                        class="o-input__input"  maxlength="15" [disabled]="action === 'View' ?  'disabled' : false" 
+                                                        [(ngModel)]="customerCard.Number" required />                                                   
+                                        </div>
+                                 </div>
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                    ExpirationDate
+                                                @if (action !== 'View') {
+                                                    <span class="c-basic-details__inputrequired">*</span>
+                                                }
+                                            </label>
+                                            <input type="text" name="ExpirationDate" whiteSpaceValidator
+                                                        class="o-input__input"  maxlength="7" [disabled]="action === 'View' ?  'disabled' : false" 
+                                                        [(ngModel)]="customerCard.ExpirationDate" required />                                                   
+                                        </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                    SecurityCode
+                                            </label>
+                                            <input type="text" name="SecurityCode" 
+                                                        class="o-input__input"  maxlength="5" [disabled]="action === 'View' ?  'disabled' : false" 
+                                                        [(ngModel)]="customerCard.SecurityCode"  />                                                   
+                                        </div>
+                                 </div>
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                    SortOrder
+                                                @if (action !== 'View') {
+                                                    <span class="c-basic-details__inputrequired">*</span>
+                                                }
+                                            </label>
+                                            <input type="number" name="SortOrder"
+                                                    class="o-input__input" 
+                                                    min="0"						
+                                                    step="False"
+                                                    [(ngModel)]="customerCard.SortOrder"
+                                                    required appInputRestriction
+                                                    [disabled]="action === 'View' ? 'disabled' : false" />
+                                        </div>
+                                 </div>
+                                </div>
+                            </div>
+                            <div class="c-add-new-account__acc-settings -data-block" id="data-block-2">
+                                <div class="c-basic-details" translate>
+                                    AuditHistory
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                RowStatus
+                                                @if (action !== 'View') {
+                                                    <span class="c-basic-details__inputrequired">*</span>
+                                                }
+                                            </label>
+                                      
+                                            <div class="c-select-wrapper" [ngClass]="action === 'View' ? '-disabled' : ''">
+                                                <select name="RowStatusUId"
+                                                        class="c-select" appValidateEmptyGuid                                                        [disabled]="action === 'View' ?  'disabled' : false" required
+                                                        [(ngModel)]="customerCard.RowStatusUId" > 
+                                                    <option [ngValue]="emptyGuid" class="c-select__selected-text icon-arrow-up" translate>
+                                                            Select
+                                                    </option>
+                                                    @if (rowStatuses) {
+                                                        <ng-container>
+                                                            @for (rowStatus of rowStatuses; track rowStatus) {
+                                                                <option class="c-select__option" [disabled]="action === 'View' ? 'disabled' : false" [ngValue]="rowStatus.RowStatusUId">
+                                                                        {{rowStatus.Name}}
+                                                                </option>
+                                                            }
+					                                    </ng-container>
+                                                    }
+                                                </select>
+                                            </div>
+ 
+                                    </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                CreatedByAccount
+                                            </label>
+                                      
+                                            <div class="c-select-wrapper" [ngClass]="action === 'View' ? '-disabled' : ''">
+                                                <select name="CreatedByAccountUId"
+                                                        class="c-select" appValidateEmptyGuid                                                        disabled 
+                                                        [(ngModel)]="customerCard.CreatedByAccountUId" > 
+                                                    <option [ngValue]="emptyGuid" class="c-select__selected-text icon-arrow-up" translate>
+                                                            Select
+                                                    </option>
+                                                    @if (createdByAccounts) {
+                                                        <ng-container>
+                                                            @for (account of createdByAccounts; track account) {
+                                                                <option class="c-select__option" [disabled]="action === 'View' ? 'disabled' : false" [ngValue]="account.AccountUId">
+                                                                        {{account.FirstName}}
+                                                                </option>
+                                                            }
+					                                    </ng-container>
+                                                    }
+                                                </select>
+                                            </div>
+ 
+                                    </div>
+                                </div>
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                    CreatedByApp
+                                            </label>
+                                            <input type="text" name="CreatedByApp"
+                                                        class="o-input__input" disabled
+                                                        [(ngModel)]="customerCard.CreatedByApp" />                                    
+                                    </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                    CreatedOn
+                                            </label>
+                                            <input type="datetime-local" name="CreatedOn"
+										        class="o-input__input" disabled
+                                                [ngModel]="customerCard.CreatedOn | date:'yyyy-MM-ddTHH:mm'" 
+                                                (ngModelChange)="customerCard.CreatedOn = $event" />                                    
+                                    </div>
+                                </div>
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                ModifiedByAccount
+                                            </label>
+                                      
+                                            <div class="c-select-wrapper" [ngClass]="action === 'View' ? '-disabled' : ''">
+                                                <select name="ModifiedByAccountUId"
+                                                        class="c-select" appValidateEmptyGuid                                                        disabled 
+                                                        [(ngModel)]="customerCard.ModifiedByAccountUId" > 
+                                                    <option [ngValue]="emptyGuid" class="c-select__selected-text icon-arrow-up" translate>
+                                                            Select
+                                                    </option>
+                                                    @if (modifiedByAccounts) {
+                                                        <ng-container>
+                                                            @for (account of modifiedByAccounts; track account) {
+                                                                <option class="c-select__option" [disabled]="action === 'View' ? 'disabled' : false" [ngValue]="account.AccountUId">
+                                                                        {{account.FirstName}}
+                                                                </option>
+                                                            }
+					                                    </ng-container>
+                                                    }
+                                                </select>
+                                            </div>
+ 
+                                    </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                    ModifiedByApp
+                                            </label>
+                                            <input type="text" name="ModifiedByApp"
+                                                        class="o-input__input" disabled
+                                                        [(ngModel)]="customerCard.ModifiedByApp" />                                    
+                                    </div>
+                                </div>
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                    ModifiedOn
+                                            </label>
+                                            <input type="datetime-local" name="ModifiedOn"
+										        class="o-input__input" disabled
+                                                [ngModel]="customerCard.ModifiedOn | date:'yyyy-MM-ddTHH:mm'" 
+                                                (ngModelChange)="customerCard.ModifiedOn = $event" />                                    
+                                    </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                    CorrelationUId
+                                            </label>
+                                      
+                                        <input type="text" name="CorrelationUId"
+				    					        class="o-input__input" disabled
+					    				        [(ngModel)]="customerCard.CorrelationUId" />
+ 
+                                    </div>
+                                </div>
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                    EffectiveFrom
+                                            </label>
+                                            <input type="datetime-local" name="EffectiveFrom"
+										        class="o-input__input" disabled
+                                                [ngModel]="customerCard.EffectiveFrom | date:'yyyy-MM-ddTHH:mm'" 
+                                                (ngModelChange)="customerCard.EffectiveFrom = $event" />                                    
+                                    </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                    EffectiveTo
+                                            </label>
+                                            <input type="datetime-local" name="EffectiveTo"
+										        class="o-input__input" disabled
+                                                [ngModel]="customerCard.EffectiveTo | date:'yyyy-MM-ddTHH:mm'" 
+                                                (ngModelChange)="customerCard.EffectiveTo = $event" />                                    
+                                    </div>
+                                </div>
+                          
+                            </div>
+                        </div>
+                    </div>	
+                    <div class="c-add-new-account__right">
+                        <div class="c-add-new-account__adding-details">
+                            <div class="c-adding-details">
+                                <div class="c-adding-details__wrapper">
+                                    <div class="c-adding-details__header" translate>
+                                        {{action}} <span translate>CustomerCard </span> <span translate>Details</span>
+                                    </div>
+                                    <ul class="c-adding-details__list">
+                                        <li class="c-adding-details__list-item -active" (click)="scrollToView('data-block-1')" data-href="data-block-1" translate>CustomerCard <span translate>Details</span> </li>
+                                        <li class="c-adding-details__list-item" (click)="scrollToView('data-block-2')" data-href="data-block-2" translate>AuditHistory</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-add-new-account__btns c-kpi-modal__buttons-wrapp">
+                        <a (click)="closeCustomerCard(customerCardForm,unsavedChangesContent)" class="o-secondary-button" title="{{'Cancel' | translate}}" [ngClass]="action === 'View' ? 'display-none' : ''"  translate>
+					        Cancel
+				        </a>
+                        <a title="{{'Save' | translate}}"  class="o-primary-button" [ngClass]="action === 'View' ? 'display-none' : ''" 
+                                (click)="saveCustomerCard(customerCardForm)" translate>
+                            Save
+                        </a>
+                    </div>
+		        </form>
+        </div>
+    }
+</div>
+<ng-template #unsavedChangesContent let-c="close" let-d="dismiss">		
+        <div class="c-unsave-change__close-button c-kpi-modal__buttons-wrapp" (click)="c('Close click')">
+			<i class="c-unsave-change__close-icon icon-close"></i>
+        </div>
+        <div class="c-unsave-change__content">
+            <div class="c-unsave-change__heading" translate>UnsavedChanges</div>
+            <p translate>
+                UnsavedChangesMsg
+            </p>
+        </div>
+        <div class="c-unsave-change__buttons c-kpi-modal__buttons-wrapp">
+            <a class="o-secondary-button c-unsave-change__yes" (click)="cancelModalPopup()" title="{{'Yes' | translate}}" translate>Yes </a>
+            <a class="o-primary-button c-unsave-change__no" (click)="c('close click')" title="{{'No' | translate}}" translate>No </a>
+        </div>
+</ng-template>

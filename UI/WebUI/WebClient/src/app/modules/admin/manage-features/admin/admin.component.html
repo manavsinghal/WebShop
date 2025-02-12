@@ -1,0 +1,313 @@
+<div class="c-breadcrumbs">
+    <div class="container">
+        <div class="c-breadcrumbs__wrapper">
+            <ul class="c-breadcrumbs__list" style="list-style-type: none;padding: 0;margin: 0">
+                <li class="c-breadcrumbs__item"><a routerLink="/" (click)="setHomeTab()" translate>Home</a></li>
+                <li class="c-breadcrumbs__item"><a routerLink="/app/administration" translate>ManageFeatures</a></li>
+                <li class="c-breadcrumbs__item -active" translate>ManageGroupEntities</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="container">
+        <div class="c-page-header__heading">
+            <h2 class="c-page-header__head">
+                <span class="c-page-header__head-arrow-text" translate>ManageGroupEntities</span>
+            </h2>
+            <p class="c-page-header__para" translate>
+                <span translate>ManageGroupEntitiesDescription1</span><span translate> WebShopTitle </span> <span translate>ManageGroupEntitiesDescription2</span>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="c-dashboard">
+    <div class="container">
+        <div class="c-dashboard__items">
+            @if (serviceGroup === 'domain') {
+                <ng-container>
+                    <div class="c-dashboard__item">
+                        <div class="c-admin-card">
+                            <div class="c-admin-card__bg-layer-one"></div>
+                            <div class="c-admin-card__bg-layer-two"></div>
+                            <div class="c-admin-card__wrapper">
+                                <!--<div class="c-admin-card__more d-none">
+                                    <i class="c-admin-card__more-icons icon-dots"></i>
+                                    <div class="c-admin-card__more-modal">
+                                        <div class="c-admin-card__more-head">
+                                            <span translate>Options</span>
+                                            <i class="icon-dots"></i>
+                                        </div>
+                                        <div class="c-admin-card__more-content">
+                                            <a class="c-admin-card__more-link">Demo Video</a>
+                                            <a class="c-admin-card__more-link">Demo Link</a>
+                                        </div>
+                                    </div>
+                                </div>-->
+                                <div class="c-admin-card__body">
+                                    <span class="c-admin-card__icon icon-acc-manage"></span>
+                                    <div class="c-admin-card__head">
+                                        <h3 class="c-admin-card__title" title="Account" translate>
+                                            Account
+                                        </h3>
+                                    </div>
+                                    <p class="c-admin-card__desc" style="overflow-y: hidden" translate>
+                                        AccountTileDescription
+                                    </p>
+                                </div>
+                                <div class="c-admin-card__bottom-list">
+                                    <a (click)="navigateToManageEntity('Account')" class="c-admin-card__list-item" title="Proceed" translate>Proceed</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-dashboard__item">
+                        <div class="c-admin-card">
+                            <div class="c-admin-card__bg-layer-one"></div>
+                            <div class="c-admin-card__bg-layer-two"></div>
+                            <div class="c-admin-card__wrapper">
+                                <!--<div class="c-admin-card__more d-none">
+                                    <i class="c-admin-card__more-icons icon-dots"></i>
+                                    <div class="c-admin-card__more-modal">
+                                        <div class="c-admin-card__more-head">
+                                            <span translate>Options</span>
+                                            <i class="icon-dots"></i>
+                                        </div>
+                                        <div class="c-admin-card__more-content">
+                                            <a class="c-admin-card__more-link">Demo Video</a>
+                                            <a class="c-admin-card__more-link">Demo Link</a>
+                                        </div>
+                                    </div>
+                                </div>-->
+                                <div class="c-admin-card__body">
+                                    <span class="c-admin-card__icon icon-acc-manage"></span>
+                                    <div class="c-admin-card__head">
+                                        <h3 class="c-admin-card__title" title="Customer" translate>
+                                            Customer
+                                        </h3>
+                                    </div>
+                                    <p class="c-admin-card__desc" style="overflow-y: hidden" translate>
+                                        CustomerTileDescription
+                                    </p>
+                                </div>
+                                <div class="c-admin-card__bottom-list">
+                                    <a (click)="navigateToManageEntity('Customer')" class="c-admin-card__list-item" title="Proceed" translate>Proceed</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-dashboard__item">
+                        <div class="c-admin-card">
+                            <div class="c-admin-card__bg-layer-one"></div>
+                            <div class="c-admin-card__bg-layer-two"></div>
+                            <div class="c-admin-card__wrapper">
+                                <!--<div class="c-admin-card__more d-none">
+                                    <i class="c-admin-card__more-icons icon-dots"></i>
+                                    <div class="c-admin-card__more-modal">
+                                        <div class="c-admin-card__more-head">
+                                            <span translate>Options</span>
+                                            <i class="icon-dots"></i>
+                                        </div>
+                                        <div class="c-admin-card__more-content">
+                                            <a class="c-admin-card__more-link">Demo Video</a>
+                                            <a class="c-admin-card__more-link">Demo Link</a>
+                                        </div>
+                                    </div>
+                                </div>-->
+                                <div class="c-admin-card__body">
+                                    <span class="c-admin-card__icon icon-acc-manage"></span>
+                                    <div class="c-admin-card__head">
+                                        <h3 class="c-admin-card__title" title="Master" translate>
+                                            Master
+                                        </h3>
+                                    </div>
+                                    <p class="c-admin-card__desc" style="overflow-y: hidden" translate>
+                                        MasterTileDescription
+                                    </p>
+                                </div>
+                                <div class="c-admin-card__bottom-list">
+                                    <a (click)="navigateToManageEntity('Master')" class="c-admin-card__list-item" title="Proceed" translate>Proceed</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-dashboard__item">
+                        <div class="c-admin-card">
+                            <div class="c-admin-card__bg-layer-one"></div>
+                            <div class="c-admin-card__bg-layer-two"></div>
+                            <div class="c-admin-card__wrapper">
+                                <!--<div class="c-admin-card__more d-none">
+                                    <i class="c-admin-card__more-icons icon-dots"></i>
+                                    <div class="c-admin-card__more-modal">
+                                        <div class="c-admin-card__more-head">
+                                            <span translate>Options</span>
+                                            <i class="icon-dots"></i>
+                                        </div>
+                                        <div class="c-admin-card__more-content">
+                                            <a class="c-admin-card__more-link">Demo Video</a>
+                                            <a class="c-admin-card__more-link">Demo Link</a>
+                                        </div>
+                                    </div>
+                                </div>-->
+                                <div class="c-admin-card__body">
+                                    <span class="c-admin-card__icon icon-acc-manage"></span>
+                                    <div class="c-admin-card__head">
+                                        <h3 class="c-admin-card__title" title="Order" translate>
+                                            Order
+                                        </h3>
+                                    </div>
+                                    <p class="c-admin-card__desc" style="overflow-y: hidden" translate>
+                                        OrderTileDescription
+                                    </p>
+                                </div>
+                                <div class="c-admin-card__bottom-list">
+                                    <a (click)="navigateToManageEntity('Order')" class="c-admin-card__list-item" title="Proceed" translate>Proceed</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-dashboard__item">
+                        <div class="c-admin-card">
+                            <div class="c-admin-card__bg-layer-one"></div>
+                            <div class="c-admin-card__bg-layer-two"></div>
+                            <div class="c-admin-card__wrapper">
+                                <!--<div class="c-admin-card__more d-none">
+                                    <i class="c-admin-card__more-icons icon-dots"></i>
+                                    <div class="c-admin-card__more-modal">
+                                        <div class="c-admin-card__more-head">
+                                            <span translate>Options</span>
+                                            <i class="icon-dots"></i>
+                                        </div>
+                                        <div class="c-admin-card__more-content">
+                                            <a class="c-admin-card__more-link">Demo Video</a>
+                                            <a class="c-admin-card__more-link">Demo Link</a>
+                                        </div>
+                                    </div>
+                                </div>-->
+                                <div class="c-admin-card__body">
+                                    <span class="c-admin-card__icon icon-acc-manage"></span>
+                                    <div class="c-admin-card__head">
+                                        <h3 class="c-admin-card__title" title="Product" translate>
+                                            Product
+                                        </h3>
+                                    </div>
+                                    <p class="c-admin-card__desc" style="overflow-y: hidden" translate>
+                                        ProductTileDescription
+                                    </p>
+                                </div>
+                                <div class="c-admin-card__bottom-list">
+                                    <a (click)="navigateToManageEntity('Product')" class="c-admin-card__list-item" title="Proceed" translate>Proceed</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-dashboard__item">
+                        <div class="c-admin-card">
+                            <div class="c-admin-card__bg-layer-one"></div>
+                            <div class="c-admin-card__bg-layer-two"></div>
+                            <div class="c-admin-card__wrapper">
+                                <!--<div class="c-admin-card__more d-none">
+                                    <i class="c-admin-card__more-icons icon-dots"></i>
+                                    <div class="c-admin-card__more-modal">
+                                        <div class="c-admin-card__more-head">
+                                            <span translate>Options</span>
+                                            <i class="icon-dots"></i>
+                                        </div>
+                                        <div class="c-admin-card__more-content">
+                                            <a class="c-admin-card__more-link">Demo Video</a>
+                                            <a class="c-admin-card__more-link">Demo Link</a>
+                                        </div>
+                                    </div>
+                                </div>-->
+                                <div class="c-admin-card__body">
+                                    <span class="c-admin-card__icon icon-acc-manage"></span>
+                                    <div class="c-admin-card__head">
+                                        <h3 class="c-admin-card__title" title="Seller" translate>
+                                            Seller
+                                        </h3>
+                                    </div>
+                                    <p class="c-admin-card__desc" style="overflow-y: hidden" translate>
+                                        SellerTileDescription
+                                    </p>
+                                </div>
+                                <div class="c-admin-card__bottom-list">
+                                    <a (click)="navigateToManageEntity('Seller')" class="c-admin-card__list-item" title="Proceed" translate>Proceed</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-dashboard__item">
+                        <div class="c-admin-card">
+                            <div class="c-admin-card__bg-layer-one"></div>
+                            <div class="c-admin-card__bg-layer-two"></div>
+                            <div class="c-admin-card__wrapper">
+                                <!--<div class="c-admin-card__more d-none">
+                                    <i class="c-admin-card__more-icons icon-dots"></i>
+                                    <div class="c-admin-card__more-modal">
+                                        <div class="c-admin-card__more-head">
+                                            <span translate>Options</span>
+                                            <i class="icon-dots"></i>
+                                        </div>
+                                        <div class="c-admin-card__more-content">
+                                            <a class="c-admin-card__more-link">Demo Video</a>
+                                            <a class="c-admin-card__more-link">Demo Link</a>
+                                        </div>
+                                    </div>
+                                </div>-->
+                                <div class="c-admin-card__body">
+                                    <span class="c-admin-card__icon icon-acc-manage"></span>
+                                    <div class="c-admin-card__head">
+                                        <h3 class="c-admin-card__title" title="Shipper" translate>
+                                            Shipper
+                                        </h3>
+                                    </div>
+                                    <p class="c-admin-card__desc" style="overflow-y: hidden" translate>
+                                        ShipperTileDescription
+                                    </p>
+                                </div>
+                                <div class="c-admin-card__bottom-list">
+                                    <a (click)="navigateToManageEntity('Shipper')" class="c-admin-card__list-item" title="Proceed" translate>Proceed</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-dashboard__item">
+                        <div class="c-admin-card">
+                            <div class="c-admin-card__bg-layer-one"></div>
+                            <div class="c-admin-card__bg-layer-two"></div>
+                            <div class="c-admin-card__wrapper">
+                                <!--<div class="c-admin-card__more d-none">
+                                    <i class="c-admin-card__more-icons icon-dots"></i>
+                                    <div class="c-admin-card__more-modal">
+                                        <div class="c-admin-card__more-head">
+                                            <span translate>Options</span>
+                                            <i class="icon-dots"></i>
+                                        </div>
+                                        <div class="c-admin-card__more-content">
+                                            <a class="c-admin-card__more-link">Demo Video</a>
+                                            <a class="c-admin-card__more-link">Demo Link</a>
+                                        </div>
+                                    </div>
+                                </div>-->
+                                <div class="c-admin-card__body">
+                                    <span class="c-admin-card__icon icon-acc-manage"></span>
+                                    <div class="c-admin-card__head">
+                                        <h3 class="c-admin-card__title" title="ShoppingCart" translate>
+                                            ShoppingCart
+                                        </h3>
+                                    </div>
+                                    <p class="c-admin-card__desc" style="overflow-y: hidden" translate>
+                                        ShoppingCartTileDescription
+                                    </p>
+                                </div>
+                                <div class="c-admin-card__bottom-list">
+                                    <a (click)="navigateToManageEntity('ShoppingCart')" class="c-admin-card__list-item" title="Proceed" translate>Proceed</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            }
+        </div>
+    </div>
+</div>

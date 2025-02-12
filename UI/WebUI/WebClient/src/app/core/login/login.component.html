@@ -1,0 +1,26 @@
+@if (showLoader) {
+	<div class="ngx-overlay" style="border-radius: 0px;">
+		<div class="ngx-foreground-spinner center-center" style="color: rgb(0, 172, 193); width: 30px; height: 30px; top: 50%;">
+			<div class="sk-ball-spin-clockwise">
+				<div>
+				</div>
+				<div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+			</div>
+		</div>
+		<div class="ngx-loading-text center-center" style="top: 50%; color: rgb(255, 255, 255);"></div>
+	</div>
+}
+
+<ng-template #content let-c="close" let-d="dismiss">
+
+	<div class="c-unsave-change__content">
+		<div class="c-unsave-change__heading">Authorization denied.</div>
+		<p>
+			You are not authorized to access this application. Please contact your administrator.
+		</p>
+	</div>
+	<div class="c-unsave-change__buttons">
+		<a href="javascript:;" class="o-secondary-button c-unsave-change__yes" (click)="confirmLogout()">Ok</a>
+	</div>
+</ng-template>
+

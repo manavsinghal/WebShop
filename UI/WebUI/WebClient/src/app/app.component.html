@@ -1,0 +1,6 @@
+<ngx-ui-loader class="c-theme-{{coreSessionService.getTheme()['Value'] ? coreSessionService.getSelectedTheme()['Value'] :'ServiceComposer'}}"></ngx-ui-loader>
+<!--This is to avoid reload during acquireTokenSilent() because of hidden iframe -->
+@if (!isIframe) {
+<router-outlet></router-outlet>
+}
+

@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>Accenture.WebShop.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>Accenture.WebShop.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+  </PropertyGroup>
+
+
+   <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Metrics" Version="3.3.4" />
+  </ItemGroup>
+   <ItemGroup>
+        <ProjectReference Include="..\..\..\Core\Domain\Core.Domain.DataModel\Core.Domain.DataModel.csproj" />
+    <ProjectReference Include="..\..\..\Core\Application\Core.Application.DataRepositories.DataModels\Core.Application.DataRepositories.DataModels.csproj" />
+    <ProjectReference Include="..\..\..\Core\Application\Core.Application.DataEntities.Interfaces\Core.Application.DataEntities.Interfaces.csproj" />
+  </ItemGroup>  
+  <ItemGroup>
+    <Folder Include="020-Entities\" />
+    <Folder Include="010-BaseEntities\" />
+  </ItemGroup>
+</Project>

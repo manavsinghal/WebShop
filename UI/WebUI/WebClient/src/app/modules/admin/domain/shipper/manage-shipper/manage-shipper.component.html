@@ -1,0 +1,341 @@
+<div class="c-breadcrumbs">
+    <div class="container">
+		<div class="c-breadcrumbs__wrapper">
+			<ul class="c-breadcrumbs__list">
+                <li class="c-breadcrumbs__item"><a (click)="backToAdministration()" translate>Administration</a></li>
+	            @if (screenGroup) {
+                    <li class="c-breadcrumbs__item">
+		                <a (click)="navigateToManageEntity()">
+		            	    Manage <span translate>{{screenGroup}}</span><span translate> Entities</span>
+		                </a>
+	                </li>
+                }
+	 <li class="c-breadcrumbs__item"><a (click)="backToManageShipper()" translate>Shipper</a></li>
+        <li class="c-breadcrumbs__item -active" translate>{{action}} <span translate>Shipper</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container">
+	<div class="c-text-banner__wrapper">
+		<h2 class="c-text-banner__title">
+			<a (click)="backToManageShipper()">
+				<i class="c-text-banner__backicon icon-arrow"></i>
+			</a>
+			<span translate>{{action}}</span>
+			<span translate> Shipper</span>
+		</h2>
+		<p class="c-text-banner__desc" translate>
+			{{action}} <span translate>Shipper</span> <span translate> Details</span>
+		</p>
+	</div>
+</div>
+<div class="c-add-new-account">
+	@if (shipper) {
+        <div class="container">
+		        <form name="shipperForm" #shipperForm="ngForm">
+			        <div class="c-add-new-account__wrapper">
+				        <div class="c-add-new-account__left">
+					        <div class="c-add-new-account__basic-details -data-block" id="data-block-1">
+						        <div class="c-basic-details">
+							        <span translate>Shipper</span>
+							        <span translate> Details</span>
+	                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                    ShipperUId
+                                                @if (action !== 'View' && action !== 'Edit') {
+                                                    <span class="c-basic-details__inputrequired">*</span>
+                                                }
+                                            </label>
+                                            <input type="text" name="ShipperUId" whiteSpaceValidator
+                                                    class="o-input__input" 	                                            
+                                                    disabled
+                                                    [(ngModel)]="shipper.ShipperUId" required />                                              
+                                        </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                    ShipperId
+                                            </label>
+                                            <input type="number" name="ShipperId"
+                                                    class="o-input__input" 
+                                                    min="0"						
+                                                    step="False"
+                                                    [(ngModel)]="shipper.ShipperId"
+                                                    required appInputRestriction
+                                                    disabled />
+                                        </div>
+                                 </div>
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                    Name
+                                                @if (action !== 'View') {
+                                                    <span class="c-basic-details__inputrequired">*</span>
+                                                }
+                                            </label>
+                                            <input type="text" name="Name" whiteSpaceValidator
+                                                        class="o-input__input"  maxlength="150" [disabled]="action === 'View' ?  'disabled' : false" 
+                                                        [(ngModel)]="shipper.Name" required />                                                   
+                                        </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                    Rating
+                                                @if (action !== 'View') {
+                                                    <span class="c-basic-details__inputrequired">*</span>
+                                                }
+                                            </label>
+                                            <input type="number" name="Rating"
+                                                    class="o-input__input" 
+                                                    min="0"						
+                                                    step="False"
+                                                    [(ngModel)]="shipper.Rating"
+                                                    required appInputRestriction
+                                                    [disabled]="action === 'View' ? 'disabled' : false" />
+                                        </div>
+                                 </div>
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                ShipperStatus
+                                                @if (action !== 'View') {
+                                                    <span class="c-basic-details__inputrequired">*</span>
+                                                }
+                                            </label>
+                                            <div class="c-select-wrapper" [ngClass]="action === 'View' ? '-disabled' : ''">
+                                                <select name="ShipperStatusUId" appValidateEmptyGuid                                                        class="c-select" [disabled]="action === 'View' ? 'disabled' : false"
+                                                        [(ngModel)]="shipper.ShipperStatusUId"  required >                                                        
+                                                    <option [ngValue]="emptyGuid" class="c-select__selected-text icon-arrow-up" translate>
+                                                                    Select
+                                                    </option>
+	                                                @if (shipperStatuses) {
+                                                        <ng-container>		
+                                                            @for (masterListItem of shipperStatuses; track masterListItem) {
+                                                                <option class="c-select__option" [disabled]="action === 'View' ? 'disabled' : false" [ngValue]="masterListItem.MasterListItemUId">
+                                                                        {{masterListItem.Name}}
+                                                                </option>
+                                                            }
+				    	                                </ng-container>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                    SortOrder
+                                                @if (action !== 'View') {
+                                                    <span class="c-basic-details__inputrequired">*</span>
+                                                }
+                                            </label>
+                                            <input type="number" name="SortOrder"
+                                                    class="o-input__input" 
+                                                    min="0"						
+                                                    step="False"
+                                                    [(ngModel)]="shipper.SortOrder"
+                                                    required appInputRestriction
+                                                    [disabled]="action === 'View' ? 'disabled' : false" />
+                                        </div>
+                                 </div>
+                                </div>
+                            </div>
+                            <div class="c-add-new-account__acc-settings -data-block" id="data-block-2">
+                                <div class="c-basic-details" translate>
+                                    AuditHistory
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                RowStatus
+                                                @if (action !== 'View') {
+                                                    <span class="c-basic-details__inputrequired">*</span>
+                                                }
+                                            </label>
+                                      
+                                            <div class="c-select-wrapper" [ngClass]="action === 'View' ? '-disabled' : ''">
+                                                <select name="RowStatusUId"
+                                                        class="c-select" appValidateEmptyGuid                                                        [disabled]="action === 'View' ?  'disabled' : false" required
+                                                        [(ngModel)]="shipper.RowStatusUId" > 
+                                                    <option [ngValue]="emptyGuid" class="c-select__selected-text icon-arrow-up" translate>
+                                                            Select
+                                                    </option>
+                                                    @if (rowStatuses) {
+                                                        <ng-container>
+                                                            @for (rowStatus of rowStatuses; track rowStatus) {
+                                                                <option class="c-select__option" [disabled]="action === 'View' ? 'disabled' : false" [ngValue]="rowStatus.RowStatusUId">
+                                                                        {{rowStatus.Name}}
+                                                                </option>
+                                                            }
+					                                    </ng-container>
+                                                    }
+                                                </select>
+                                            </div>
+ 
+                                    </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                CreatedByAccount
+                                            </label>
+                                      
+                                            <div class="c-select-wrapper" [ngClass]="action === 'View' ? '-disabled' : ''">
+                                                <select name="CreatedByAccountUId"
+                                                        class="c-select" appValidateEmptyGuid                                                        disabled 
+                                                        [(ngModel)]="shipper.CreatedByAccountUId" > 
+                                                    <option [ngValue]="emptyGuid" class="c-select__selected-text icon-arrow-up" translate>
+                                                            Select
+                                                    </option>
+                                                    @if (createdByAccounts) {
+                                                        <ng-container>
+                                                            @for (account of createdByAccounts; track account) {
+                                                                <option class="c-select__option" [disabled]="action === 'View' ? 'disabled' : false" [ngValue]="account.AccountUId">
+                                                                        {{account.FirstName}}
+                                                                </option>
+                                                            }
+					                                    </ng-container>
+                                                    }
+                                                </select>
+                                            </div>
+ 
+                                    </div>
+                                </div>
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                    CreatedByApp
+                                            </label>
+                                            <input type="text" name="CreatedByApp"
+                                                        class="o-input__input" disabled
+                                                        [(ngModel)]="shipper.CreatedByApp" />                                    
+                                    </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                    CreatedOn
+                                            </label>
+                                            <input type="datetime-local" name="CreatedOn"
+										        class="o-input__input" disabled
+                                                [ngModel]="shipper.CreatedOn | date:'yyyy-MM-ddTHH:mm'" 
+                                                (ngModelChange)="shipper.CreatedOn = $event" />                                    
+                                    </div>
+                                </div>
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                ModifiedByAccount
+                                            </label>
+                                      
+                                            <div class="c-select-wrapper" [ngClass]="action === 'View' ? '-disabled' : ''">
+                                                <select name="ModifiedByAccountUId"
+                                                        class="c-select" appValidateEmptyGuid                                                        disabled 
+                                                        [(ngModel)]="shipper.ModifiedByAccountUId" > 
+                                                    <option [ngValue]="emptyGuid" class="c-select__selected-text icon-arrow-up" translate>
+                                                            Select
+                                                    </option>
+                                                    @if (modifiedByAccounts) {
+                                                        <ng-container>
+                                                            @for (account of modifiedByAccounts; track account) {
+                                                                <option class="c-select__option" [disabled]="action === 'View' ? 'disabled' : false" [ngValue]="account.AccountUId">
+                                                                        {{account.FirstName}}
+                                                                </option>
+                                                            }
+					                                    </ng-container>
+                                                    }
+                                                </select>
+                                            </div>
+ 
+                                    </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                    ModifiedByApp
+                                            </label>
+                                            <input type="text" name="ModifiedByApp"
+                                                        class="o-input__input" disabled
+                                                        [(ngModel)]="shipper.ModifiedByApp" />                                    
+                                    </div>
+                                </div>
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                    ModifiedOn
+                                            </label>
+                                            <input type="datetime-local" name="ModifiedOn"
+										        class="o-input__input" disabled
+                                                [ngModel]="shipper.ModifiedOn | date:'yyyy-MM-ddTHH:mm'" 
+                                                (ngModelChange)="shipper.ModifiedOn = $event" />                                    
+                                    </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                    CorrelationUId
+                                            </label>
+                                      
+                                        <input type="text" name="CorrelationUId"
+				    					        class="o-input__input" disabled
+					    				        [(ngModel)]="shipper.CorrelationUId" />
+ 
+                                    </div>
+                                </div>
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                    EffectiveFrom
+                                            </label>
+                                            <input type="datetime-local" name="EffectiveFrom"
+										        class="o-input__input" disabled
+                                                [ngModel]="shipper.EffectiveFrom | date:'yyyy-MM-ddTHH:mm'" 
+                                                (ngModelChange)="shipper.EffectiveFrom = $event" />                                    
+                                    </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                    EffectiveTo
+                                            </label>
+                                            <input type="datetime-local" name="EffectiveTo"
+										        class="o-input__input" disabled
+                                                [ngModel]="shipper.EffectiveTo | date:'yyyy-MM-ddTHH:mm'" 
+                                                (ngModelChange)="shipper.EffectiveTo = $event" />                                    
+                                    </div>
+                                </div>
+                          
+                            </div>
+                        </div>
+                    </div>	
+                    <div class="c-add-new-account__right">
+                        <div class="c-add-new-account__adding-details">
+                            <div class="c-adding-details">
+                                <div class="c-adding-details__wrapper">
+                                    <div class="c-adding-details__header" translate>
+                                        {{action}} <span translate>Shipper </span> <span translate>Details</span>
+                                    </div>
+                                    <ul class="c-adding-details__list">
+                                        <li class="c-adding-details__list-item -active" (click)="scrollToView('data-block-1')" data-href="data-block-1" translate>Shipper <span translate>Details</span> </li>
+                                        <li class="c-adding-details__list-item" (click)="scrollToView('data-block-2')" data-href="data-block-2" translate>AuditHistory</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-add-new-account__btns c-kpi-modal__buttons-wrapp">
+                        <a (click)="closeShipper(shipperForm,unsavedChangesContent)" class="o-secondary-button" title="{{'Cancel' | translate}}" [ngClass]="action === 'View' ? 'display-none' : ''"  translate>
+					        Cancel
+				        </a>
+                        <a title="{{'Save' | translate}}"  class="o-primary-button" [ngClass]="action === 'View' ? 'display-none' : ''" 
+                                (click)="saveShipper(shipperForm)" translate>
+                            Save
+                        </a>
+                    </div>
+		        </form>
+        </div>
+    }
+</div>
+<ng-template #unsavedChangesContent let-c="close" let-d="dismiss">		
+        <div class="c-unsave-change__close-button c-kpi-modal__buttons-wrapp" (click)="c('Close click')">
+			<i class="c-unsave-change__close-icon icon-close"></i>
+        </div>
+        <div class="c-unsave-change__content">
+            <div class="c-unsave-change__heading" translate>UnsavedChanges</div>
+            <p translate>
+                UnsavedChangesMsg
+            </p>
+        </div>
+        <div class="c-unsave-change__buttons c-kpi-modal__buttons-wrapp">
+            <a class="o-secondary-button c-unsave-change__yes" (click)="cancelModalPopup()" title="{{'Yes' | translate}}" translate>Yes </a>
+            <a class="o-primary-button c-unsave-change__no" (click)="c('close click')" title="{{'No' | translate}}" translate>No </a>
+        </div>
+</ng-template>

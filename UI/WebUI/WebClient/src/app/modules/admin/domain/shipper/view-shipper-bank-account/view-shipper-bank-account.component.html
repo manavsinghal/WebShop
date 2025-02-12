@@ -1,0 +1,120 @@
+<div class="c-breadcrumbs">
+	<div class="container">
+		<div class="c-breadcrumbs__wrapper">
+			<ul class="c-breadcrumbs__list">
+                <li class="c-breadcrumbs__item"><a routerLink="/app/administration" translate>ManageGroupEntities</a></li>											
+				@if (screenGroup !== null && screenGroup !=='') {
+                    <li class="c-breadcrumbs__item">
+					    <a (click)="navigateToManageEntity()">
+						    <span translate> Manage </span>
+						    <span translate>{{screenGroup}} </span>
+						    <span translate>Entities</span>
+					    </a>
+				    </li>
+                }
+				<li class="c-breadcrumbs__item -active" translate>ShipperBankAccount</li>											
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="c-text-banner__wrapper">
+		<h2 class="c-text-banner__title">								
+			<a (click)="navigateToManageEntity()"><i class="c-text-banner__backicon icon-arrow"></i></a>									
+			<span translate>Manage </span>
+			<span translate>ShipperBankAccounts</span>									
+		</h2>
+		<p class="c-text-banner__desc">
+			<span translate>AdministrationDescriptionPart1 </span>
+			<span translate>ShipperBankAccounts </span>									
+			<span translate>AdministartionDescriptionPart2</span>
+		</p>
+	</div>
+</div>
+<div class="c-accman">
+	<div class="c-accman__wrapper">
+		<div class="container">
+			<div class="c-mc-filter">
+				<div class="c-mc-filter__wrapper">		
+                    <a class="o-secondary-button" title="{{ 'Add' | translate }} {{ 'ShipperBankAccount' | translate}}" (click)="addShipperBankAccount()">
+					    <span translate>Add </span><span translate>ShipperBankAccount</span>															
+					</a>
+					<div class="c-mc-filter__right">
+						<div class="c-mc-filter__search -active">
+							<div class="c-mc-filter__search-icon icon-search" id="search" (click)="toggleSearchComponent()"></div>
+							<input type="text" id="view-shipperbankaccounts-search" class="o-input__input c-mc-filter__input-field -active"
+									   placeholder="{{ 'Search' | translate }}"
+										(input)="customSearch($event, ViewShipperBankAccountsTable)" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="c-shipperbankaccount-table">
+				<div id="view-shipperbankaccounts-grid" class="c-account-table__wrapper">
+					<p-treeTable #ViewShipperBankAccountsTable [value]="manageShipperBankAccount.data" styleClass="table"
+						[columns]="cols" class="c-prime-tree-table"
+						(onNodeSelect)="onNodeSelected($event)" (dblclick)="onRowDblclick()"
+						[(selection)]="selectedNode" selectionMode="single"
+						[paginator]="manageShipperBankAccount.data.length > 10 ? true: false" [rows]="10"
+					    [rowsPerPageOptions]="[10,20,30,{showAll:'ALL'}]"
+					    [totalRecords]="manageShipperBankAccount.data.length" sortMode="multiple">
+					        <ng-template let-rowNode="" let-rowData="rowData" pTemplate="header">
+								<tr>                        
+									<th class="text-center" width="100px" scope="col" translate>Action</th>
+                                    @for (col of cols; track col; let i = $index) {
+									    <th scope="col"
+										     [ttSortableColumn]="col.field" [ngClass]="col.class" translate>
+										    {{col.header}}
+										    <p-treeTableSortIcon [field]="col.field"></p-treeTableSortIcon>
+									    </th>
+                                    }
+								</tr>
+							</ng-template>
+							<ng-template pTemplate="body" let-rowNode="" let-rowData="rowData">
+								<tr [ttRow]="rowNode" [ttSelectableRow]="rowNode">
+                                    <td class="text-center">										 						             
+										<span class="c-account-table__editcol myw-table-actions">
+                                            <a class="c-account-table__bodyrow" (click)="navigateToShipperBankAccount(rowData,'View')" title="{{'View' | translate}}">
+
+											    <img src="themes/images/eye.svg" class="c-view-icon" alt="View">
+                                                <img src="themes/images/eye-h.svg" class="c-view-icon-h" alt="View">
+                                            </a>
+                                            <a class="icon-edit c-account-table__actionicon" (click)="navigateToShipperBankAccount(rowData,'Edit')"
+											title="{{'Edit' | translate}}"></a>
+										</span>
+									</td>
+
+									@for (col of cols; track col; let i = $index) {
+                                        <td [ngClass]="col.class">
+                                            @if (col.fieldType !== 'boolean') {
+										        <span>{{rowData[col.field]}}</span>
+                                            }
+                                            @if (col.fieldType === 'boolean') {
+										        <span>
+											        <span title="{{rowData[col.field]}}"
+												           [ngClass]="{'c-icon-yes': rowData[col.field] === 'Active' || rowData[col.field] === 'Yes' || rowData[col.field] === 'true' || rowData[col.field]
+                                                        , 'c-icon-no': rowData[col.field] === 'Inactive'|| rowData[col.field] === 'No' || rowData[col.field] === 'false' || !rowData[col.field]}">												
+											        </span>
+										        </span>
+                                            }
+									    </td>
+                                    }
+								</tr>
+							</ng-template>
+                            <ng-template pTemplate="emptymessage" let-columns>
+                                <tr>
+                                    <td [attr.colspan]="columns.length+1" translate>
+                                        NoRecordsFound
+                                    </td>
+                                </tr>
+                        </ng-template>
+					</p-treeTable>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

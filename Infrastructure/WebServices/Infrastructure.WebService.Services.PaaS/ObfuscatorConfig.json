@@ -1,0 +1,30 @@
+{
+  "TokenPrefix": "[!###",
+  "TokenSuffix": "###!]",
+  "RegExRuleFilePath": "ObfuscatorRules.json",
+  //"Entities": null
+  "Entities": [
+    {
+      "Name": "Account",
+      "ClassName": "Account",
+      "ParentClassName": "Account",
+      "Properties": [
+        {
+          "Name": "EmailId",
+          "ObfuscatorRuleType": "PropertyEncryption",
+          "EncryptionRule": {
+            "SecretManagerName": "ObfuscatorAppSettingsSecretProvider01",
+            "SecretKeyName": "ECObfuscatorSecretKey1"
+          },
+          "VisibilityRules": [
+            {
+              "PermissionLevel": "AccessRole",
+              "Value": [ "All" ],
+              "ObfuscatorRuleType": "Visible"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

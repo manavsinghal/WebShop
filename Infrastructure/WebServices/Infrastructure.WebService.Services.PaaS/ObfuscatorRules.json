@@ -1,0 +1,1108 @@
+[
+  {
+    "RuleUId": "00100000-0000-0000-0000-000000000000",
+    "Name": "ObfuscateEmail",
+    "RuleType": "RegEx", //TODO: What other types ?
+    "Pattern": "(\\.|[a-z]|[A-Z]|[0-9])*@(\\.|[a-z]|[A-Z]|[0-9])*",
+    "ReplaceWith": "######"
+  },
+  {
+    "RuleUId": "00200000-0000-0000-0000-000000000000",
+    "Name": "ObfuscateIP4Address",
+    "RuleType": "RegEx",
+    "Pattern": "\\b(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}\\b",
+    "ReplaceWith": "###.###.###.###"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateIP6Address",
+    "RuleType": "RegEx",
+    "Pattern": "(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))",
+    "ReplaceWith": "####:####:####:####:####:####:####:####"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-Hungary",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{3}\\d{6}",
+    "ReplaceWith": "XXX######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-Spain",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{3}\\d{6}",
+    "ReplaceWith": "XXX######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-Croatia",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{3}\\d{2}[A-Za-z]{4}",
+    "ReplaceWith": "XXX##XXXX"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-TheNetherlands",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{3}\\d{1}[A-Za-z]{1}\\d{2}[A-Za-z]{1}\\d{1}",
+    "ReplaceWith": "XXX#X##X#"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Ireland",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{2}\\d{8}",
+    "ReplaceWith": "XX########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Italy",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{2}\\d{7}[A-Za-z]{1}",
+    "ReplaceWith": "XX#######X"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-Cyprus",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{2}\\d{7}",
+    "ReplaceWith": "XX#######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-Estonia",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{2}\\d{7}",
+    "ReplaceWith": "XX#######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-Finland",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{2}\\d{7}",
+    "ReplaceWith": "XX#######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-Greece",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{2}\\d{7}",
+    "ReplaceWith": "XX#######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-Hungary",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{2}\\d{7}",
+    "ReplaceWith": "XX#######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-Italy",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{2}\\d{7}",
+    "ReplaceWith": "XX#######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-Slovenia",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{2}\\d{7}",
+    "ReplaceWith": "XX#######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-Latvia",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{2}\\d{7}",
+    "ReplaceWith": "XX#######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Latvia",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{2}\\d{6}",
+    "ReplaceWith": "XX######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Estonia",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{2}\\d{6}",
+    "ReplaceWith": "XX######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Hungary",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{2}\\d{6}",
+    "ReplaceWith": "XX######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-Belgium",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{2}\\d{6}",
+    "ReplaceWith": "XX######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-Finland",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{2}\\d{6}",
+    "ReplaceWith": "XX######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-France",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{2}\\d{6}",
+    "ReplaceWith": "XX######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-Lithuania",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{2}\\d{6}",
+    "ReplaceWith": "XX######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-Luxembourg",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{2}\\s\\d{7}",
+    "ReplaceWith": "XX #######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-Poland",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{2}\\s\\d{7}",
+    "ReplaceWith": "XX #######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-CzechRepublic",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{2}\\s\\d{6}",
+    "ReplaceWith": "XX ######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Malta",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{2}\\s\\d{3}\\s\\d{3}",
+    "ReplaceWith": "XX ### ###"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Portugal",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{2}\\-\\d{5}\\s\\d{1}",
+    "ReplaceWith": "XX-##### #"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-Germany",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{1}\\d{2}[A-Za-z]{1}\\d{2}[A-Za-z]{1}\\d{2}",
+    "ReplaceWith": "X##X##X##"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Germany",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{1}\\d{3}[A-Za-z]{3}\\d{1}[A-Za-z]{1}\\d{2}",
+    "ReplaceWith": "X###XXX#X##"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-Ireland",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{1}\\d{8}",
+    "ReplaceWith": "X########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-Spain",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{1}\\d{8}",
+    "ReplaceWith": "X########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-TheNetherlands",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{1}\\d{8}",
+    "ReplaceWith": "X########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Slovakia",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{1}\\d{7}",
+    "ReplaceWith": "X#######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-Austria",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{1}\\s\\d{7}",
+    "ReplaceWith": "X #######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Romania",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{1}\\d{6}[A-Za-z]{2}",
+    "ReplaceWith": "X######XX"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-Portugal",
+    "RuleType": "RegEx",
+    "Pattern": "[A-Za-z]{1}\\d{6}",
+    "ReplaceWith": "X######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Finland",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{8}\\-\\d{4}",
+    "ReplaceWith": "######-####"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Spain",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{8}\\-[A-Za-z]{1}",
+    "ReplaceWith": "########-X"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateSwitchSoloCardNo-1",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{8}\\s\\d{10}",
+    "ReplaceWith": "######## ##########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-Cyprus",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{7}[A-Za-z]{1}",
+    "ReplaceWith": "#######X"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-Poland",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{7}\\-\\d{1}",
+    "ReplaceWith": "#######-#"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-Sweden",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{6}[A-Za-z]{2}",
+    "ReplaceWith": "######XX"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-Belgium",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{6}\\-\\d{5}",
+    "ReplaceWith": "######-#####"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-Ireland",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{6}\\-\\d{4}",
+    "ReplaceWith": "######-####"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Sweden",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{6}\\-\\d{4}",
+    "ReplaceWith": "######-####"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Poland",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{5}\\/\\d{2}\\/\\d{4}",
+    "ReplaceWith": "#####/##/####"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateAmexCardNo-1",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{4}\\s\\d{6}\\s\\d{5}",
+    "ReplaceWith": "#### ###### #####"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDinersCardNo-1",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{4}\\s\\d{6}\\s\\d{4}",
+    "ReplaceWith": "#### ###### ####"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateAllCardNo-2",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{4}\\s\\d{4}\\s\\d{4}\\s\\d{4}",
+    "ReplaceWith": "#### #### #### ####"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateVisaOldCardNo-1",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{4}\\s\\d{3}\\s\\d{3}\\s\\d{3}",
+    "ReplaceWith": "#### ### ### ###"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateAllCardNo-1",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{4}-\\d{4}-\\d{4}-\\d{4}",
+    "ReplaceWith": "####-####-####-####"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateSSN-USA",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{3}-\\d{2}-\\d{4}",
+    "ReplaceWith": "###-##-####"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-France",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{2}[A-Za-z]{2}\\d{5}",
+    "ReplaceWith": "##XX#####"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-France",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{2}[A-Za-z]{2}\\d{5}",
+    "ReplaceWith": "##XX#####"
+  },
+  {
+    "RuleUId": "",
+    "Name": "SwedenMobileNumber-9",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?46[\\d]{9}$",
+    "ReplaceWith": "46#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "SwedenMobileNumber-8",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?46[\\d]{8}$",
+    "ReplaceWith": "46########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "SwedenMobileNumber-7",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?46[\\d]{7}$",
+    "ReplaceWith": "46#######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "SwedenMobileNumber-6",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?46[\\d]{6}$",
+    "ReplaceWith": "46######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "UnitedKingdomMobileNumber-10",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?44[\\d]{10}$",
+    "ReplaceWith": "44##########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "UnitedKingdomMobileNumber-9",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?44[\\d]{9}$",
+    "ReplaceWith": "44#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "AustriaMobileNumber-13",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?43[\\d]{13}$",
+    "ReplaceWith": "43#############"
+  },
+  {
+    "RuleUId": "",
+    "Name": "AustriaMobileNumber-12",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?43[\\d]{12}$",
+    "ReplaceWith": "43############"
+  },
+  {
+    "RuleUId": "",
+    "Name": "AustriaMobileNumber-11",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?43[\\d]{11}$",
+    "ReplaceWith": "43###########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "AustriaMobileNumber-10",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?43[\\d]{10}$",
+    "ReplaceWith": "43##########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "AustriaMobileNumber-9",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?43[\\d]{9}$",
+    "ReplaceWith": "43#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "AustriaMobileNumber-8",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?43[\\d]{8}$",
+    "ReplaceWith": "43########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "AustriaMobileNumber-7",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?43[\\d]{7}$",
+    "ReplaceWith": "43#######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "AustriaMobileNumber-6",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?43[\\d]{6}$",
+    "ReplaceWith": "43######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "AustriaMobileNumber-5",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?43[\\d]{5}$",
+    "ReplaceWith": "43#####"
+  },
+  {
+    "RuleUId": "",
+    "Name": "AustriaMobileNumber-4",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?43[\\d]{4}$",
+    "ReplaceWith": "43####"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ItalyMobileNumber-12",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?39[\\d]{12}$",
+    "ReplaceWith": "39############"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ItalyMobileNumber-11",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?39[\\d]{11}$",
+    "ReplaceWith": "39###########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ItalyMobileNumber-10",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?39[\\d]{10}$",
+    "ReplaceWith": "39##########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ItalyMobileNumber-9",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?39[\\d]{9}$",
+    "ReplaceWith": "39#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ItalyMobileNumber-8",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?39[\\d]{8}$",
+    "ReplaceWith": "39########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "CroatiaMobileNumber-9",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?385[\\d]{9}$",
+    "ReplaceWith": "385#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "CroatiaMobileNumber-8",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?385[\\d]{8}$",
+    "ReplaceWith": "385########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "PolandMobileNumber-9",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?385[\\d]{9}$",
+    "ReplaceWith": "377#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "PolandMobileNumber-8",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?385[\\d]{8}$",
+    "ReplaceWith": "377########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "EstoniaMobileNumber-8",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?372[\\d]{8}$",
+    "ReplaceWith": "372########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "EstoniaMobileNumber-7",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?372[\\d]{7}$",
+    "ReplaceWith": "372#######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "HungaryMobileNumber-9",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?36[\\d]{9}$",
+    "ReplaceWith": "36#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "HungaryMobileNumber-8",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?36[\\d]{8}$",
+    "ReplaceWith": "36########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "BulgariaMobileNumber-9",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?359[\\d]{9}$",
+    "ReplaceWith": "359#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "BulgariaMobileNumber-8",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?359[\\d]{8}$",
+    "ReplaceWith": "359########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "BulgariaMobileNumber-7",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?359[\\d]{7}$",
+    "ReplaceWith": "359#######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "FinlandMobileNumber-12",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?358[\\d]{12}$",
+    "ReplaceWith": "358############"
+  },
+  {
+    "RuleUId": "",
+    "Name": "FinlandMobileNumber-11",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?358[\\d]{11}$",
+    "ReplaceWith": "358###########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "FinlandMobileNumber-10",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?358[\\d]{10}$",
+    "ReplaceWith": "358##########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "FinlandMobileNumber-9",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?358[\\d]{9}$",
+    "ReplaceWith": "358#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "FinlandMobileNumber-8",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?358[\\d]{8}$",
+    "ReplaceWith": "358########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "FinlandMobileNumber-7",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?358[\\d]{7}$",
+    "ReplaceWith": "358#######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "FinlandMobileNumber-6",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?358[\\d]{6}$",
+    "ReplaceWith": "358######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "FinlandMobileNumber-5",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?358[\\d]{9}$",
+    "ReplaceWith": "358#####"
+  },
+  {
+    "RuleUId": "",
+    "Name": "IrelandMobileNumber",
+    "RuleType": "RegEx",
+    "Pattern": "\\+?353(\\d{7}(?:\\d{2})?)$",
+    "ReplaceWith": "353#######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "MobileNumber-Cyprus",
+    "RuleType": "RegEx",
+    "Pattern": "30\\d{10}",
+    "ReplaceWith": "30##########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "MobileNumber-Solvakia",
+    "RuleType": "RegEx",
+    "Pattern": "421\\d{9}",
+    "ReplaceWith": "421#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "MobileNumber-CzechRepublic",
+    "RuleType": "RegEx",
+    "Pattern": "420\\d{9}",
+    "ReplaceWith": "420#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "MobileNumber-Luxembourg",
+    "RuleType": "RegEx",
+    "Pattern": "352\\d{9}",
+    "ReplaceWith": "352#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "MobileNumber-Portugal",
+    "RuleType": "RegEx",
+    "Pattern": "351\\d{9}",
+    "ReplaceWith": "351#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "MobileNumber-Romania",
+    "RuleType": "RegEx",
+    "Pattern": "40\\d{9}",
+    "ReplaceWith": "40#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "MobileNumber-Spain",
+    "RuleType": "RegEx",
+    "Pattern": "34\\d{9}",
+    "ReplaceWith": "34#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "MobileNumber-France",
+    "RuleType": "RegEx",
+    "Pattern": "33\\d{9}",
+    "ReplaceWith": "33#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "MobileNumber-Netherlands",
+    "RuleType": "RegEx",
+    "Pattern": "31\\d{9}",
+    "ReplaceWith": "31#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "MobileNumber-Slovenia",
+    "RuleType": "RegEx",
+    "Pattern": "386\\d{8}",
+    "ReplaceWith": "386########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "MobileNumber-Latvia",
+    "RuleType": "RegEx",
+    "Pattern": "371\\d{8}",
+    "ReplaceWith": "371########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "MobileNumber-Lithuania",
+    "RuleType": "RegEx",
+    "Pattern": "370\\d{8}",
+    "ReplaceWith": "370########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "MobileNumber-Cyprus",
+    "RuleType": "RegEx",
+    "Pattern": "357\\d{8}",
+    "ReplaceWith": "357########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "MobileNumber-Malta",
+    "RuleType": "RegEx",
+    "Pattern": "356\\d{8}",
+    "ReplaceWith": "356########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "MobileNumber-Germany",
+    "RuleType": "RegEx",
+    "Pattern": "350\\d{8}",
+    "ReplaceWith": "350########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "MobileNumber-Denmark",
+    "RuleType": "RegEx",
+    "Pattern": "45\\d{8}",
+    "ReplaceWith": "45########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "MobileNumber-Belgium",
+    "RuleType": "RegEx",
+    "Pattern": "32\\d{8}",
+    "ReplaceWith": "32########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateMaestroCardNo",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{19}",
+    "ReplaceWith": "###################"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateSwitchSoloCardNo-2",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{18}",
+    "ReplaceWith": "##################"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateAllCardNo-3",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{16}",
+    "ReplaceWith": "################"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateAmexCardNo-2",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{15}",
+    "ReplaceWith": "###############"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDinersCardNo-2",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{14}",
+    "ReplaceWith": "##############"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateOldVisaCardNo-2",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{13}",
+    "ReplaceWith": "#############"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateMaestroUPC-ACardNo",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{12}",
+    "ReplaceWith": "############"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-Slovenia",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{12}",
+    "ReplaceWith": "############"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Cyprus",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{12}",
+    "ReplaceWith": "############"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-Bulgaria",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{11}",
+    "ReplaceWith": "###########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-CzechRepublic",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{11}",
+    "ReplaceWith": "###########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-Romania",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{11}",
+    "ReplaceWith": "###########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Belgium",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{10}",
+    "ReplaceWith": "##########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-TheNetherlands",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{10}",
+    "ReplaceWith": "##########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-Luxembourg",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{10}",
+    "ReplaceWith": "##########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateSSN-Canada",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{9}",
+    "ReplaceWith": "#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-Croatia",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{9}",
+    "ReplaceWith": "#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-Lithuania",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{9}",
+    "ReplaceWith": "#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-UK",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{9}",
+    "ReplaceWith": "#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Bulgaria",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{9}",
+    "ReplaceWith": "#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Greece",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{9}",
+    "ReplaceWith": "#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Slovenia",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{9}",
+    "ReplaceWith": "#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-Germany",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{9}",
+    "ReplaceWith": "#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-Italy",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{9}",
+    "ReplaceWith": "#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-Malta",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{9}",
+    "ReplaceWith": "#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-Portugal",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{9}",
+    "ReplaceWith": "#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-Slovakia",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{9}",
+    "ReplaceWith": "#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-US",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{9}",
+    "ReplaceWith": "#########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-CzechRepublic",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{8}",
+    "ReplaceWith": "########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-Denmark",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{8}",
+    "ReplaceWith": "########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePassportNo-Sweden",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{8}",
+    "ReplaceWith": "########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Austria",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{8}",
+    "ReplaceWith": "########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Croatia",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{8}",
+    "ReplaceWith": "########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Denmark",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{8}",
+    "ReplaceWith": "########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Lithuania",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{8}",
+    "ReplaceWith": "########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-UK",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{8}",
+    "ReplaceWith": "########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-Estonia",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{8}",
+    "ReplaceWith": "########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-Latvia",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{8}",
+    "ReplaceWith": "########"
+  },
+  {
+    "RuleUId": "",
+    "Name": "AustriaMobileNumber",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{7}",
+    "ReplaceWith": "#######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePersonalIdentificationNo-Austria",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{6}",
+    "ReplaceWith": "######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscateDriversLicense-Luxembourg",
+    "RuleType": "RegEx",
+    "Pattern": "\\d{6}",
+    "ReplaceWith": "######"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePhoneNumber-USA1",
+    "RuleType": "RegEx",
+    "Pattern": "\\(?([0-9]{3})\\)?[-]?([0-9]{3})[-]?([0-9]{4})",
+    "ReplaceWith": "###-###-####"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePhoneNumber-USA2",
+    "RuleType": "RegEx",
+    "Pattern": "\\(?([0-9]{3})\\)?[.]?([0-9]{3})[.]?([0-9]{4})",
+    "ReplaceWith": "###.###.####"
+  },
+  {
+    "RuleUId": "",
+    "Name": "ObfuscatePhoneNumber-USA3",
+    "RuleType": "RegEx",
+    "Pattern": "\\(?([0-9]{3})\\)?[ ]?([0-9]{3})[ ]?([0-9]{4})",
+    "ReplaceWith": "### ### ####"
+  }
+]

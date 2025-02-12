@@ -1,0 +1,14 @@
+global using System.IO;
+global using System.Text;
+global using System.Text.Json;
+global using System.Collections;
+global using System.Reflection;
+global using System;
+global using System.Collections.Generic;
+global using System.Text.RegularExpressions;
+global using Azure.Identity;
+global using Azure.Security.KeyVault.Secrets;
+global using Accenture.WebShop.SharedKernal.Libraries;
+global using System.Collections.Concurrent;
+global using System.Security.Cryptography;
+global using Microsoft.Extensions.Configuration;

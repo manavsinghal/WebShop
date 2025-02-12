@@ -1,0 +1,140 @@
+<div class="c-breadcrumbs">
+	<div class="container">
+		<div class="c-breadcrumbs__wrapper">
+			<ul class="c-breadcrumbs__list">
+                <li class="c-breadcrumbs__item"><a routerLink="/app/administration" translate>ManageGroupEntities</a></li>											
+				@if (screenGroup !== null && screenGroup !=='') {
+                    <li class="c-breadcrumbs__item">
+					    <a (click)="navigateToManageEntity()">
+						    <span translate> Manage </span>
+						    <span translate>{{screenGroup}} </span>
+						    <span translate>Entities</span>
+					    </a>
+				    </li>
+                }
+				<li class="c-breadcrumbs__item -active" translate>Country</li>											
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="c-text-banner__wrapper">
+		<h2 class="c-text-banner__title">								
+			<a (click)="navigateToManageEntity()"><i class="c-text-banner__backicon icon-arrow"></i></a>									
+			<span translate>Manage </span>
+			<span translate>Countries</span>									
+		</h2>
+		<p class="c-text-banner__desc">
+			<span translate>AdministrationDescriptionPart1 </span>
+			<span translate>Countries </span>									
+			<span translate>AdministartionDescriptionPart2</span>
+		</p>
+	</div>
+</div>
+<div class="c-accman">
+	<div class="c-accman__wrapper">
+		<div class="container">
+			<div class="c-mc-filter">
+				<div class="c-mc-filter__wrapper">		
+                    <a class="o-secondary-button" title="{{ 'Add' | translate }} {{ 'Country' | translate}}" (click)="addCountry()">
+					    <span translate>Add </span><span translate>Country</span>															
+					</a>
+                    <a (click)="NavigateToCountryTranslation()" class="c-account-table__actionicon" style="margin-left:25px;" title="{{'Manage' | translate}} {{ 'Country' | translate}}{{'Translation' | translate}}">
+                        <img src="../themes/images/lang-trans-icon.png" class="c-view-icon c-w-32" alt="{{'Manage' | translate}} {{ 'Country' | translate}} {{'Translation' | translate}}">                        
+                    </a>
+					<div class="c-mc-filter__right">
+						<div class="c-mc-filter__search -active">
+							<div class="c-mc-filter__search-icon icon-search" id="search" (click)="toggleSearchComponent()"></div>
+							<input type="text" id="view-countries-search" class="o-input__input c-mc-filter__input-field -active"
+									   placeholder="{{ 'Search' | translate }}"
+										(input)="customSearch($event, ViewCountriesTable)" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="c-country-table">
+				<div id="view-countries-grid" class="c-account-table__wrapper">
+					<p-treeTable #ViewCountriesTable [value]="manageCountry.data" styleClass="table"
+						[columns]="cols" class="c-prime-tree-table"
+						(onNodeSelect)="onNodeSelected($event)" (dblclick)="onRowDblclick()"
+						[(selection)]="selectedNode" selectionMode="single"
+						[paginator]="manageCountry.data.length > 10 ? true: false" [rows]="10"
+					    [rowsPerPageOptions]="[10,20,30,{showAll:'ALL'}]"
+					    [totalRecords]="manageCountry.data.length" sortMode="multiple">
+					        <ng-template let-rowNode="" let-rowData="rowData" pTemplate="header">
+								<tr>                        
+									<th class="text-center" width="100px" scope="col" translate>Action</th>
+                                    @for (col of cols; track col; let i = $index) {
+									    <th scope="col"
+										     [ttSortableColumn]="col.field" [ngClass]="col.class" translate>
+										    {{col.header}}
+										    <p-treeTableSortIcon [field]="col.field"></p-treeTableSortIcon>
+									    </th>
+                                    }
+								</tr>
+							</ng-template>
+							<ng-template pTemplate="body" let-rowNode="" let-rowData="rowData">
+								<tr [ttRow]="rowNode" [ttSelectableRow]="rowNode">
+                                    <td class="text-center">										 						             
+										<span class="c-account-table__editcol myw-table-actions">
+                                            <a class="c-account-table__bodyrow" (click)="navigateToCountry(rowData,'View')" title="{{'View' | translate}}">
+
+											    <img src="themes/images/eye.svg" class="c-view-icon" alt="View">
+                                                <img src="themes/images/eye-h.svg" class="c-view-icon-h" alt="View">
+                                            </a>
+                                            <a class="icon-edit c-account-table__actionicon" (click)="navigateToCountry(rowData,'Edit')"
+											title="{{'Edit' | translate}}"></a>
+                                            <a class="icon-delete c-account-table__actionicon" (click)="deleteConfirmation(deleteCountryPopup,rowData)"
+										    title="{{'Delete' | translate}}"></a>
+										</span>
+									</td>
+
+									@for (col of cols; track col; let i = $index) {
+                                        <td [ngClass]="col.class">
+                                            @if (col.fieldType !== 'boolean') {
+										        <span>{{rowData[col.field]}}</span>
+                                            }
+                                            @if (col.fieldType === 'boolean') {
+										        <span>
+											        <span title="{{rowData[col.field]}}"
+												           [ngClass]="{'c-icon-yes': rowData[col.field] === 'Active' || rowData[col.field] === 'Yes' || rowData[col.field] === 'true' || rowData[col.field]
+                                                        , 'c-icon-no': rowData[col.field] === 'Inactive'|| rowData[col.field] === 'No' || rowData[col.field] === 'false' || !rowData[col.field]}">												
+											        </span>
+										        </span>
+                                            }
+									    </td>
+                                    }
+								</tr>
+							</ng-template>
+                            <ng-template pTemplate="emptymessage" let-columns>
+                                <tr>
+                                    <td [attr.colspan]="columns.length+1" translate>
+                                        NoRecordsFound
+                                    </td>
+                                </tr>
+                        </ng-template>
+					</p-treeTable>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<ng-template #deleteCountryPopup let-c="close" let-d="dismiss">
+	<div class="c-unsave-change__close-button c-kpi-modal__buttons-wrapp" (click)="c('Close click')">
+		<i class="c-unsave-change__close-icon icon-close"></i>
+	</div>
+	<div class="c-unsave-change__content">
+		<div class="c-unsave-change__heading" translate>Confirmation</div>
+		<p translate>
+            <span translate>DeleteConfirmationMessage </span><span translate>Country</span> ?
+		</p>
+	</div>
+	<div class="c-unsave-change__buttons c-kpi-modal__buttons-wrapp">
+		<a class="o-secondary-button c-unsave-change__yes" (click)="deleteCountry()" title="{{'Yes' | translate}}" translate>Yes </a>
+		<a class="o-primary-button c-unsave-change__no" (click)="c('close click')" title="{{'No' | translate}}" translate>No </a>
+	</div>
+</ng-template>
+

@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>Accenture.WebShop.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>Accenture.WebShop.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+  </PropertyGroup>
+
+
+   <ItemGroup>
+        <PackageReference Include="Azure.Messaging.ServiceBus" Version="7.18.1" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.0.15" />
+  </ItemGroup>
+   <ItemGroup>
+        <ProjectReference Include="..\..\SharedKernal\SharedKernal.Libraries\SharedKernal.Libraries.csproj" />
+  </ItemGroup>  
+  <ItemGroup>
+    <Folder Include="070-Providers\" />
+    <Folder Include="020-Models\" />
+    <Folder Include="010-Enumerators\" />
+    <Folder Include="030-Interfaces\" />
+  </ItemGroup>
+</Project>

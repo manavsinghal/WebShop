@@ -1,0 +1,26 @@
+{
+  "Type": "Azure",
+  "AzureKeyVaultProvider": {
+    "KeyVaultUri": "https://oaa-kv.vault.azure.net/",
+    "UserAssignedManagedIdentity": "57df4c19-99cd-4437-931a-bf20d8e5fb5f",
+    "IsCacheEnabled": true,
+    "CacheItemTTL": 1000,
+    "AzureTenantId": "",
+    "AzureClientId": "",
+    "AzureClientSecret": ""
+  },
+  "SecretKeyProvider": {
+    "KeyName": "OAAA-Key",
+    "VectorName": "OAAA-Vector"
+  },
+  "Files": [
+    {
+      "ComponentName": "appsettings",
+      "EncryptionEnabled": "false",
+      "IsCloudKeyStorage": "true",
+      "SourceFilePath": "appsettings.json",
+      "DestinationFilePath": "appsettings.json",
+      "ConfigurationSourceType": "Json"
+    }
+  ]
+}

@@ -1,0 +1,406 @@
+<div class="c-breadcrumbs">
+    <div class="container">
+		<div class="c-breadcrumbs__wrapper">
+			<ul class="c-breadcrumbs__list">
+                <li class="c-breadcrumbs__item"><a (click)="backToAdministration()" translate>Administration</a></li>
+	            @if (screenGroup) {
+                    <li class="c-breadcrumbs__item">
+		                <a (click)="navigateToManageEntity()">
+		            	    Manage <span translate>{{screenGroup}}</span><span translate> Entities</span>
+		                </a>
+	                </li>
+                }
+	 <li class="c-breadcrumbs__item"><a (click)="backToManageProduct()" translate>Product</a></li>
+        <li class="c-breadcrumbs__item -active" translate>{{action}} <span translate>Product</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container">
+	<div class="c-text-banner__wrapper">
+		<h2 class="c-text-banner__title">
+			<a (click)="backToManageProduct()">
+				<i class="c-text-banner__backicon icon-arrow"></i>
+			</a>
+			<span translate>{{action}}</span>
+			<span translate> Product</span>
+		</h2>
+		<p class="c-text-banner__desc" translate>
+			{{action}} <span translate>Product</span> <span translate> Details</span>
+		</p>
+	</div>
+</div>
+<div class="c-add-new-account">
+	@if (product) {
+        <div class="container">
+		        <form name="productForm" #productForm="ngForm">
+			        <div class="c-add-new-account__wrapper">
+				        <div class="c-add-new-account__left">
+					        <div class="c-add-new-account__basic-details -data-block" id="data-block-1">
+						        <div class="c-basic-details">
+							        <span translate>Product</span>
+							        <span translate> Details</span>
+	                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                    ProductUId
+                                                @if (action !== 'View' && action !== 'Edit') {
+                                                    <span class="c-basic-details__inputrequired">*</span>
+                                                }
+                                            </label>
+                                            <input type="text" name="ProductUId" whiteSpaceValidator
+                                                    class="o-input__input" 	                                            
+                                                    disabled
+                                                    [(ngModel)]="product.ProductUId" required />                                              
+                                        </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                    ProductId
+                                            </label>
+                                            <input type="number" name="ProductId"
+                                                    class="o-input__input" 
+                                                    min="0"						
+                                                    step="False"
+                                                    [(ngModel)]="product.ProductId"
+                                                    required appInputRestriction
+                                                    disabled />
+                                        </div>
+                                 </div>
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                Seller
+                                                @if (action !== 'View') {
+                                                    <span class="c-basic-details__inputrequired">*</span>
+                                                }
+                                            </label>
+                                            <div class="c-select-wrapper" [ngClass]="action === 'View' ? '-disabled' : ''">
+                                                <select name="SellerUId" appValidateEmptyGuid                                                        class="c-select" [disabled]="action === 'View' ? 'disabled' : false"
+                                                        [(ngModel)]="product.SellerUId"  required >                                                        
+                                                    <option [ngValue]="emptyGuid" class="c-select__selected-text icon-arrow-up" translate>
+                                                                    Select
+                                                    </option>
+	                                                @if (sellers) {
+                                                        <ng-container>		
+                                                            @for (seller of sellers; track seller) {
+                                                                <option class="c-select__option" [disabled]="action === 'View' ? 'disabled' : false" [ngValue]="seller.SellerUId">
+                                                                        {{seller.Name}}
+                                                                </option>
+                                                            }
+				    	                                </ng-container>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                    Name
+                                                @if (action !== 'View') {
+                                                    <span class="c-basic-details__inputrequired">*</span>
+                                                }
+                                            </label>
+                                            <input type="text" name="Name" whiteSpaceValidator
+                                                        class="o-input__input"  maxlength="150" [disabled]="action === 'View' ?  'disabled' : false" 
+                                                        [(ngModel)]="product.Name" required />                                                   
+                                        </div>
+                                 </div>
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                ProductCategoryParent
+                                            </label>
+                                            <div class="c-select-wrapper" [ngClass]="action === 'View' ? '-disabled' : ''">
+                                                <select name="ProductCategoryParentUId"                                                         class="c-select" [disabled]="action === 'View' ? 'disabled' : false"
+                                                        [(ngModel)]="product.ProductCategoryParentUId"   >                                                        
+                                                    <option [ngValue]="null" class="c-select__selected-text icon-arrow-up" translate>
+                                                                    Select
+                                                    </option>
+	                                                @if (productCategoryParents) {
+                                                        <ng-container>		
+                                                            @for (productCategory of productCategoryParents; track productCategory) {
+                                                                <option class="c-select__option" [disabled]="action === 'View' ? 'disabled' : false" [ngValue]="productCategory.ProductCategoryUId">
+                                                                        {{productCategory.Name}}
+                                                                </option>
+                                                            }
+				    	                                </ng-container>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                    Rate
+                                            </label>
+                                            <input type="number" name="Rate"
+                                                    class="o-input__input" 
+                                                    min="0"						
+                                                    step="False"
+                                                    [(ngModel)]="product.Rate"
+                                                     appInputRestriction
+                                                    [disabled]="action === 'View' ? 'disabled' : false" />
+                                        </div>
+                                 </div>
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                    TotalQuantity
+                                                @if (action !== 'View') {
+                                                    <span class="c-basic-details__inputrequired">*</span>
+                                                }
+                                            </label>
+                                            <input type="number" name="TotalQuantity"
+                                                    class="o-input__input" 
+                                                    min="0"						
+                                                    step="False"
+                                                    [(ngModel)]="product.TotalQuantity"
+                                                    required appInputRestriction
+                                                    [disabled]="action === 'View' ? 'disabled' : false" />
+                                        </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                    SoldQuantity
+                                                @if (action !== 'View') {
+                                                    <span class="c-basic-details__inputrequired">*</span>
+                                                }
+                                            </label>
+                                            <input type="number" name="SoldQuantity"
+                                                    class="o-input__input" 
+                                                    min="0"						
+                                                    step="False"
+                                                    [(ngModel)]="product.SoldQuantity"
+                                                    required appInputRestriction
+                                                    [disabled]="action === 'View' ? 'disabled' : false" />
+                                        </div>
+                                 </div>
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                    AvailableQuantity
+                                            </label>
+                                            <input type="number" name="AvailableQuantity"
+                                                    class="o-input__input" 
+                                                    min="0"						
+                                                    step="False"
+                                                    [(ngModel)]="product.AvailableQuantity"
+                                                     appInputRestriction
+                                                    [disabled]="action === 'View' ? 'disabled' : false" />
+                                        </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>
+                                                    SortOrder
+                                                @if (action !== 'View') {
+                                                    <span class="c-basic-details__inputrequired">*</span>
+                                                }
+                                            </label>
+                                            <input type="number" name="SortOrder"
+                                                    class="o-input__input" 
+                                                    min="0"						
+                                                    step="False"
+                                                    [(ngModel)]="product.SortOrder"
+                                                    required appInputRestriction
+                                                    [disabled]="action === 'View' ? 'disabled' : false" />
+                                        </div>
+                                 </div>
+                                </div>
+                            </div>
+                            <div class="c-add-new-account__acc-settings -data-block" id="data-block-2">
+                                <div class="c-basic-details" translate>
+                                    AuditHistory
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                RowStatus
+                                                @if (action !== 'View') {
+                                                    <span class="c-basic-details__inputrequired">*</span>
+                                                }
+                                            </label>
+                                      
+                                            <div class="c-select-wrapper" [ngClass]="action === 'View' ? '-disabled' : ''">
+                                                <select name="RowStatusUId"
+                                                        class="c-select" appValidateEmptyGuid                                                        [disabled]="action === 'View' ?  'disabled' : false" required
+                                                        [(ngModel)]="product.RowStatusUId" > 
+                                                    <option [ngValue]="emptyGuid" class="c-select__selected-text icon-arrow-up" translate>
+                                                            Select
+                                                    </option>
+                                                    @if (rowStatuses) {
+                                                        <ng-container>
+                                                            @for (rowStatus of rowStatuses; track rowStatus) {
+                                                                <option class="c-select__option" [disabled]="action === 'View' ? 'disabled' : false" [ngValue]="rowStatus.RowStatusUId">
+                                                                        {{rowStatus.Name}}
+                                                                </option>
+                                                            }
+					                                    </ng-container>
+                                                    }
+                                                </select>
+                                            </div>
+ 
+                                    </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                CreatedByAccount
+                                            </label>
+                                      
+                                            <div class="c-select-wrapper" [ngClass]="action === 'View' ? '-disabled' : ''">
+                                                <select name="CreatedByAccountUId"
+                                                        class="c-select" appValidateEmptyGuid                                                        disabled 
+                                                        [(ngModel)]="product.CreatedByAccountUId" > 
+                                                    <option [ngValue]="emptyGuid" class="c-select__selected-text icon-arrow-up" translate>
+                                                            Select
+                                                    </option>
+                                                    @if (createdByAccounts) {
+                                                        <ng-container>
+                                                            @for (account of createdByAccounts; track account) {
+                                                                <option class="c-select__option" [disabled]="action === 'View' ? 'disabled' : false" [ngValue]="account.AccountUId">
+                                                                        {{account.FirstName}}
+                                                                </option>
+                                                            }
+					                                    </ng-container>
+                                                    }
+                                                </select>
+                                            </div>
+ 
+                                    </div>
+                                </div>
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                    CreatedByApp
+                                            </label>
+                                            <input type="text" name="CreatedByApp"
+                                                        class="o-input__input" disabled
+                                                        [(ngModel)]="product.CreatedByApp" />                                    
+                                    </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                    CreatedOn
+                                            </label>
+                                            <input type="datetime-local" name="CreatedOn"
+										        class="o-input__input" disabled
+                                                [ngModel]="product.CreatedOn | date:'yyyy-MM-ddTHH:mm'" 
+                                                (ngModelChange)="product.CreatedOn = $event" />                                    
+                                    </div>
+                                </div>
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                ModifiedByAccount
+                                            </label>
+                                      
+                                            <div class="c-select-wrapper" [ngClass]="action === 'View' ? '-disabled' : ''">
+                                                <select name="ModifiedByAccountUId"
+                                                        class="c-select" appValidateEmptyGuid                                                        disabled 
+                                                        [(ngModel)]="product.ModifiedByAccountUId" > 
+                                                    <option [ngValue]="emptyGuid" class="c-select__selected-text icon-arrow-up" translate>
+                                                            Select
+                                                    </option>
+                                                    @if (modifiedByAccounts) {
+                                                        <ng-container>
+                                                            @for (account of modifiedByAccounts; track account) {
+                                                                <option class="c-select__option" [disabled]="action === 'View' ? 'disabled' : false" [ngValue]="account.AccountUId">
+                                                                        {{account.FirstName}}
+                                                                </option>
+                                                            }
+					                                    </ng-container>
+                                                    }
+                                                </select>
+                                            </div>
+ 
+                                    </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                    ModifiedByApp
+                                            </label>
+                                            <input type="text" name="ModifiedByApp"
+                                                        class="o-input__input" disabled
+                                                        [(ngModel)]="product.ModifiedByApp" />                                    
+                                    </div>
+                                </div>
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                    ModifiedOn
+                                            </label>
+                                            <input type="datetime-local" name="ModifiedOn"
+										        class="o-input__input" disabled
+                                                [ngModel]="product.ModifiedOn | date:'yyyy-MM-ddTHH:mm'" 
+                                                (ngModelChange)="product.ModifiedOn = $event" />                                    
+                                    </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                    CorrelationUId
+                                            </label>
+                                      
+                                        <input type="text" name="CorrelationUId"
+				    					        class="o-input__input" disabled
+					    				        [(ngModel)]="product.CorrelationUId" />
+ 
+                                    </div>
+                                </div>
+                                    <div class="c-basic-details__inputouter">
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                    EffectiveFrom
+                                            </label>
+                                            <input type="datetime-local" name="EffectiveFrom"
+										        class="o-input__input" disabled
+                                                [ngModel]="product.EffectiveFrom | date:'yyyy-MM-ddTHH:mm'" 
+                                                (ngModelChange)="product.EffectiveFrom = $event" />                                    
+                                    </div>
+                                        <div class="o-input">
+                                            <label class="c-basic-details__inputlbl" translate>                        
+                                                    EffectiveTo
+                                            </label>
+                                            <input type="datetime-local" name="EffectiveTo"
+										        class="o-input__input" disabled
+                                                [ngModel]="product.EffectiveTo | date:'yyyy-MM-ddTHH:mm'" 
+                                                (ngModelChange)="product.EffectiveTo = $event" />                                    
+                                    </div>
+                                </div>
+                          
+                            </div>
+                        </div>
+                    </div>	
+                    <div class="c-add-new-account__right">
+                        <div class="c-add-new-account__adding-details">
+                            <div class="c-adding-details">
+                                <div class="c-adding-details__wrapper">
+                                    <div class="c-adding-details__header" translate>
+                                        {{action}} <span translate>Product </span> <span translate>Details</span>
+                                    </div>
+                                    <ul class="c-adding-details__list">
+                                        <li class="c-adding-details__list-item -active" (click)="scrollToView('data-block-1')" data-href="data-block-1" translate>Product <span translate>Details</span> </li>
+                                        <li class="c-adding-details__list-item" (click)="scrollToView('data-block-2')" data-href="data-block-2" translate>AuditHistory</li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-add-new-account__btns c-kpi-modal__buttons-wrapp">
+                        <a (click)="closeProduct(productForm,unsavedChangesContent)" class="o-secondary-button" title="{{'Cancel' | translate}}" [ngClass]="action === 'View' ? 'display-none' : ''"  translate>
+					        Cancel
+				        </a>
+                        <a title="{{'Save' | translate}}"  class="o-primary-button" [ngClass]="action === 'View' ? 'display-none' : ''" 
+                                (click)="saveProduct(productForm)" translate>
+                            Save
+                        </a>
+                    </div>
+		        </form>
+        </div>
+    }
+</div>
+<ng-template #unsavedChangesContent let-c="close" let-d="dismiss">		
+        <div class="c-unsave-change__close-button c-kpi-modal__buttons-wrapp" (click)="c('Close click')">
+			<i class="c-unsave-change__close-icon icon-close"></i>
+        </div>
+        <div class="c-unsave-change__content">
+            <div class="c-unsave-change__heading" translate>UnsavedChanges</div>
+            <p translate>
+                UnsavedChangesMsg
+            </p>
+        </div>
+        <div class="c-unsave-change__buttons c-kpi-modal__buttons-wrapp">
+            <a class="o-secondary-button c-unsave-change__yes" (click)="cancelModalPopup()" title="{{'Yes' | translate}}" translate>Yes </a>
+            <a class="o-primary-button c-unsave-change__no" (click)="c('close click')" title="{{'No' | translate}}" translate>No </a>
+        </div>
+</ng-template>

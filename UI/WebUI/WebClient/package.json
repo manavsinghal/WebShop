@@ -1,0 +1,68 @@
+{
+    "name": "web-client.angular",
+    "version": "0.0.0",
+    "scripts": {
+        "ng": "ng",
+        "start": "ng serve",
+        "build": "ng build",
+        "watch": "ng build --watch --configuration development",
+        "test": "ng test",
+        "lint": "ng lint",
+        "azurestatic": "ng build --configuration=production --output-path=dist"
+    },
+    "private": true,
+    "dependencies": {
+        "@angular-eslint/builder": "^19.0.2",
+        "@angular/animations": "19.0.4",
+        "@angular/cdk": "^19.0.3",
+        "@angular/common": "^19.0.4",
+        "@angular/compiler": "^19.0.4",
+        "@angular/core": "^19.0.4",
+        "@angular/forms": "^19.0.4",
+        "@angular/localize": "^19.0.4",
+        "@angular/platform-browser": "^19.0.4",
+        "@angular/platform-browser-dynamic": "^19.0.4",
+        "@angular/router": "^19.0.4",
+        "@azure/msal-angular": "3.0.9",
+        "@azure/msal-browser": "3.6.0",
+        "@ng-bootstrap/ng-bootstrap": "^17.0.1",
+        "@ngx-translate/core": "^16.0.0",
+        "@popperjs/core": "2.11.8",
+        "bootstrap": "^5.3.2",
+        "jest-editor-support": "*",
+        "ngx-toastr": "^19.0.0",
+        "ngx-ui-loader": "^13.0.0",
+        "primeicons": "6.0.1",
+        "primeng": "17.18.7",
+        "rxjs": "^7.8.1",
+        "tslib": "^2.3.0",
+        "zone.js": "~0.15.0"
+    },
+    "devDependencies": {
+        "@angular-devkit/build-angular": "^19.0.5",
+        "@angular/cli": "^19.0.5",
+        "@angular/compiler-cli": "^19.0.4",
+        "@types/jasmine": "~3.10.0",
+        "@types/node": "^12.11.1",
+        "@typescript-eslint/eslint-plugin": "8.9.0",
+        "@typescript-eslint/parser": "8.9.0",
+        "eslint": "9.0.0",
+        "jasmine-core": "~4.0.0",
+        "karma": "~6.3.0",
+        "karma-chrome-launcher": "~3.1.0",
+        "karma-coverage": "~2.1.0",
+        "karma-jasmine": "~4.0.0",
+        "karma-jasmine-html-reporter": "~1.7.0",
+        "typescript": "~5.6.3"
+    },
+    "overrides": {
+        "rimraf": "^4.0.0",
+        "glob": "^10.4.0",
+        "read-package-json": "npm:@npmcli/package-json",
+        "inflight": "npm:lru-cache",
+        "@humanwhocodes/config-array": "npm:@eslint/config-array",
+        "@humanwhocodes/object-schema": "npm:@eslint/object-schema",
+        "http-proxy-middleware": "^3.0.3"
+    }
+}
+

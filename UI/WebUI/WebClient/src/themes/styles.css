@@ -1,0 +1,11 @@
+@import "global.css";
+@import "toolkit.css";
+@import "custom.css";
+@import "WebShop/WebShop.css";
+
+.myTrans-noSpin-number::-webkit-inner-spin-button,
+.myTrans-noSpin-number::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+

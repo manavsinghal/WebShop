@@ -1,0 +1,59 @@
+#region Copyright (c) 2025 Accenture . All rights reserved.
+
+// <copyright company="Accenture">
+// Copyright (c) 2025 Accenture.  All rights reserved.
+// Reproduction or transmission in whole or in part, in any form or by any means, 
+// electronic, mechanical or otherwise, is prohibited without the prior written 
+// consent of the copyright owner.
+// </copyright>
+
+#endregion  
+
+namespace Accenture.WebShop.Core.Application.DataRepositories.DataModels.Domain;
+
+#region Namespace References
+
+//// DO NOT PUT ANY REFERENCES HERE USE project level "GlobalUsings.cs" instead
+
+#endregion
+
+/// <summary>
+/// Represents Country Core Application DataRepositories DataModels (DOTNET090000).
+/// </summary>
+/// <remarks>
+/// The Country Core Application DataRepositories DataModels (DOTNET090000).
+/// </remarks>
+public partial class GetCountryRequest : COREAPPDATAREPOMODELS.Request<COREDOMAINDATAMODELSDOMAIN.Country>
+{
+	#region Fields
+
+	#endregion
+
+	#region Properties
+
+    /// <summary>
+    /// Gets or Sets Country
+    /// </summary>
+	/// <value>
+    /// The Country
+    /// </value>
+	public Guid CountryUId  { get; set; }
+
+	#endregion
+
+	#region Constructors
+
+    /// <summary>
+    /// Initializes a new instance of the &lt;see cref=Country/&gt; class.
+    /// </summary>
+    public GetCountryRequest()
+	{		
+	}
+
+	#endregion
+
+	#region Methods
+
+	#endregion	
+}
+

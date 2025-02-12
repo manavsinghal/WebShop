@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>Accenture.WebShop.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>Accenture.WebShop.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;8669;</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;8669;</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Identity.Web" Version="3.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="8.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.8.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Metrics" Version="3.3.4" />
+    <PackageReference Include="Microsoft.AspNetCore.OData" Version="9.0.0" />
+    <PackageReference Include="Scalar.AspNetCore" Version="1.2.56" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="9.0.0" />
+    <PackageReference Include="Azure.Monitor.OpenTelemetry.AspNetCore" Version="1.2.0" />
+    <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.9.0" />
+    <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.10.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Infrastructure\DataAccess\Infrastructure.DataRepositories\Infrastructure.DataRepositories.csproj" />
+    <ProjectReference Include="..\..\..\Core\Application\Core.Application.Models\Core.Application.Models.csproj" />
+    <ProjectReference Include="..\..\..\Infrastructure\DataAccess\Infrastructure.DataEntities.SqlServer\Infrastructure.DataEntities.SqlServer.csproj" />
+    <ProjectReference Include="..\..\..\Core\Application\Core.Application.DataModels\Core.Application.DataModels.csproj" />
+    <ProjectReference Include="..\..\..\Infrastructure\WebServices\Infrastructure.WebService.SharedLibrary\Infrastructure.WebService.SharedLibrary.csproj" />
+    <ProjectReference Include="..\..\..\SharedKernal\SharedKernal.Libraries\SharedKernal.Libraries.csproj" />
+    <ProjectReference Include="..\..\..\Core\Domain\Core.Domain.DataModel\Core.Domain.DataModel.csproj" />
+    <ProjectReference Include="..\..\..\Framework\DataCache\DataCache.csproj" />
+  </ItemGroup>  
+
+</Project>

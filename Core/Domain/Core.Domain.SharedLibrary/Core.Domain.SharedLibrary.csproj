@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>Accenture.WebShop.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>Accenture.WebShop.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+  </PropertyGroup>
+
+
+   <ItemGroup>
+      </ItemGroup>
+   <ItemGroup>
+      </ItemGroup>  
+  <ItemGroup>
+    <Folder Include="020-Extensions\" />
+    <Folder Include="030-Libraries\" />
+    <Folder Include="010-Enumerators\" />
+  </ItemGroup>
+</Project>

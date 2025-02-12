@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>Accenture.WebShop.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>Accenture.WebShop.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+  </PropertyGroup>
+
+
+   <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.Metrics" Version="3.3.4" />
+  </ItemGroup>
+   <ItemGroup>
+        <ProjectReference Include="..\..\..\Core\Domain\Core.Domain.DataModel\Core.Domain.DataModel.csproj" />
+    <ProjectReference Include="..\..\..\Core\Application\Core.Application.DataRepositories.DataModels\Core.Application.DataRepositories.DataModels.csproj" />
+  </ItemGroup>  
+  <ItemGroup>
+    <Folder Include="020-Interfaces\" />
+    <Folder Include="010-BaseInterfaces\" />
+  </ItemGroup>
+</Project>

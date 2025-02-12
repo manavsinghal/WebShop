@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>Accenture.WebShop.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>Accenture.WebShop.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;8669;CS0114</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;8669;CS0114</NoWarn>
+  </PropertyGroup>
+
+   <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Metrics" Version="3.3.4" />
+  </ItemGroup>
+   <ItemGroup>
+        <ProjectReference Include="..\..\..\Core\Application\Core.Application.Interfaces\Core.Application.Interfaces.csproj" />
+    <ProjectReference Include="..\..\..\Core\Domain\Core.Domain.DataModel\Core.Domain.DataModel.csproj" />
+    <ProjectReference Include="..\..\..\Core\Application\Core.Application.DataRepositories.DataModels\Core.Application.DataRepositories.DataModels.csproj" />
+    <ProjectReference Include="..\..\..\Core\Application\Core.Application.DataRepositories.Interfaces\Core.Application.DataRepositories.Interfaces.csproj" />
+    <ProjectReference Include="..\..\..\Core\Application\Core.Application.DataModels\Core.Application.DataModels.csproj" />
+  </ItemGroup>  
+  <ItemGroup>
+    <Folder Include="020-Models\" />
+    <Folder Include="010-BaseModels\" />
+  </ItemGroup>
+</Project>

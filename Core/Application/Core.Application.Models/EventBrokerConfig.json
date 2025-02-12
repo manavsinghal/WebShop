@@ -1,0 +1,19 @@
+[
+  {
+    "LibraryName": "{BDLModelNamespace}.{EntityName}",
+    "Operations": [
+      {
+        "Name": "Merge",
+        "IsRaiseEvent": true
+      },
+      {
+        "Name": "MergeThroughSP",
+        "IsRaiseEvent": true
+      },
+      {
+        "Name": "Soft-Delete",
+        "IsRaiseEvent": false
+      }
+    ]
+  }
+]

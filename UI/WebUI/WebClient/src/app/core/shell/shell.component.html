@@ -1,0 +1,76 @@
+	<div class="site-wrap c-theme-{{selectedTheme['Value']}}" style="visibility: visible;" dir={{direction}}>
+	<header class="c-header-client -blue" id="header-container">
+		<div class="container">
+			<div class="c-header-client__wrapper">
+				<div class="c-header-client__left">
+					<div class="c-header-client__logo-wrapper">
+						<a class="c-header-client__menu"><i class="icon-menu"></i></a>
+						<a class="c-header-client__logo-link" (click)="navigateToPage('')">
+							<div class="c-header-client__logo">
+								<img src="themes/images/logo/{{coreSessionService.getTheme()['Value'] ? (coreSessionService.getSelectedTheme()['Value']+'/') :''}}accn-logo.svg" class="c-header-client__logo-img" />
+							</div>
+						</a>
+					</div>
+					<div class="c-header-client__one-asset" translate>WebShopTitle</div>
+					<div class="c-header-client__list-wrap">
+						<ul class="c-header-client__list">
+                            <li class="c-header-default__item" style="height:56px !important;" [ngClass]="!coreSessionService.getSelectedTab() || coreSessionService.getSelectedTab() === 'Home' ? '-active' : ''">
+								<a (click)="navigateToPage('')" translate>Home</a>
+							</li>
+							<li class="c-header-default__item" style="height:56px !important;" [ngClass]="coreSessionService.getSelectedTab() === 'administration' ? '-active' : ''">
+								<a (click)="navigateToPage('administration')" translate>Administration</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="c-header-client__right">
+					<a href="#" class="icon-arrow-up c-header-client__link c-client_stack__link d-none">
+					</a>
+					<div class="c-header-client__notification-bar c-client-stack__notif_bar">
+					</div>
+					<a class="c-header-client__user">
+						<img src="themes/images/user-01.png" class="c-header-client__user-img"
+							 (click)="toggleUserSettings()" />
+					</a>
+					<div class="c-header-client__user-dropdown" [ngStyle]="{ display: isOpen ? 'block' : 'none' }">
+                        @if (isUserSettingsLoaded) {
+						    <app-user-settings (closeActionPane)="toggleUserSettings()"></app-user-settings>
+                        }
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="site-page">
+		<router-outlet></router-outlet>
+	</div>
+	<!-- footer starts from here -->
+	<div class="c-footer">
+		<div class="container">
+			<div class="c-footer__wrapper">
+				<p class="c-footer__left" translate>CopyrightText</p>
+				<p class="c-footer__right">
+					<a class="c-footer__link termsOfUse" translate>TermsOfUse</a> |
+					<a class="c-footer__link privacyStatement" translate>PrivacyStatement</a>
+				</p>
+			</div>
+		</div>
+	</div>
+    </div>
+    <!-- icons svg -->
+
+    <ng-template #content let-c="close" let-d="dismiss">
+	<div class="modal-content  myTrans-theme-{{coreSessionService.getTheme()['Value'] ? coreSessionService.getSelectedTheme()['Value'] :'myWizard'}}"
+		 dir={{coreSessionService.getDirection()}} attr.language={{coreSessionService.getCulture()}}>
+		<div class="modal-header">
+			<h4 class="modal-title" translate>SessionExpired</h4>
+		</div>
+		<div class="modal-body">
+			<p><span translate>SessionExpiredMessage</span></p>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary" (click)="confirmLogout()" translate>OK</button>
+		</div>
+	</div>
+</ng-template>
+

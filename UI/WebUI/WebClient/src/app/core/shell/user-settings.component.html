@@ -1,0 +1,41 @@
+<div class="c-header-client__user-name" style="display: block;">
+	<div class="o-input">
+		<label class="c-basic-details__inputlbl" translate>ChooseLanguage</label>
+		<div class="c-select-wrapper mt-10">
+			<select class="c-select" style="height:40px;" (change)="onLanguageSelectionChange($event)">
+				<option class="c-select__selected-text icon-arrow-up d-none" value="@Guid.Empty">
+					Select
+				</option>
+				@for (language of languages; track language) {
+					<option class="c-select__option" [ngValue]="language"
+						value="{{language.LanguageUId}}" [selected]="language.LanguageUId === selectedLanguage.LanguageUId">
+						{{language.DisplayName}}
+					</option>
+				}
+			</select>
+		</div>
+	</div>
+	<div class="o-input mt-4">
+		<label class="c-basic-details__inputlbl" translate>ChooseTheme</label>
+		<div class="c-select-wrapper mt-10">
+			<select class="c-select" style="height:40px;" (change)="onThemeSelectionChange($event)">
+				<option class="c-select__selected-text icon-arrow-up d-none" value="@Guid.Empty">
+					Select
+				</option>
+				@for (theme of themes; track theme) {
+					<option class="c-select__option" [ngValue]="theme" value="{{theme.ThemeUId}}"
+						[selected]="theme.ThemeUId === selectedTheme.ThemeUId">
+						{{theme.Title}}
+					</option>
+				}
+			</select>
+		</div>
+	</div>	
+</div>
+<div class="c-header-client__user-logout">
+	<div style="display: flex;  gap: 10px; justify-content: end;">
+		<a href="javascript:;" class="o-primary-button " (click)="apply()" title="{{'Apply' | translate}}" style="min-height: 36px; padding: 6px 12px; min-width: 100px;" translate>Apply</a>
+		<a href="javascript:;" class="o-secondary-button-two " title="{{'Cancel' | translate}}" (click)="cancel()" translate>Cancel</a>
+	</div>
+</div>
+

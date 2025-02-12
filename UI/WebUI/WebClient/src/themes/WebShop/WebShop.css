@@ -1,0 +1,80 @@
+/*
+ * Theme: WebShop
+ * ---------
+ */
+
+.c-theme-WebShop .c-header-client {
+    border-bottom-color: #007bff !important;
+}
+
+.c-theme-WebShop .c-admin-card__icon {
+    border: 1px solid #007bff !important;
+    color: #007bff !important;
+}
+
+.c-theme-WebShop .c-header-client__item:before {
+    background-color: #007bff !important;
+}
+
+.c-theme-WebShop .c-header-default__item:before {
+    background-color: #007bff !important;
+}
+
+.c-theme-WebShop .c-admin-card__list-item:hover {
+    color: #007bff !important;
+}
+
+.c-theme-WebShop .c-prime-tree-table .p-treetable tbody tr:hover td {
+    background-color: rgb(128 184 197 / 50%) !important;
+}
+
+.c-theme-WebShop .c-account-table__bodyrow:hover {
+    background-color: rgb(128 184 197 / 50%) !important;
+}
+
+.c-theme-WebShop .ngx-progress-bar, .c-theme-WebShop .ngx-overlay > .ngx-foreground-spinner {
+    color: #007bff !important;
+}
+
+.c-theme-WebShop .rz-grid-table thead th {
+    border-top: 2px solid #007bff;
+}
+
+.c-theme-WebShop .c-adding-details__header {
+    color: #007bff !important;
+}
+
+.c-theme-WebShop .c-adding-details__list-item:hover, .c-theme-WebShop .c-adding-details__list-item.-active {
+    border-left: 2px solid #007bff;
+    color: #007bff;
+}
+
+.c-theme-WebShop .c-breadcrumbs__item a:hover, .c-theme-WebShop .c-breadcrumbs__item a:focus {
+    color: #007bff !important;
+}
+
+.c-theme-WebShop .c-breadcrumbs__item a:before {
+    background-color: #007bff;
+    transition: all 0.5s cubic-bezier(0.94, 0.1, 0.42, 0.95);
+}
+
+.c-theme-WebShop .o-primary-button:hover, .c-theme-WebShop .o-primary-button:focus {
+    background-color: #00346c;
+}
+
+.c-theme-WebShop .c-account-table__head, .c-theme-WebShop .c-prime-tree-table .p-treetable .p-treetable-thead > tr > th {
+    border-top: 2px solid #007bff !important;
+}
+
+.c-theme-WebShop .c-prime-tree-table .p-treetable tbody tr:hover td {
+    border-bottom: 1px solid #007bff !important;
+}
+
+.c-theme-WebShop .o-toggle-btn__input:checked + label .o-toggle-btn__checkbox:before {
+    background-color: #007bff !important;
+}
+
+.c-theme-WebShop .c-account-table__link:hover {
+    color: #007bff !important;
+}
+

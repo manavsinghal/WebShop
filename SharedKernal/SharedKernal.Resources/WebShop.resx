@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Administration" xml:space="preserve">
+    <value>Administration</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="AdministrationDescriptionPart1" xml:space="preserve">
+    <value>Provides capabilities to create and update access to</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="AuditHistory" xml:space="preserve">
+    <value>Audit History</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="ChooseLanguage" xml:space="preserve">
+    <value>Choose Language</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="ManageEntities" xml:space="preserve">
+    <value>Manage Entities</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="ManageEntitiesDescription1" xml:space="preserve">
+    <value>It involves managing </value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Select</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="ServiceComposerTitle" xml:space="preserve">
+    <value>Service Composer</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="UnsavedChanges" xml:space="preserve">
+    <value>Unsaved Changes</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="UnsavedChangesMsg" xml:space="preserve">
+    <value>There are unsaved changes in the form. Do you want to lose the changes?</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Proceed" xml:space="preserve">
+    <value>Proceed</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="IsLocalizedStandardColumn" xml:space="preserve">
+    <value>Is Localized Standard Column</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Apply</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Welcome</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="CookiesPolicy" xml:space="preserve">
+    <value>Cookies Policy</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="CopyrightText" xml:space="preserve">
+    <value>© 2024 Accenture. All Rights Reserved. Accenture Confidential. For Internal Use Only.</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="LoaderText" xml:space="preserve">
+    <value>Processing your request. Please wait...</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Manage</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="NoDataFound" xml:space="preserve">
+    <value>No Data Found</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="PrivacyStatement" xml:space="preserve">
+    <value>Privacy Statement</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>Selected</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="TermsOfUse" xml:space="preserve">
+    <value>Terms of Use</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="LogTemplate" xml:space="preserve">
+    <value>{ "Timestamp": {DateTime}, "LogType":"{logtype}", "Message":"{MessageText}", "title":"{title}", "CorrelationUId":"{correlationUId}", "Exception":"{exceptionMessage}", "StackTrace":"{jsonStacktrace}", "AssemblyNamespace":"{assemblyNamespace}", "Component":"{component}"}</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="ManageDomains" xml:space="preserve">
+    <value>Manage Features</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="AdministartionDescriptionPart2" xml:space="preserve">
+    <value>through various rows levels on data entities and operations.</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="DuplicateErrorMsg" xml:space="preserve">
+    <value>Combination already exists</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="SaveSuccess" xml:space="preserve">
+    <value>Data saved successfully</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>View</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="MandatoryErrorMsg" xml:space="preserve">
+    <value>Please fill mandatory fields</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="CustomTemplateFilePath" xml:space="preserve">
+    <value>Custom Template File Path</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="ChooseTheme" xml:space="preserve">
+    <value>Choose Theme</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="ManageEntity1" xml:space="preserve">
+    <value>Manage Entity</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="End" xml:space="preserve">
+    <value>End</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="MergeEntity" xml:space="preserve">
+    <value>Merging</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="HomeBannerTitle" xml:space="preserve">
+    <value>It's easy to write software that fulfills its users' immediate needs but is difficult to extend and maintain. Such software becomes a burden for companies striving to remain competitive.</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="HomePageListItem" xml:space="preserve">
+    <value>Rapid development of micro services &amp; monolithic apps</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="HomePageListItem1" xml:space="preserve">
+    <value>Model-driven, business first development approach</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="HomePageListItem2" xml:space="preserve">
+    <value>High degree of app code, test and artifacts generation</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="HomePageListItem3" xml:space="preserve">
+    <value>Unlike No-Code platforms you own your code</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="HomePageListItem4" xml:space="preserve">
+    <value>Drag/drop integration with other accenture services</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="HomePageListItem5" xml:space="preserve">
+    <value>Automated multi-cloud instance provisioning</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="HomePageListItem6" xml:space="preserve">
+    <value>Built-in CI/CD support</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="HomePageListItem7" xml:space="preserve">
+    <value>Choose tech-stack of your choice</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="HomePageListItem8" xml:space="preserve">
+    <value>Collaboration &amp; innovation, not exclusion</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="HomeTitle" xml:space="preserve">
+    <value>supports following business features:</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Exception" xml:space="preserve">
+    <value>Exception</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Stop</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Begin" xml:space="preserve">
+    <value>Begin</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="AdministrationDescription" xml:space="preserve">
+    <value>Provides capabilities to create and update access to entities through various rows levels on data entities and operations</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="ErrorMsg" xml:space="preserve">
+    <value>Something went wrong. Please try again later.</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Test" xml:space="preserve">
+    <value>Test</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="PleaseVisitLaterMsg" xml:space="preserve">
+    <value>Please visit later.</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="ScreenUnderDevelopment" xml:space="preserve">
+    <value>This screen is under development.</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Download</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Launch" xml:space="preserve">
+    <value>Launch</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="AuthorizationDeniedMsg" xml:space="preserve">
+    <value>You are not authorized to access this application. Please contact your administrator.</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="AuthorizationDeniedTitle" xml:space="preserve">
+    <value>Authorization Denied</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="ManageSchemas" xml:space="preserve">
+    <value>Manage Schemas</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="ManageSchemasDescription" xml:space="preserve">
+    <value>It involves managing database schemas efficiently.</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="ManageFeatures" xml:space="preserve">
+    <value>Manage Features</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="ManageFeaturesDescription" xml:space="preserve">
+    <value>Manage Features</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="ManageGroupEntities" xml:space="preserve">
+    <value>Manage Group Entities</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="ManageGroupEntitiesDescription1" xml:space="preserve">
+    <value>It involves managing </value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="ManageEntityGroups" xml:space="preserve">
+    <value>Manage Entity Groups</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="CodeComposer" xml:space="preserve">
+    <value>CodeComposer</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Feature1" xml:space="preserve">
+    <value>Feature1</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Feature10" xml:space="preserve">
+    <value>Feature10</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Feature2" xml:space="preserve">
+    <value>Feature2</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Feature3" xml:space="preserve">
+    <value>Feature3</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Feature4" xml:space="preserve">
+    <value>Feature4</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Feature5" xml:space="preserve">
+    <value>Feature5</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Feature6" xml:space="preserve">
+    <value>Feature6</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Feature7" xml:space="preserve">
+    <value>Feature7</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Feature8" xml:space="preserve">
+    <value>Feature8</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="Feature9" xml:space="preserve">
+    <value>Feature9</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="NoRecordsFound" xml:space="preserve">
+    <value>No Records Found</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="DeleteConfirmationMessage" xml:space="preserve">
+    <value>Do you want to delete this </value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="ManageEntitiesDescription2" xml:space="preserve">
+    <value>platform efficiently. It ensures, platform and application are running efficiently and effectively.</value>
+    <comment>Manually Added</comment>
+  </data>
+  <data name="ManageGroupEntitiesDescription2" xml:space="preserve">
+    <value>platform efficiently. It ensures, platform and application are running efficiently and effectively.</value>
+    <comment>Manually Added</comment>
+  </data>
+<data name="Account" xml:space="preserve"><value>Account</value><comment>Generated</comment></data>
+<data name="AccountId" xml:space="preserve"><value>Account Id</value><comment>Generated</comment></data>
+<data name="Accounts" xml:space="preserve"><value>Accounts</value><comment>Generated</comment></data>
+<data name="AccountStatus" xml:space="preserve"><value>Account Status</value><comment>Generated</comment></data>
+<data name="AccountStatuses" xml:space="preserve"><value>Account Statuses</value><comment>Generated</comment></data>
+<data name="AccountStatusId" xml:space="preserve"><value>Account Status Id</value><comment>Generated</comment></data>
+<data name="AccountStatusUId" xml:space="preserve"><value>Account Status UId</value><comment>Generated</comment></data>
+<data name="AccountTileDescription" xml:space="preserve"><value>Represents Account UI screen group</value><comment>Generated</comment></data>
+<data name="AccountUId" xml:space="preserve"><value>Account UId</value><comment>Generated</comment></data>
+<data name="AddressType" xml:space="preserve"><value>Address Type</value><comment>Generated</comment></data>
+<data name="AddressTypeUId" xml:space="preserve"><value>Address Type UId</value><comment>Generated</comment></data>
+<data name="AppSetting" xml:space="preserve"><value>App Setting</value><comment>Generated</comment></data>
+<data name="AppSettingId" xml:space="preserve"><value>App Setting Id</value><comment>Generated</comment></data>
+<data name="AppSettings" xml:space="preserve"><value>App Settings</value><comment>Generated</comment></data>
+<data name="AppSettingUId" xml:space="preserve"><value>App Setting UId</value><comment>Generated</comment></data>
+<data name="AvailableQuantity" xml:space="preserve"><value>Available Quantity</value><comment>Generated</comment></data>
+<data name="AzureCulture" xml:space="preserve"><value>Azure Culture</value><comment>Generated</comment></data>
+<data name="BankAccountType" xml:space="preserve"><value>Bank Account Type</value><comment>Generated</comment></data>
+<data name="BankAccountTypeUId" xml:space="preserve"><value>Bank Account Type UId</value><comment>Generated</comment></data>
+<data name="CardType" xml:space="preserve"><value>Card Type</value><comment>Generated</comment></data>
+<data name="CardTypeUId" xml:space="preserve"><value>Card Type UId</value><comment>Generated</comment></data>
+<data name="Code" xml:space="preserve"><value>Code</value><comment>Generated</comment></data>
+<data name="ComponentName" xml:space="preserve"><value>Component Name</value><comment>Generated</comment></data>
+<data name="Correlation" xml:space="preserve"><value>Correlation</value><comment>Generated</comment></data>
+<data name="CorrelationUId" xml:space="preserve"><value>Correlation UId</value><comment>Generated</comment></data>
+<data name="Countries" xml:space="preserve"><value>Countries</value><comment>Generated</comment></data>
+<data name="Country" xml:space="preserve"><value>Country</value><comment>Generated</comment></data>
+<data name="CountryId" xml:space="preserve"><value>Country Id</value><comment>Generated</comment></data>
+<data name="CountryLanguage" xml:space="preserve"><value>Country Language</value><comment>Generated</comment></data>
+<data name="CountryLanguageId" xml:space="preserve"><value>Country Language Id</value><comment>Generated</comment></data>
+<data name="CountryLanguages" xml:space="preserve"><value>Country Languages</value><comment>Generated</comment></data>
+<data name="CountryLanguageUId" xml:space="preserve"><value>Country Language UId</value><comment>Generated</comment></data>
+<data name="CountryUId" xml:space="preserve"><value>Country UId</value><comment>Generated</comment></data>
+<data name="CreatedByAccount" xml:space="preserve"><value>Created By Account</value><comment>Generated</comment></data>
+<data name="CreatedByAccountUId" xml:space="preserve"><value>Created By Account UId</value><comment>Generated</comment></data>
+<data name="CreatedByApp" xml:space="preserve"><value>Created By App</value><comment>Generated</comment></data>
+<data name="CreatedOn" xml:space="preserve"><value>Created On</value><comment>Generated</comment></data>
+<data name="Culture" xml:space="preserve"><value>Culture</value><comment>Generated</comment></data>
+<data name="Customer" xml:space="preserve"><value>Customer</value><comment>Generated</comment></data>
+<data name="CustomerAddress" xml:space="preserve"><value>Customer Address</value><comment>Generated</comment></data>
+<data name="CustomerAddresses" xml:space="preserve"><value>Customer Addresses</value><comment>Generated</comment></data>
+<data name="CustomerAddressId" xml:space="preserve"><value>Customer Address Id</value><comment>Generated</comment></data>
+<data name="CustomerAddressUId" xml:space="preserve"><value>Customer Address UId</value><comment>Generated</comment></data>
+<data name="CustomerCard" xml:space="preserve"><value>Customer Card</value><comment>Generated</comment></data>
+<data name="CustomerCardId" xml:space="preserve"><value>Customer Card Id</value><comment>Generated</comment></data>
+<data name="CustomerCards" xml:space="preserve"><value>Customer Cards</value><comment>Generated</comment></data>
+<data name="CustomerCardUId" xml:space="preserve"><value>Customer Card UId</value><comment>Generated</comment></data>
+<data name="CustomerId" xml:space="preserve"><value>Customer Id</value><comment>Generated</comment></data>
+<data name="CustomerManagement" xml:space="preserve"><value>Customer Management</value><comment>Generated</comment></data>
+<data name="CustomerManagementDescription" xml:space="preserve"><value>Process of collecting, analyzing, and managing the data that the consumers have shared with the business.</value><comment>Generated</comment></data>
+<data name="CustomerPhone" xml:space="preserve"><value>Customer Phone</value><comment>Generated</comment></data>
+<data name="CustomerPhoneId" xml:space="preserve"><value>Customer Phone Id</value><comment>Generated</comment></data>
+<data name="CustomerPhones" xml:space="preserve"><value>Customer Phones</value><comment>Generated</comment></data>
+<data name="CustomerPhoneUId" xml:space="preserve"><value>Customer Phone UId</value><comment>Generated</comment></data>
+<data name="Customers" xml:space="preserve"><value>Customers</value><comment>Generated</comment></data>
+<data name="CustomerStatus" xml:space="preserve"><value>Customer Status</value><comment>Generated</comment></data>
+<data name="CustomerStatusUId" xml:space="preserve"><value>Customer Status UId</value><comment>Generated</comment></data>
+<data name="CustomerTileDescription" xml:space="preserve"><value>Represents Customer UI screen group</value><comment>Generated</comment></data>
+<data name="CustomerUId" xml:space="preserve"><value>Customer UId</value><comment>Generated</comment></data>
+<data name="Date" xml:space="preserve"><value>Date</value><comment>Generated</comment></data>
+<data name="Dbo" xml:space="preserve"><value>Dbo</value><comment>Generated</comment></data>
+<data name="DboDescription" xml:space="preserve"><value>Represents Dbo Schema</value><comment>Generated</comment></data>
+<data name="Description" xml:space="preserve"><value>Description</value><comment>Generated</comment></data>
+<data name="DisplayName" xml:space="preserve"><value>Display Name</value><comment>Generated</comment></data>
+<data name="DisplayOrder" xml:space="preserve"><value>Display Order</value><comment>Generated</comment></data>
+<data name="Domain" xml:space="preserve"><value>Domain</value><comment>Generated</comment></data>
+<data name="DomainDescription" xml:space="preserve"><value>Represents Domain Schema</value><comment>Generated</comment></data>
+<data name="EffectiveFrom" xml:space="preserve"><value>Effective From</value><comment>Generated</comment></data>
+<data name="EffectiveTo" xml:space="preserve"><value>Effective To</value><comment>Generated</comment></data>
+<data name="EmailId" xml:space="preserve"><value>Email Id</value><comment>Generated</comment></data>
+<data name="Entities" xml:space="preserve"><value>Entities</value><comment>Generated</comment></data>
+<data name="Entity" xml:space="preserve"><value>Entity</value><comment>Generated</comment></data>
+<data name="EntityId" xml:space="preserve"><value>Entity Id</value><comment>Generated</comment></data>
+<data name="EntityParent" xml:space="preserve"><value>Entity Parent</value><comment>Generated</comment></data>
+<data name="EntityParentUId" xml:space="preserve"><value>Entity Parent UId</value><comment>Generated</comment></data>
+<data name="EntityUId" xml:space="preserve"><value>Entity UId</value><comment>Generated</comment></data>
+<data name="ExpirationDate" xml:space="preserve"><value>Expiration Date</value><comment>Generated</comment></data>
+<data name="FirstName" xml:space="preserve"><value>First Name</value><comment>Generated</comment></data>
+<data name="ImageBinary" xml:space="preserve"><value>Image Binary</value><comment>Generated</comment></data>
+<data name="ImageUrl" xml:space="preserve"><value>Image Url</value><comment>Generated</comment></data>
+<data name="ImportSource" xml:space="preserve"><value>Import Source</value><comment>Generated</comment></data>
+<data name="IsEmbargoed" xml:space="preserve"><value>Is Embargoed</value><comment>Generated</comment></data>
+<data name="IsPreferred" xml:space="preserve"><value>Is Preferred</value><comment>Generated</comment></data>
+<data name="IsRTL" xml:space="preserve"><value>Is RTL</value><comment>Generated</comment></data>
+<data name="KeyName" xml:space="preserve"><value>Key Name</value><comment>Generated</comment></data>
+<data name="Language" xml:space="preserve"><value>Language</value><comment>Generated</comment></data>
+<data name="LanguageId" xml:space="preserve"><value>Language Id</value><comment>Generated</comment></data>
+<data name="Languages" xml:space="preserve"><value>Languages</value><comment>Generated</comment></data>
+<data name="LanguageUId" xml:space="preserve"><value>Language UId</value><comment>Generated</comment></data>
+<data name="LastName" xml:space="preserve"><value>Last Name</value><comment>Generated</comment></data>
+<data name="Line1" xml:space="preserve"><value>Line 1</value><comment>Generated</comment></data>
+<data name="Line2" xml:space="preserve"><value>Line 2</value><comment>Generated</comment></data>
+<data name="Line3" xml:space="preserve"><value>Line 3</value><comment>Generated</comment></data>
+<data name="LocalizedName" xml:space="preserve"><value>Localized Name</value><comment>Generated</comment></data>
+<data name="ManageAccount" xml:space="preserve"><value>Manage Account</value><comment>Generated</comment></data>
+<data name="ManageAccountStatus" xml:space="preserve"><value>Manage Account Status</value><comment>Generated</comment></data>
+<data name="ManageAccountStatusTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) accountstatus data.</value><comment>Generated</comment></data>
+<data name="ManageAccountTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) account data.</value><comment>Generated</comment></data>
+<data name="ManageAppSetting" xml:space="preserve"><value>Manage App Setting</value><comment>Generated</comment></data>
+<data name="ManageAppSettingTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) appsetting data.</value><comment>Generated</comment></data>
+<data name="ManageCountry" xml:space="preserve"><value>Manage Country</value><comment>Generated</comment></data>
+<data name="ManageCountryLanguage" xml:space="preserve"><value>Manage Country Language</value><comment>Generated</comment></data>
+<data name="ManageCountryLanguageTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) countrylanguage data.</value><comment>Generated</comment></data>
+<data name="ManageCountryTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) country data.</value><comment>Generated</comment></data>
+<data name="ManageCustomer" xml:space="preserve"><value>Manage Customer</value><comment>Generated</comment></data>
+<data name="ManageCustomerAddress" xml:space="preserve"><value>Manage Customer Address</value><comment>Generated</comment></data>
+<data name="ManageCustomerAddressTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) customeraddress data.</value><comment>Generated</comment></data>
+<data name="ManageCustomerCard" xml:space="preserve"><value>Manage Customer Card</value><comment>Generated</comment></data>
+<data name="ManageCustomerCardTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) customercard data.</value><comment>Generated</comment></data>
+<data name="ManageCustomerPhone" xml:space="preserve"><value>Manage Customer Phone</value><comment>Generated</comment></data>
+<data name="ManageCustomerPhoneTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) customerphone data.</value><comment>Generated</comment></data>
+<data name="ManageCustomerTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) customer data.</value><comment>Generated</comment></data>
+<data name="ManageEntity" xml:space="preserve"><value>Manage Entity</value><comment>Generated</comment></data>
+<data name="ManageEntityTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) entity data.</value><comment>Generated</comment></data>
+<data name="ManageLanguage" xml:space="preserve"><value>Manage Language</value><comment>Generated</comment></data>
+<data name="ManageLanguageTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) language data.</value><comment>Generated</comment></data>
+<data name="ManageMasterList" xml:space="preserve"><value>Manage Master List</value><comment>Generated</comment></data>
+<data name="ManageMasterListItem" xml:space="preserve"><value>Manage Master List Item</value><comment>Generated</comment></data>
+<data name="ManageMasterListItemTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) masterlistitem data.</value><comment>Generated</comment></data>
+<data name="ManageMasterListTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) masterlist data.</value><comment>Generated</comment></data>
+<data name="ManageOrder" xml:space="preserve"><value>Manage Order</value><comment>Generated</comment></data>
+<data name="ManageOrderItem" xml:space="preserve"><value>Manage Order Item</value><comment>Generated</comment></data>
+<data name="ManageOrderItemShipment" xml:space="preserve"><value>Manage Order Item Shipment</value><comment>Generated</comment></data>
+<data name="ManageOrderItemShipmentTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) orderitemshipment data.</value><comment>Generated</comment></data>
+<data name="ManageOrderItemTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) orderitem data.</value><comment>Generated</comment></data>
+<data name="ManageOrderTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) order data.</value><comment>Generated</comment></data>
+<data name="ManageProduct" xml:space="preserve"><value>Manage Product</value><comment>Generated</comment></data>
+<data name="ManageProductCategory" xml:space="preserve"><value>Manage Product Category</value><comment>Generated</comment></data>
+<data name="ManageProductCategoryLanguage" xml:space="preserve"><value>Manage Product Category Language</value><comment>Generated</comment></data>
+<data name="ManageProductCategoryLanguageTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) productcategorylanguage data.</value><comment>Generated</comment></data>
+<data name="ManageProductCategoryTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) productcategory data.</value><comment>Generated</comment></data>
+<data name="ManageProductLanguage" xml:space="preserve"><value>Manage Product Language</value><comment>Generated</comment></data>
+<data name="ManageProductLanguageTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) productlanguage data.</value><comment>Generated</comment></data>
+<data name="ManageProductTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) product data.</value><comment>Generated</comment></data>
+<data name="ManageRowStatus" xml:space="preserve"><value>Manage Row Status</value><comment>Generated</comment></data>
+<data name="ManageRowStatusTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) rowstatus data.</value><comment>Generated</comment></data>
+<data name="ManageSeller" xml:space="preserve"><value>Manage Seller</value><comment>Generated</comment></data>
+<data name="ManageSellerAddress" xml:space="preserve"><value>Manage Seller Address</value><comment>Generated</comment></data>
+<data name="ManageSellerAddressTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) selleraddress data.</value><comment>Generated</comment></data>
+<data name="ManageSellerBankAccount" xml:space="preserve"><value>Manage Seller Bank Account</value><comment>Generated</comment></data>
+<data name="ManageSellerBankAccountTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) sellerbankaccount data.</value><comment>Generated</comment></data>
+<data name="ManageSellerPhone" xml:space="preserve"><value>Manage Seller Phone</value><comment>Generated</comment></data>
+<data name="ManageSellerPhoneTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) sellerphone data.</value><comment>Generated</comment></data>
+<data name="ManageSellerTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) seller data.</value><comment>Generated</comment></data>
+<data name="ManageShipper" xml:space="preserve"><value>Manage Shipper</value><comment>Generated</comment></data>
+<data name="ManageShipperAddress" xml:space="preserve"><value>Manage Shipper Address</value><comment>Generated</comment></data>
+<data name="ManageShipperAddressTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) shipperaddress data.</value><comment>Generated</comment></data>
+<data name="ManageShipperBankAccount" xml:space="preserve"><value>Manage Shipper Bank Account</value><comment>Generated</comment></data>
+<data name="ManageShipperBankAccountTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) shipperbankaccount data.</value><comment>Generated</comment></data>
+<data name="ManageShipperPhone" xml:space="preserve"><value>Manage Shipper Phone</value><comment>Generated</comment></data>
+<data name="ManageShipperPhoneTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) shipperphone data.</value><comment>Generated</comment></data>
+<data name="ManageShipperTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) shipper data.</value><comment>Generated</comment></data>
+<data name="ManageShoppingCart" xml:space="preserve"><value>Manage Shopping Cart</value><comment>Generated</comment></data>
+<data name="ManageShoppingCartTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) shoppingcart data.</value><comment>Generated</comment></data>
+<data name="ManageShoppingCartWishList" xml:space="preserve"><value>Manage Shopping Cart Wish List</value><comment>Generated</comment></data>
+<data name="ManageShoppingCartWishListTitleDescription" xml:space="preserve"><value>Manage ( Add | Edit | Delete ) shoppingcartwishlist data.</value><comment>Generated</comment></data>
+<data name="Master" xml:space="preserve"><value>Master</value><comment>Generated</comment></data>
+<data name="MasterDescription" xml:space="preserve"><value>Master is the common feature of the application</value><comment>Generated</comment></data>
+<data name="MasterList" xml:space="preserve"><value>Master List</value><comment>Generated</comment></data>
+<data name="MasterListId" xml:space="preserve"><value>Master List Id</value><comment>Generated</comment></data>
+<data name="MasterListItem" xml:space="preserve"><value>Master List Item</value><comment>Generated</comment></data>
+<data name="MasterListItemId" xml:space="preserve"><value>Master List Item Id</value><comment>Generated</comment></data>
+<data name="MasterListItems" xml:space="preserve"><value>Master List Items</value><comment>Generated</comment></data>
+<data name="MasterListItemUId" xml:space="preserve"><value>Master List Item UId</value><comment>Generated</comment></data>
+<data name="MasterLists" xml:space="preserve"><value>Master Lists</value><comment>Generated</comment></data>
+<data name="MasterListUId" xml:space="preserve"><value>Master List UId</value><comment>Generated</comment></data>
+<data name="MasterTileDescription" xml:space="preserve"><value>Represents Master UI screen group</value><comment>Generated</comment></data>
+<data name="ModifiedByAccount" xml:space="preserve"><value>Modified By Account</value><comment>Generated</comment></data>
+<data name="ModifiedByAccountUId" xml:space="preserve"><value>Modified By Account UId</value><comment>Generated</comment></data>
+<data name="ModifiedByApp" xml:space="preserve"><value>Modified By App</value><comment>Generated</comment></data>
+<data name="ModifiedOn" xml:space="preserve"><value>Modified On</value><comment>Generated</comment></data>
+<data name="MyOnlineShopingCart" xml:space="preserve"><value>My Online Shoping Cart</value><comment>Generated</comment></data>
+<data name="MyOnlineShopingCartDescription" xml:space="preserve"><value>My Online Shoping Cart for customers to select products and buy them online</value><comment>Generated</comment></data>
+<data name="Name" xml:space="preserve"><value>Name</value><comment>Generated</comment></data>
+<data name="NameOnAccount" xml:space="preserve"><value>Name On Account</value><comment>Generated</comment></data>
+<data name="NameOnCard" xml:space="preserve"><value>Name On Card</value><comment>Generated</comment></data>
+<data name="Number" xml:space="preserve"><value>Number</value><comment>Generated</comment></data>
+<data name="OnlineShopping" xml:space="preserve"><value>Online Shopping</value><comment>Generated</comment></data>
+<data name="OnlineShoppingDescription" xml:space="preserve"><value>Online shopping is a form of electronic commerce or e-commerce</value><comment>Generated</comment></data>
+<data name="Order" xml:space="preserve"><value>Order</value><comment>Generated</comment></data>
+<data name="OrderId" xml:space="preserve"><value>Order Id</value><comment>Generated</comment></data>
+<data name="OrderItem" xml:space="preserve"><value>Order Item</value><comment>Generated</comment></data>
+<data name="OrderItemId" xml:space="preserve"><value>Order Item Id</value><comment>Generated</comment></data>
+<data name="OrderItems" xml:space="preserve"><value>Order Items</value><comment>Generated</comment></data>
+<data name="OrderItemShipment" xml:space="preserve"><value>Order Item Shipment</value><comment>Generated</comment></data>
+<data name="OrderItemShipmentId" xml:space="preserve"><value>Order Item Shipment Id</value><comment>Generated</comment></data>
+<data name="OrderItemShipments" xml:space="preserve"><value>Order Item Shipments</value><comment>Generated</comment></data>
+<data name="OrderItemShipmentUId" xml:space="preserve"><value>Order Item Shipment UId</value><comment>Generated</comment></data>
+<data name="OrderItemUId" xml:space="preserve"><value>Order Item UId</value><comment>Generated</comment></data>
+<data name="OrderManagement" xml:space="preserve"><value>Order Management</value><comment>Generated</comment></data>
+<data name="OrderManagementDescription" xml:space="preserve"><value>Involves tracking and coordinating orders from inception to fulfillment, ensuring efficient processes among teams, software, and partners. The goal is to provide quick, accurate delivery—optimizing business capacity and customer satisfaction through technology-enhanced systems.</value><comment>Generated</comment></data>
+<data name="Orders" xml:space="preserve"><value>Orders</value><comment>Generated</comment></data>
+<data name="OrderStatus" xml:space="preserve"><value>Order Status</value><comment>Generated</comment></data>
+<data name="OrderStatusUId" xml:space="preserve"><value>Order Status UId</value><comment>Generated</comment></data>
+<data name="OrderTileDescription" xml:space="preserve"><value>Represents Order UI screen group</value><comment>Generated</comment></data>
+<data name="OrderUId" xml:space="preserve"><value>Order UId</value><comment>Generated</comment></data>
+<data name="PhoneNumber" xml:space="preserve"><value>Phone Number</value><comment>Generated</comment></data>
+<data name="PhoneType" xml:space="preserve"><value>Phone Type</value><comment>Generated</comment></data>
+<data name="PhoneTypeUId" xml:space="preserve"><value>Phone Type UId</value><comment>Generated</comment></data>
+<data name="Product" xml:space="preserve"><value>Product</value><comment>Generated</comment></data>
+<data name="ProductCategories" xml:space="preserve"><value>Product Categories</value><comment>Generated</comment></data>
+<data name="ProductCategory" xml:space="preserve"><value>Product Category</value><comment>Generated</comment></data>
+<data name="ProductCategoryId" xml:space="preserve"><value>Product Category Id</value><comment>Generated</comment></data>
+<data name="ProductCategoryLanguage" xml:space="preserve"><value>Product Category Language</value><comment>Generated</comment></data>
+<data name="ProductCategoryLanguageId" xml:space="preserve"><value>Product Category Language Id</value><comment>Generated</comment></data>
+<data name="ProductCategoryLanguages" xml:space="preserve"><value>Product Category Languages</value><comment>Generated</comment></data>
+<data name="ProductCategoryLanguageUId" xml:space="preserve"><value>Product Category Language UId</value><comment>Generated</comment></data>
+<data name="ProductCategoryParent" xml:space="preserve"><value>Product Category Parent</value><comment>Generated</comment></data>
+<data name="ProductCategoryParentUId" xml:space="preserve"><value>Product Category Parent UId</value><comment>Generated</comment></data>
+<data name="ProductCategoryUId" xml:space="preserve"><value>Product Category UId</value><comment>Generated</comment></data>
+<data name="ProductId" xml:space="preserve"><value>Product Id</value><comment>Generated</comment></data>
+<data name="ProductLanguage" xml:space="preserve"><value>Product Language</value><comment>Generated</comment></data>
+<data name="ProductLanguageId" xml:space="preserve"><value>Product Language Id</value><comment>Generated</comment></data>
+<data name="ProductLanguages" xml:space="preserve"><value>Product Languages</value><comment>Generated</comment></data>
+<data name="ProductLanguageUId" xml:space="preserve"><value>Product Language UId</value><comment>Generated</comment></data>
+<data name="ProductManagement" xml:space="preserve"><value>Product Management</value><comment>Generated</comment></data>
+<data name="ProductManagementDescription" xml:space="preserve"><value>Business process of planning, developing, launching, and managing a product or service. It includes the entire lifecycle of a product, from ideation to development to go to market.</value><comment>Generated</comment></data>
+<data name="Products" xml:space="preserve"><value>Products</value><comment>Generated</comment></data>
+<data name="ProductTileDescription" xml:space="preserve"><value>Represents Product UI screen group</value><comment>Generated</comment></data>
+<data name="ProductUId" xml:space="preserve"><value>Product UId</value><comment>Generated</comment></data>
+<data name="Quantity" xml:space="preserve"><value>Quantity</value><comment>Generated</comment></data>
+<data name="Rate" xml:space="preserve"><value>Rate</value><comment>Generated</comment></data>
+<data name="Rating" xml:space="preserve"><value>Rating</value><comment>Generated</comment></data>
+<data name="RoutingNumber" xml:space="preserve"><value>Routing Number</value><comment>Generated</comment></data>
+<data name="RowStatus" xml:space="preserve"><value>Row Status</value><comment>Generated</comment></data>
+<data name="RowStatuses" xml:space="preserve"><value>Row Statuses</value><comment>Generated</comment></data>
+<data name="RowStatusId" xml:space="preserve"><value>Row Status Id</value><comment>Generated</comment></data>
+<data name="RowStatusUId" xml:space="preserve"><value>Row Status UId</value><comment>Generated</comment></data>
+<data name="RowVersion" xml:space="preserve"><value>Row Version</value><comment>Generated</comment></data>
+<data name="Security/Role-basedAuthorization" xml:space="preserve"><value>Security / Role -based Authorization</value><comment>Generated</comment></data>
+<data name="Security/Role-basedauthorizationDescription" xml:space="preserve"><value>Role-based access control (RBAC) refers to the idea of assigning permissions to users based on their role within an organization. It offers a simple, manageable approach to access management that is less prone to error than assigning permissions to users individually.</value><comment>Generated</comment></data>
+<data name="SecurityCode" xml:space="preserve"><value>Security Code</value><comment>Generated</comment></data>
+<data name="Seller" xml:space="preserve"><value>Seller</value><comment>Generated</comment></data>
+<data name="SellerAddress" xml:space="preserve"><value>Seller Address</value><comment>Generated</comment></data>
+<data name="SellerAddresses" xml:space="preserve"><value>Seller Addresses</value><comment>Generated</comment></data>
+<data name="SellerAddressId" xml:space="preserve"><value>Seller Address Id</value><comment>Generated</comment></data>
+<data name="SellerAddressUId" xml:space="preserve"><value>Seller Address UId</value><comment>Generated</comment></data>
+<data name="SellerBankAccount" xml:space="preserve"><value>Seller Bank Account</value><comment>Generated</comment></data>
+<data name="SellerBankAccountId" xml:space="preserve"><value>Seller Bank Account Id</value><comment>Generated</comment></data>
+<data name="SellerBankAccounts" xml:space="preserve"><value>Seller Bank Accounts</value><comment>Generated</comment></data>
+<data name="SellerBankAccountUId" xml:space="preserve"><value>Seller Bank Account UId</value><comment>Generated</comment></data>
+<data name="SellerId" xml:space="preserve"><value>Seller Id</value><comment>Generated</comment></data>
+<data name="SellerManagement" xml:space="preserve"><value>Seller Management</value><comment>Generated</comment></data>
+<data name="SellerManagementDescription" xml:space="preserve"><value>Seller management is where sellers list their products, handle logistics, reply to customer messages, and set up their brand profile to sell on the marketplace.</value><comment>Generated</comment></data>
+<data name="SellerPhone" xml:space="preserve"><value>Seller Phone</value><comment>Generated</comment></data>
+<data name="SellerPhoneId" xml:space="preserve"><value>Seller Phone Id</value><comment>Generated</comment></data>
+<data name="SellerPhones" xml:space="preserve"><value>Seller Phones</value><comment>Generated</comment></data>
+<data name="SellerPhoneUId" xml:space="preserve"><value>Seller Phone UId</value><comment>Generated</comment></data>
+<data name="Sellers" xml:space="preserve"><value>Sellers</value><comment>Generated</comment></data>
+<data name="SellerStatus" xml:space="preserve"><value>Seller Status</value><comment>Generated</comment></data>
+<data name="SellerStatusUId" xml:space="preserve"><value>Seller Status UId</value><comment>Generated</comment></data>
+<data name="SellerTileDescription" xml:space="preserve"><value>Represents Seller UI screen group</value><comment>Generated</comment></data>
+<data name="SellerUId" xml:space="preserve"><value>Seller UId</value><comment>Generated</comment></data>
+<data name="Shipper" xml:space="preserve"><value>Shipper</value><comment>Generated</comment></data>
+<data name="ShipperAddress" xml:space="preserve"><value>Shipper Address</value><comment>Generated</comment></data>
+<data name="ShipperAddresses" xml:space="preserve"><value>Shipper Addresses</value><comment>Generated</comment></data>
+<data name="ShipperAddressId" xml:space="preserve"><value>Shipper Address Id</value><comment>Generated</comment></data>
+<data name="ShipperAddressUId" xml:space="preserve"><value>Shipper Address UId</value><comment>Generated</comment></data>
+<data name="ShipperBankAccount" xml:space="preserve"><value>Shipper Bank Account</value><comment>Generated</comment></data>
+<data name="ShipperBankAccountId" xml:space="preserve"><value>Shipper Bank Account Id</value><comment>Generated</comment></data>
+<data name="ShipperBankAccounts" xml:space="preserve"><value>Shipper Bank Accounts</value><comment>Generated</comment></data>
+<data name="ShipperBankAccountUId" xml:space="preserve"><value>Shipper Bank Account UId</value><comment>Generated</comment></data>
+<data name="ShipperId" xml:space="preserve"><value>Shipper Id</value><comment>Generated</comment></data>
+<data name="ShipperManagement" xml:space="preserve"><value>Shipper Management</value><comment>Generated</comment></data>
+<data name="ShipperManagementDescription" xml:space="preserve"><value>Manages data relateed to shipping/delivery vendors i.e Add/Edit/delete shippers, balcklist shippers etc.</value><comment>Generated</comment></data>
+<data name="ShipperPhone" xml:space="preserve"><value>Shipper Phone</value><comment>Generated</comment></data>
+<data name="ShipperPhoneId" xml:space="preserve"><value>Shipper Phone Id</value><comment>Generated</comment></data>
+<data name="ShipperPhones" xml:space="preserve"><value>Shipper Phones</value><comment>Generated</comment></data>
+<data name="ShipperPhoneUId" xml:space="preserve"><value>Shipper Phone UId</value><comment>Generated</comment></data>
+<data name="Shippers" xml:space="preserve"><value>Shippers</value><comment>Generated</comment></data>
+<data name="ShipperStatus" xml:space="preserve"><value>Shipper Status</value><comment>Generated</comment></data>
+<data name="ShipperStatusUId" xml:space="preserve"><value>Shipper Status UId</value><comment>Generated</comment></data>
+<data name="ShipperTileDescription" xml:space="preserve"><value>Represents Shipper UI screen group</value><comment>Generated</comment></data>
+<data name="ShipperTrackingNumber" xml:space="preserve"><value>Shipper Tracking Number</value><comment>Generated</comment></data>
+<data name="ShipperUId" xml:space="preserve"><value>Shipper UId</value><comment>Generated</comment></data>
+<data name="ShoppingCart" xml:space="preserve"><value>Shopping Cart</value><comment>Generated</comment></data>
+<data name="ShoppingCartId" xml:space="preserve"><value>Shopping Cart Id</value><comment>Generated</comment></data>
+<data name="ShoppingCartManagement" xml:space="preserve"><value>Shopping Cart Management</value><comment>Generated</comment></data>
+<data name="ShoppingCartManagementDescription" xml:space="preserve"><value>The fundamental function of an online shopping cart is the ability to add products. Customers might search for your product via a search engine and land on a product page. Or they may search or browse products on your website.</value><comment>Generated</comment></data>
+<data name="ShoppingCarts" xml:space="preserve"><value>Shopping Carts</value><comment>Generated</comment></data>
+<data name="ShoppingCartTileDescription" xml:space="preserve"><value>Represents ShoppingCart UI screen group</value><comment>Generated</comment></data>
+<data name="ShoppingCartUId" xml:space="preserve"><value>Shopping Cart UId</value><comment>Generated</comment></data>
+<data name="ShoppingCartWishList" xml:space="preserve"><value>Shopping Cart Wish List</value><comment>Generated</comment></data>
+<data name="ShoppingCartWishListId" xml:space="preserve"><value>Shopping Cart Wish List Id</value><comment>Generated</comment></data>
+<data name="ShoppingCartWishLists" xml:space="preserve"><value>Shopping Cart Wish Lists</value><comment>Generated</comment></data>
+<data name="ShoppingCartWishListUId" xml:space="preserve"><value>Shopping Cart Wish List UId</value><comment>Generated</comment></data>
+<data name="SoldQuantity" xml:space="preserve"><value>Sold Quantity</value><comment>Generated</comment></data>
+<data name="SortOrder" xml:space="preserve"><value>Sort Order</value><comment>Generated</comment></data>
+<data name="Source" xml:space="preserve"><value>Source</value><comment>Generated</comment></data>
+<data name="StateCode" xml:space="preserve"><value>State Code</value><comment>Generated</comment></data>
+<data name="TotalQuantity" xml:space="preserve"><value>Total Quantity</value><comment>Generated</comment></data>
+<data name="Value" xml:space="preserve"><value>Value</value><comment>Generated</comment></data>
+<data name="WebShopDescription" xml:space="preserve"><value>Represents WebShop Schema</value><comment>Generated</comment></data>
+<data name="WebShopTitle" xml:space="preserve"><value>Web Shop</value><comment>Generated</comment></data>
+<data name="WebShopTitleDescription" xml:space="preserve"><value>Online shopping is a form of electronic commerce which allows consumers to directly buy goods or services from a seller over the Internet using a web browser or a mobile app. Consumers find a product of interest by visiting the website of the retailer directly or by searching among alternative vendors using a shopping search engine, which displays the same product's availability and pricing at different e-retailers.</value><comment>Generated</comment></data>
+<data name="ZipCode" xml:space="preserve"><value>Zip Code</value><comment>Generated</comment></data>
+</root>

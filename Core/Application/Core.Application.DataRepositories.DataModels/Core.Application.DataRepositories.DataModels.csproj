@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>Accenture.WebShop.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>Accenture.WebShop.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+  </PropertyGroup>
+
+
+   <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.Metrics" Version="3.3.4" />
+  </ItemGroup>
+   <ItemGroup>
+        <ProjectReference Include="..\..\..\Core\Domain\Core.Domain.DataModel\Core.Domain.DataModel.csproj" />
+    <ProjectReference Include="..\..\..\SharedKernal\SharedKernal.Libraries\SharedKernal.Libraries.csproj" />
+    <ProjectReference Include="..\..\..\Framework\MessageHub\MessageHub.csproj" />
+  </ItemGroup>  
+  <ItemGroup>
+    <Folder Include="010-RequestModels\" />
+    <Folder Include="020-ResponseModels\" />
+    <Folder Include="010-RequestModels\__BaseModels\" />
+    <Folder Include="020-ResponseModels\__BaseModels\" />
+  </ItemGroup>
+</Project>

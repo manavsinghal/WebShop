@@ -1,0 +1,63 @@
+<div class="c-breadcrumbs">
+    <div class="container">
+        <div class="c-breadcrumbs__wrapper">
+            <ul class="c-breadcrumbs__list" style="list-style-type: none;padding: 0;margin: 0">
+                <li class="c-breadcrumbs__item"><a routerLink="/" (click)="setHomeTab()" translate>Home</a></li>
+                <li class="c-breadcrumbs__item -active" translate>ManageFeatures</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--<div class="c-page-header">-->
+    <div class="container">
+        <div class="c-page-header__heading">
+            <h2 class="c-page-header__head">
+                <span class="c-page-header__head-arrow-text" translate>ManageFeatures</span>
+            </h2>
+            <p class="c-page-header__para" translate>
+                ManageFeaturesDescription
+            </p>
+        </div>
+    </div>
+<!--</div>-->
+<div class="c-dashboard">
+    <div class="container">
+        <div class="c-dashboard__items">
+            <!--<div class="c-dashboard__item">-->
+                <div class="c-admin-card">
+                    <div class="c-admin-card__bg-layer-one"></div>
+                    <div class="c-admin-card__bg-layer-two"></div>
+                    <div class="c-admin-card__wrapper">
+                        <!--<div class="c-admin-card__more d-none">
+                            <i class="c-admin-card__more-icons icon-dots"></i>
+                            <div class="c-admin-card__more-modal">
+                                <div class="c-admin-card__more-head">
+                                    <span translate>Options</span>
+                                    <i class="icon-dots"></i>
+                                </div>
+                                <div class="c-admin-card__more-content">
+                                    <a class="c-admin-card__more-link">Demo Video</a>
+                                    <a class="c-admin-card__more-link">Demo Link</a>
+                                </div>
+                            </div>
+                        </div>-->
+                        <div class="c-admin-card__body">
+                            <span class="c-admin-card__icon icon-acc-manage"></span>
+                            <div class="c-admin-card__head">
+                                <h3 class="c-admin-card__title" title="Domain" translate>
+                                    Domain
+                                </h3>
+                            </div>
+                            <p class="c-admin-card__desc" style="overflow-y: hidden" translate>
+							    <span  translate>DomainDescription</span>
+                            </p>
+                        </div>
+                        <div class="c-admin-card__bottom-list">
+                            <a (click)="navigateToManageFeature('domain')" class="c-admin-card__list-item" title="Proceed" translate>Proceed</a>
+                        </div>
+                    </div>
+                </div>
+            <!--</div>-->
+        </div>
+    </div>
+</div>

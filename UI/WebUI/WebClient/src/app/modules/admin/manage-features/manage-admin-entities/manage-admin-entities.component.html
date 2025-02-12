@@ -1,0 +1,323 @@
+<div class="c-breadcrumbs">
+    <div class="container">
+        <div class="c-breadcrumbs__wrapper">
+            <ul class="c-breadcrumbs__list">
+                <li class="c-breadcrumbs__item"><a (click)="backToAdmin()" translate>ManageGroupEntities</a></li>
+                <li class="c-breadcrumbs__item -active" translate>ManageEntities</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="c-text-banner__wrapper">
+        <h2 class="c-text-banner__title">
+            <a (click)="backToAdmin()">
+                <i class="c-text-banner__backicon icon-arrow"></i>
+            </a>
+            <span translate> Manage </span> <span translate>{{screenGroup}} </span> <span translate> Entities</span>
+        </h2>
+        <p class="c-text-banner__desc" translate>
+            AdministrationDescription
+        </p>
+    </div>
+</div>
+<div class="c-accman">
+    <div class="c-accman__wrapper">
+        <div class="container">
+            <div class="c-mc-filter">
+                <div class="c-mc-filter__wrapper-right">
+                    <div class="c-mc-filter__right">
+                        <div class="c-mc-filter__search -active">
+                            <div class="c-mc-filter__search-icon icon-search" id="search" (click)="toggleSearchComponent()"></div>
+                            <input type="text" class="o-input__input c-mc-filter__input-field -active" (input)="searchTable('manageEntities',$event)"
+                                   placeholder="{{'Search' | translate}}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><div class="container">
+            <div class="c-account-table">
+                <div class="c-account-table__wrapper">
+                    <table class="c-account-table__block">
+                        <thead class="c-account-table__head">
+                            <tr class="c-account-table__headrow">
+                                <th class="c-account-table__headcell" translate>
+                                    ManageEntity
+                                </th>
+                                <th class="c-account-table__headcell" translate>
+                                    Description
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="manageEntities">
+                            @if (serviceGroup === 'domain') {
+                                <ng-container>
+                                    @if (screenGroup === 'Account') {
+                                        <ng-container>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage Account" (click)="navigateToManageEntity('Manage Account')" translate>
+                                                        ManageAccount
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageAccountTitleDescription</td>
+                                            </tr>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage AccountStatus" (click)="navigateToManageEntity('Manage AccountStatus')" translate>
+                                                        ManageAccountStatus
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageAccountStatusTitleDescription</td>
+                                            </tr>
+                                        </ng-container>
+                                    }
+                                    @if (screenGroup === 'Customer') {
+                                        <ng-container>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage Customer" (click)="navigateToManageEntity('Manage Customer')" translate>
+                                                        ManageCustomer
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageCustomerTitleDescription</td>
+                                            </tr>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage CustomerAddress" (click)="navigateToManageEntity('Manage CustomerAddress')" translate>
+                                                        ManageCustomerAddress
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageCustomerAddressTitleDescription</td>
+                                            </tr>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage CustomerCard" (click)="navigateToManageEntity('Manage CustomerCard')" translate>
+                                                        ManageCustomerCard
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageCustomerCardTitleDescription</td>
+                                            </tr>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage CustomerPhone" (click)="navigateToManageEntity('Manage CustomerPhone')" translate>
+                                                        ManageCustomerPhone
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageCustomerPhoneTitleDescription</td>
+                                            </tr>
+                                        </ng-container>
+                                    }
+                                    @if (screenGroup === 'Master') {
+                                        <ng-container>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage AppSetting" (click)="navigateToManageEntity('Manage AppSetting')" translate>
+                                                        ManageAppSetting
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageAppSettingTitleDescription</td>
+                                            </tr>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage Country" (click)="navigateToManageEntity('Manage Country')" translate>
+                                                        ManageCountry
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageCountryTitleDescription</td>
+                                            </tr>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage Entity" (click)="navigateToManageEntity('Manage Entity')" translate>
+                                                        ManageEntity
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageEntityTitleDescription</td>
+                                            </tr>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage Language" (click)="navigateToManageEntity('Manage Language')" translate>
+                                                        ManageLanguage
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageLanguageTitleDescription</td>
+                                            </tr>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage MasterList" (click)="navigateToManageEntity('Manage MasterList')" translate>
+                                                        ManageMasterList
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageMasterListTitleDescription</td>
+                                            </tr>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage MasterListItem" (click)="navigateToManageEntity('Manage MasterListItem')" translate>
+                                                        ManageMasterListItem
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageMasterListItemTitleDescription</td>
+                                            </tr>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage RowStatus" (click)="navigateToManageEntity('Manage RowStatus')" translate>
+                                                        ManageRowStatus
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageRowStatusTitleDescription</td>
+                                            </tr>
+                                        </ng-container>
+                                    }
+                                    @if (screenGroup === 'Order') {
+                                        <ng-container>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage Order" (click)="navigateToManageEntity('Manage Order')" translate>
+                                                        ManageOrder
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageOrderTitleDescription</td>
+                                            </tr>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage OrderItem" (click)="navigateToManageEntity('Manage OrderItem')" translate>
+                                                        ManageOrderItem
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageOrderItemTitleDescription</td>
+                                            </tr>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage OrderItemShipment" (click)="navigateToManageEntity('Manage OrderItemShipment')" translate>
+                                                        ManageOrderItemShipment
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageOrderItemShipmentTitleDescription</td>
+                                            </tr>
+                                        </ng-container>
+                                    }
+                                    @if (screenGroup === 'Product') {
+                                        <ng-container>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage Product" (click)="navigateToManageEntity('Manage Product')" translate>
+                                                        ManageProduct
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageProductTitleDescription</td>
+                                            </tr>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage ProductCategory" (click)="navigateToManageEntity('Manage ProductCategory')" translate>
+                                                        ManageProductCategory
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageProductCategoryTitleDescription</td>
+                                            </tr>
+                                        </ng-container>
+                                    }
+                                    @if (screenGroup === 'Seller') {
+                                        <ng-container>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage Seller" (click)="navigateToManageEntity('Manage Seller')" translate>
+                                                        ManageSeller
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageSellerTitleDescription</td>
+                                            </tr>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage SellerAddress" (click)="navigateToManageEntity('Manage SellerAddress')" translate>
+                                                        ManageSellerAddress
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageSellerAddressTitleDescription</td>
+                                            </tr>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage SellerBankAccount" (click)="navigateToManageEntity('Manage SellerBankAccount')" translate>
+                                                        ManageSellerBankAccount
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageSellerBankAccountTitleDescription</td>
+                                            </tr>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage SellerPhone" (click)="navigateToManageEntity('Manage SellerPhone')" translate>
+                                                        ManageSellerPhone
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageSellerPhoneTitleDescription</td>
+                                            </tr>
+                                        </ng-container>
+                                    }
+                                    @if (screenGroup === 'Shipper') {
+                                        <ng-container>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage Shipper" (click)="navigateToManageEntity('Manage Shipper')" translate>
+                                                        ManageShipper
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageShipperTitleDescription</td>
+                                            </tr>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage ShipperAddress" (click)="navigateToManageEntity('Manage ShipperAddress')" translate>
+                                                        ManageShipperAddress
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageShipperAddressTitleDescription</td>
+                                            </tr>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage ShipperBankAccount" (click)="navigateToManageEntity('Manage ShipperBankAccount')" translate>
+                                                        ManageShipperBankAccount
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageShipperBankAccountTitleDescription</td>
+                                            </tr>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage ShipperPhone" (click)="navigateToManageEntity('Manage ShipperPhone')" translate>
+                                                        ManageShipperPhone
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageShipperPhoneTitleDescription</td>
+                                            </tr>
+                                        </ng-container>
+                                    }
+                                    @if (screenGroup === 'ShoppingCart') {
+                                        <ng-container>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage ShoppingCart" (click)="navigateToManageEntity('Manage ShoppingCart')" translate>
+                                                        ManageShoppingCart
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageShoppingCartTitleDescription</td>
+                                            </tr>
+                                            <tr class="c-account-table__bodyrow">
+                                                <td class="c-account-table__datacell">
+                                                    <a href="javascript:;" class="c-account-table__link" title="Manage ShoppingCartWishList" (click)="navigateToManageEntity('Manage ShoppingCartWishList')" translate>
+                                                        ManageShoppingCartWishList
+                                                    </a>
+                                                </td>
+                                                <td class="c-account-table__datacell" translate>ManageShoppingCartWishListTitleDescription</td>
+                                            </tr>
+                                        </ng-container>
+                                    }
+                                </ng-container>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="c-pagination">
+                <div class="container">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
