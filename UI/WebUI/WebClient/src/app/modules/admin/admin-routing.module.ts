@@ -10,12 +10,12 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminComponent } from './manage-features/admin/admin.component';
-import { ManageAdminEntitiesComponent } from './manage-features/manage-admin-entities/manage-admin-entities.component';
-import { ManageSchemaComponent } from './manage-features/manage-schema/manage-schema.component';
+
+
+
 
 const routes: Routes = [
-    { path: 'manageGroupEntities', component: AdminComponent },    { path: 'manageAdminEntities', component: ManageAdminEntitiesComponent },    { path: '', component: ManageSchemaComponent }];
+    { path: 'manageGroupEntities', loadComponent: () => import('./manage-features/admin/admin.component').then(m => m.AdminComponent) },    { path: 'manageAdminEntities', loadComponent: () => import('./manage-features/manage-admin-entities/manage-admin-entities.component').then(m => m.ManageAdminEntitiesComponent) },    { path: '', loadComponent: () => import('./manage-features/manage-schema/manage-schema.component').then(m => m.ManageSchemaComponent) }];
 
 // Define the  AdminRoutingModule routing module
 @NgModule({

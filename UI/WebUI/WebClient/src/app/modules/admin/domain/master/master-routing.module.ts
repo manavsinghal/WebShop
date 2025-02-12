@@ -10,44 +10,44 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ManageAppSettingComponent } from './manage-app-setting/manage-app-setting.component.designer';
-import { ManageCountryComponent } from './manage-country/manage-country.component.designer';
-import { ManageCountryLanguageComponent } from './manage-country-language/manage-country-language.component.designer';
-import { ManageEntityComponent } from './manage-entity/manage-entity.component.designer';
-import { ManageLanguageComponent } from './manage-language/manage-language.component.designer';
-import { ManageMasterListComponent } from './manage-master-list/manage-master-list.component.designer';
-import { ManageMasterListItemComponent } from './manage-master-list-item/manage-master-list-item.component.designer';
-import { ManageRowStatusComponent } from './manage-row-status/manage-row-status.component.designer';
-import { ViewAppSettingComponent } from './view-app-setting/view-app-setting.component.designer';
-import { ViewCountryComponent } from './view-country/view-country.component.designer';
-import { ViewCountryLanguageComponent } from './view-country-language/view-country-language.component.designer';
-import { ViewEntityComponent } from './view-entity/view-entity.component.designer';
-import { ViewLanguageComponent } from './view-language/view-language.component.designer';
-import { ViewMasterListComponent } from './view-master-list/view-master-list.component.designer';
-import { ViewMasterListItemComponent } from './view-master-list-item/view-master-list-item.component.designer';
-import { ViewRowStatusComponent } from './view-row-status/view-row-status.component.designer';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Define the routes for the MasterRoutingModule module
 const routes: Routes = [
     {
         path: 'domain',       
         children: [
-            { path: 'manageAppSetting', component: ManageAppSettingComponent },          
-            { path: 'manageCountry', component: ManageCountryComponent },          
-            { path: 'manageCountryLanguage', component: ManageCountryLanguageComponent },          
-            { path: 'manageEntity', component: ManageEntityComponent },          
-            { path: 'manageLanguage', component: ManageLanguageComponent },          
-            { path: 'manageMasterList', component: ManageMasterListComponent },          
-            { path: 'manageMasterListItem', component: ManageMasterListItemComponent },          
-            { path: 'manageRowStatus', component: ManageRowStatusComponent },          
-            { path: 'viewAppSetting', component: ViewAppSettingComponent },          
-            { path: 'viewCountry', component: ViewCountryComponent },          
-            { path: 'viewCountryLanguage', component: ViewCountryLanguageComponent },          
-            { path: 'viewEntity', component: ViewEntityComponent },          
-            { path: 'viewLanguage', component: ViewLanguageComponent },          
-            { path: 'viewMasterList', component: ViewMasterListComponent },          
-            { path: 'viewMasterListItem', component: ViewMasterListItemComponent },          
-            { path: 'viewRowStatus', component: ViewRowStatusComponent },          
+            { path: 'manageAppSetting', loadComponent: () => import('./manage-app-setting/manage-app-setting.component.designer').then(m => m.ManageAppSettingComponent) },          
+            { path: 'manageCountry', loadComponent: () => import('./manage-country/manage-country.component.designer').then(m => m.ManageCountryComponent) },          
+            { path: 'manageCountryLanguage', loadComponent: () => import('./manage-country-language/manage-country-language.component.designer').then(m => m.ManageCountryLanguageComponent) },          
+            { path: 'manageEntity', loadComponent: () => import('./manage-entity/manage-entity.component.designer').then(m => m.ManageEntityComponent) },          
+            { path: 'manageLanguage', loadComponent: () => import('./manage-language/manage-language.component.designer').then(m => m.ManageLanguageComponent) },          
+            { path: 'manageMasterList', loadComponent: () => import('./manage-master-list/manage-master-list.component.designer').then(m => m.ManageMasterListComponent) },          
+            { path: 'manageMasterListItem', loadComponent: () => import('./manage-master-list-item/manage-master-list-item.component.designer').then(m => m.ManageMasterListItemComponent) },          
+            { path: 'manageRowStatus', loadComponent: () => import('./manage-row-status/manage-row-status.component.designer').then(m => m.ManageRowStatusComponent) },          
+            { path: 'viewAppSetting', loadComponent: () => import('./view-app-setting/view-app-setting.component.designer').then(m => m.ViewAppSettingComponent) },          
+            { path: 'viewCountry', loadComponent: () => import('./view-country/view-country.component.designer').then(m => m.ViewCountryComponent) },          
+            { path: 'viewCountryLanguage', loadComponent: () => import('./view-country-language/view-country-language.component.designer').then(m => m.ViewCountryLanguageComponent) },          
+            { path: 'viewEntity', loadComponent: () => import('./view-entity/view-entity.component.designer').then(m => m.ViewEntityComponent) },          
+            { path: 'viewLanguage', loadComponent: () => import('./view-language/view-language.component.designer').then(m => m.ViewLanguageComponent) },          
+            { path: 'viewMasterList', loadComponent: () => import('./view-master-list/view-master-list.component.designer').then(m => m.ViewMasterListComponent) },          
+            { path: 'viewMasterListItem', loadComponent: () => import('./view-master-list-item/view-master-list-item.component.designer').then(m => m.ViewMasterListItemComponent) },          
+            { path: 'viewRowStatus', loadComponent: () => import('./view-row-status/view-row-status.component.designer').then(m => m.ViewRowStatusComponent) },          
         ]
     }  
 ];

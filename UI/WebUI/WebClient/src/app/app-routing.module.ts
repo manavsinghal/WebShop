@@ -12,13 +12,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './core/login/auth-guard';
-import { LoginComponent } from './core/login/login.component';
-import { ShellComponent } from './core/shell/shell.component';
+
+
 
 const routes: Routes = [
 	{
 		path: 'app',
-		component: ShellComponent,
+		loadComponent: () => import('./core/shell/shell.component').then(m => m.ShellComponent),
 		canActivate: [AuthGuard],
 		children: [
 			{
@@ -37,7 +37,7 @@ const routes: Routes = [
 		]
 	},
 	{
-		path: 'login', component: LoginComponent
+		path: 'login', loadComponent: () => import('./core/login/login.component').then(m => m.LoginComponent)
 	},
 	{
         path: '', pathMatch: 'full', redirectTo: 'app/home',

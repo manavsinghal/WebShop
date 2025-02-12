@@ -10,20 +10,20 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ManageAccountComponent } from './manage-account/manage-account.component.designer';
-import { ManageAccountStatusComponent } from './manage-account-status/manage-account-status.component.designer';
-import { ViewAccountComponent } from './view-account/view-account.component.designer';
-import { ViewAccountStatusComponent } from './view-account-status/view-account-status.component.designer';
+
+
+
+
 
 // Define the routes for the AccountRoutingModule module
 const routes: Routes = [
     {
         path: 'domain',       
         children: [
-            { path: 'manageAccount', component: ManageAccountComponent },          
-            { path: 'manageAccountStatus', component: ManageAccountStatusComponent },          
-            { path: 'viewAccount', component: ViewAccountComponent },          
-            { path: 'viewAccountStatus', component: ViewAccountStatusComponent },          
+            { path: 'manageAccount', loadComponent: () => import('./manage-account/manage-account.component.designer').then(m => m.ManageAccountComponent) },          
+            { path: 'manageAccountStatus', loadComponent: () => import('./manage-account-status/manage-account-status.component.designer').then(m => m.ManageAccountStatusComponent) },          
+            { path: 'viewAccount', loadComponent: () => import('./view-account/view-account.component.designer').then(m => m.ViewAccountComponent) },          
+            { path: 'viewAccountStatus', loadComponent: () => import('./view-account-status/view-account-status.component.designer').then(m => m.ViewAccountStatusComponent) },          
         ]
     }  
 ];

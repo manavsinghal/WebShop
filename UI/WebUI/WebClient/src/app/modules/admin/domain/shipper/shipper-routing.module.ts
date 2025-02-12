@@ -10,28 +10,28 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ManageShipperComponent } from './manage-shipper/manage-shipper.component.designer';
-import { ManageShipperAddressComponent } from './manage-shipper-address/manage-shipper-address.component.designer';
-import { ManageShipperBankAccountComponent } from './manage-shipper-bank-account/manage-shipper-bank-account.component.designer';
-import { ManageShipperPhoneComponent } from './manage-shipper-phone/manage-shipper-phone.component.designer';
-import { ViewShipperComponent } from './view-shipper/view-shipper.component.designer';
-import { ViewShipperAddressComponent } from './view-shipper-address/view-shipper-address.component.designer';
-import { ViewShipperBankAccountComponent } from './view-shipper-bank-account/view-shipper-bank-account.component.designer';
-import { ViewShipperPhoneComponent } from './view-shipper-phone/view-shipper-phone.component.designer';
+
+
+
+
+
+
+
+
 
 // Define the routes for the ShipperRoutingModule module
 const routes: Routes = [
     {
         path: 'domain',       
         children: [
-            { path: 'manageShipper', component: ManageShipperComponent },          
-            { path: 'manageShipperAddress', component: ManageShipperAddressComponent },          
-            { path: 'manageShipperBankAccount', component: ManageShipperBankAccountComponent },          
-            { path: 'manageShipperPhone', component: ManageShipperPhoneComponent },          
-            { path: 'viewShipper', component: ViewShipperComponent },          
-            { path: 'viewShipperAddress', component: ViewShipperAddressComponent },          
-            { path: 'viewShipperBankAccount', component: ViewShipperBankAccountComponent },          
-            { path: 'viewShipperPhone', component: ViewShipperPhoneComponent },          
+            { path: 'manageShipper', loadComponent: () => import('./manage-shipper/manage-shipper.component.designer').then(m => m.ManageShipperComponent) },          
+            { path: 'manageShipperAddress', loadComponent: () => import('./manage-shipper-address/manage-shipper-address.component.designer').then(m => m.ManageShipperAddressComponent) },          
+            { path: 'manageShipperBankAccount', loadComponent: () => import('./manage-shipper-bank-account/manage-shipper-bank-account.component.designer').then(m => m.ManageShipperBankAccountComponent) },          
+            { path: 'manageShipperPhone', loadComponent: () => import('./manage-shipper-phone/manage-shipper-phone.component.designer').then(m => m.ManageShipperPhoneComponent) },          
+            { path: 'viewShipper', loadComponent: () => import('./view-shipper/view-shipper.component.designer').then(m => m.ViewShipperComponent) },          
+            { path: 'viewShipperAddress', loadComponent: () => import('./view-shipper-address/view-shipper-address.component.designer').then(m => m.ViewShipperAddressComponent) },          
+            { path: 'viewShipperBankAccount', loadComponent: () => import('./view-shipper-bank-account/view-shipper-bank-account.component.designer').then(m => m.ViewShipperBankAccountComponent) },          
+            { path: 'viewShipperPhone', loadComponent: () => import('./view-shipper-phone/view-shipper-phone.component.designer').then(m => m.ViewShipperPhoneComponent) },          
         ]
     }  
 ];

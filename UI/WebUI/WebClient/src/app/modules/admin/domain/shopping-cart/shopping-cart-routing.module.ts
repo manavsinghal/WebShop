@@ -10,20 +10,20 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ManageShoppingCartComponent } from './manage-shopping-cart/manage-shopping-cart.component.designer';
-import { ManageShoppingCartWishListComponent } from './manage-shopping-cart-wish-list/manage-shopping-cart-wish-list.component.designer';
-import { ViewShoppingCartComponent } from './view-shopping-cart/view-shopping-cart.component.designer';
-import { ViewShoppingCartWishListComponent } from './view-shopping-cart-wish-list/view-shopping-cart-wish-list.component.designer';
+
+
+
+
 
 // Define the routes for the ShoppingCartRoutingModule module
 const routes: Routes = [
     {
         path: 'domain',       
         children: [
-            { path: 'manageShoppingCart', component: ManageShoppingCartComponent },          
-            { path: 'manageShoppingCartWishList', component: ManageShoppingCartWishListComponent },          
-            { path: 'viewShoppingCart', component: ViewShoppingCartComponent },          
-            { path: 'viewShoppingCartWishList', component: ViewShoppingCartWishListComponent },          
+            { path: 'manageShoppingCart', loadComponent: () => import('./manage-shopping-cart/manage-shopping-cart.component.designer').then(m => m.ManageShoppingCartComponent) },          
+            { path: 'manageShoppingCartWishList', loadComponent: () => import('./manage-shopping-cart-wish-list/manage-shopping-cart-wish-list.component.designer').then(m => m.ManageShoppingCartWishListComponent) },          
+            { path: 'viewShoppingCart', loadComponent: () => import('./view-shopping-cart/view-shopping-cart.component.designer').then(m => m.ViewShoppingCartComponent) },          
+            { path: 'viewShoppingCartWishList', loadComponent: () => import('./view-shopping-cart-wish-list/view-shopping-cart-wish-list.component.designer').then(m => m.ViewShoppingCartWishListComponent) },          
         ]
     }  
 ];

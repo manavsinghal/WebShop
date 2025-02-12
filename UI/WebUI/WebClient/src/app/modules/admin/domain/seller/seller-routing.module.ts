@@ -10,28 +10,28 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ManageSellerComponent } from './manage-seller/manage-seller.component.designer';
-import { ManageSellerAddressComponent } from './manage-seller-address/manage-seller-address.component.designer';
-import { ManageSellerBankAccountComponent } from './manage-seller-bank-account/manage-seller-bank-account.component.designer';
-import { ManageSellerPhoneComponent } from './manage-seller-phone/manage-seller-phone.component.designer';
-import { ViewSellerComponent } from './view-seller/view-seller.component.designer';
-import { ViewSellerAddressComponent } from './view-seller-address/view-seller-address.component.designer';
-import { ViewSellerBankAccountComponent } from './view-seller-bank-account/view-seller-bank-account.component.designer';
-import { ViewSellerPhoneComponent } from './view-seller-phone/view-seller-phone.component.designer';
+
+
+
+
+
+
+
+
 
 // Define the routes for the SellerRoutingModule module
 const routes: Routes = [
     {
         path: 'domain',       
         children: [
-            { path: 'manageSeller', component: ManageSellerComponent },          
-            { path: 'manageSellerAddress', component: ManageSellerAddressComponent },          
-            { path: 'manageSellerBankAccount', component: ManageSellerBankAccountComponent },          
-            { path: 'manageSellerPhone', component: ManageSellerPhoneComponent },          
-            { path: 'viewSeller', component: ViewSellerComponent },          
-            { path: 'viewSellerAddress', component: ViewSellerAddressComponent },          
-            { path: 'viewSellerBankAccount', component: ViewSellerBankAccountComponent },          
-            { path: 'viewSellerPhone', component: ViewSellerPhoneComponent },          
+            { path: 'manageSeller', loadComponent: () => import('./manage-seller/manage-seller.component.designer').then(m => m.ManageSellerComponent) },          
+            { path: 'manageSellerAddress', loadComponent: () => import('./manage-seller-address/manage-seller-address.component.designer').then(m => m.ManageSellerAddressComponent) },          
+            { path: 'manageSellerBankAccount', loadComponent: () => import('./manage-seller-bank-account/manage-seller-bank-account.component.designer').then(m => m.ManageSellerBankAccountComponent) },          
+            { path: 'manageSellerPhone', loadComponent: () => import('./manage-seller-phone/manage-seller-phone.component.designer').then(m => m.ManageSellerPhoneComponent) },          
+            { path: 'viewSeller', loadComponent: () => import('./view-seller/view-seller.component.designer').then(m => m.ViewSellerComponent) },          
+            { path: 'viewSellerAddress', loadComponent: () => import('./view-seller-address/view-seller-address.component.designer').then(m => m.ViewSellerAddressComponent) },          
+            { path: 'viewSellerBankAccount', loadComponent: () => import('./view-seller-bank-account/view-seller-bank-account.component.designer').then(m => m.ViewSellerBankAccountComponent) },          
+            { path: 'viewSellerPhone', loadComponent: () => import('./view-seller-phone/view-seller-phone.component.designer').then(m => m.ViewSellerPhoneComponent) },          
         ]
     }  
 ];

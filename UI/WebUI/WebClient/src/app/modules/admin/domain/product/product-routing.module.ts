@@ -10,28 +10,28 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ManageProductComponent } from './manage-product/manage-product.component.designer';
-import { ManageProductCategoryComponent } from './manage-product-category/manage-product-category.component.designer';
-import { ManageProductCategoryLanguageComponent } from './manage-product-category-language/manage-product-category-language.component.designer';
-import { ManageProductLanguageComponent } from './manage-product-language/manage-product-language.component.designer';
-import { ViewProductComponent } from './view-product/view-product.component.designer';
-import { ViewProductCategoryComponent } from './view-product-category/view-product-category.component.designer';
-import { ViewProductCategoryLanguageComponent } from './view-product-category-language/view-product-category-language.component.designer';
-import { ViewProductLanguageComponent } from './view-product-language/view-product-language.component.designer';
+
+
+
+
+
+
+
+
 
 // Define the routes for the ProductRoutingModule module
 const routes: Routes = [
     {
         path: 'domain',       
         children: [
-            { path: 'manageProduct', component: ManageProductComponent },          
-            { path: 'manageProductCategory', component: ManageProductCategoryComponent },          
-            { path: 'manageProductCategoryLanguage', component: ManageProductCategoryLanguageComponent },          
-            { path: 'manageProductLanguage', component: ManageProductLanguageComponent },          
-            { path: 'viewProduct', component: ViewProductComponent },          
-            { path: 'viewProductCategory', component: ViewProductCategoryComponent },          
-            { path: 'viewProductCategoryLanguage', component: ViewProductCategoryLanguageComponent },          
-            { path: 'viewProductLanguage', component: ViewProductLanguageComponent },          
+            { path: 'manageProduct', loadComponent: () => import('./manage-product/manage-product.component.designer').then(m => m.ManageProductComponent) },          
+            { path: 'manageProductCategory', loadComponent: () => import('./manage-product-category/manage-product-category.component.designer').then(m => m.ManageProductCategoryComponent) },          
+            { path: 'manageProductCategoryLanguage', loadComponent: () => import('./manage-product-category-language/manage-product-category-language.component.designer').then(m => m.ManageProductCategoryLanguageComponent) },          
+            { path: 'manageProductLanguage', loadComponent: () => import('./manage-product-language/manage-product-language.component.designer').then(m => m.ManageProductLanguageComponent) },          
+            { path: 'viewProduct', loadComponent: () => import('./view-product/view-product.component.designer').then(m => m.ViewProductComponent) },          
+            { path: 'viewProductCategory', loadComponent: () => import('./view-product-category/view-product-category.component.designer').then(m => m.ViewProductCategoryComponent) },          
+            { path: 'viewProductCategoryLanguage', loadComponent: () => import('./view-product-category-language/view-product-category-language.component.designer').then(m => m.ViewProductCategoryLanguageComponent) },          
+            { path: 'viewProductLanguage', loadComponent: () => import('./view-product-language/view-product-language.component.designer').then(m => m.ViewProductLanguageComponent) },          
         ]
     }  
 ];

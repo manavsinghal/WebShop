@@ -10,24 +10,24 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ManageOrderComponent } from './manage-order/manage-order.component.designer';
-import { ManageOrderItemComponent } from './manage-order-item/manage-order-item.component.designer';
-import { ManageOrderItemShipmentComponent } from './manage-order-item-shipment/manage-order-item-shipment.component.designer';
-import { ViewOrderComponent } from './view-order/view-order.component.designer';
-import { ViewOrderItemComponent } from './view-order-item/view-order-item.component.designer';
-import { ViewOrderItemShipmentComponent } from './view-order-item-shipment/view-order-item-shipment.component.designer';
+
+
+
+
+
+
 
 // Define the routes for the OrderRoutingModule module
 const routes: Routes = [
     {
         path: 'domain',       
         children: [
-            { path: 'manageOrder', component: ManageOrderComponent },          
-            { path: 'manageOrderItem', component: ManageOrderItemComponent },          
-            { path: 'manageOrderItemShipment', component: ManageOrderItemShipmentComponent },          
-            { path: 'viewOrder', component: ViewOrderComponent },          
-            { path: 'viewOrderItem', component: ViewOrderItemComponent },          
-            { path: 'viewOrderItemShipment', component: ViewOrderItemShipmentComponent },          
+            { path: 'manageOrder', loadComponent: () => import('./manage-order/manage-order.component.designer').then(m => m.ManageOrderComponent) },          
+            { path: 'manageOrderItem', loadComponent: () => import('./manage-order-item/manage-order-item.component.designer').then(m => m.ManageOrderItemComponent) },          
+            { path: 'manageOrderItemShipment', loadComponent: () => import('./manage-order-item-shipment/manage-order-item-shipment.component.designer').then(m => m.ManageOrderItemShipmentComponent) },          
+            { path: 'viewOrder', loadComponent: () => import('./view-order/view-order.component.designer').then(m => m.ViewOrderComponent) },          
+            { path: 'viewOrderItem', loadComponent: () => import('./view-order-item/view-order-item.component.designer').then(m => m.ViewOrderItemComponent) },          
+            { path: 'viewOrderItemShipment', loadComponent: () => import('./view-order-item-shipment/view-order-item-shipment.component.designer').then(m => m.ViewOrderItemShipmentComponent) },          
         ]
     }  
 ];

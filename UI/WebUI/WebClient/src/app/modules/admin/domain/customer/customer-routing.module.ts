@@ -10,28 +10,28 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ManageCustomerComponent } from './manage-customer/manage-customer.component.designer';
-import { ManageCustomerAddressComponent } from './manage-customer-address/manage-customer-address.component.designer';
-import { ManageCustomerCardComponent } from './manage-customer-card/manage-customer-card.component.designer';
-import { ManageCustomerPhoneComponent } from './manage-customer-phone/manage-customer-phone.component.designer';
-import { ViewCustomerComponent } from './view-customer/view-customer.component.designer';
-import { ViewCustomerAddressComponent } from './view-customer-address/view-customer-address.component.designer';
-import { ViewCustomerCardComponent } from './view-customer-card/view-customer-card.component.designer';
-import { ViewCustomerPhoneComponent } from './view-customer-phone/view-customer-phone.component.designer';
+
+
+
+
+
+
+
+
 
 // Define the routes for the CustomerRoutingModule module
 const routes: Routes = [
     {
         path: 'domain',       
         children: [
-            { path: 'manageCustomer', component: ManageCustomerComponent },          
-            { path: 'manageCustomerAddress', component: ManageCustomerAddressComponent },          
-            { path: 'manageCustomerCard', component: ManageCustomerCardComponent },          
-            { path: 'manageCustomerPhone', component: ManageCustomerPhoneComponent },          
-            { path: 'viewCustomer', component: ViewCustomerComponent },          
-            { path: 'viewCustomerAddress', component: ViewCustomerAddressComponent },          
-            { path: 'viewCustomerCard', component: ViewCustomerCardComponent },          
-            { path: 'viewCustomerPhone', component: ViewCustomerPhoneComponent },          
+            { path: 'manageCustomer', loadComponent: () => import('./manage-customer/manage-customer.component.designer').then(m => m.ManageCustomerComponent) },          
+            { path: 'manageCustomerAddress', loadComponent: () => import('./manage-customer-address/manage-customer-address.component.designer').then(m => m.ManageCustomerAddressComponent) },          
+            { path: 'manageCustomerCard', loadComponent: () => import('./manage-customer-card/manage-customer-card.component.designer').then(m => m.ManageCustomerCardComponent) },          
+            { path: 'manageCustomerPhone', loadComponent: () => import('./manage-customer-phone/manage-customer-phone.component.designer').then(m => m.ManageCustomerPhoneComponent) },          
+            { path: 'viewCustomer', loadComponent: () => import('./view-customer/view-customer.component.designer').then(m => m.ViewCustomerComponent) },          
+            { path: 'viewCustomerAddress', loadComponent: () => import('./view-customer-address/view-customer-address.component.designer').then(m => m.ViewCustomerAddressComponent) },          
+            { path: 'viewCustomerCard', loadComponent: () => import('./view-customer-card/view-customer-card.component.designer').then(m => m.ViewCustomerCardComponent) },          
+            { path: 'viewCustomerPhone', loadComponent: () => import('./view-customer-phone/view-customer-phone.component.designer').then(m => m.ViewCustomerPhoneComponent) },          
         ]
     }  
 ];
