@@ -1,4 +1,4 @@
-import { enableProdMode, APP_INITIALIZER, importProvidersFrom } from '@angular/core';
+import { enableProdMode, importProvidersFrom, provideAppInitializer, inject } from '@angular/core';
 //import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 //import { AppModule } from './app/app.module';
@@ -54,16 +54,14 @@ bootstrapApplication(AppComponent, {
             })),
             SortPipe,
         { provide: 'APP_ID', useValue: 'ng-cli-universal' },
-        {
-            provide: APP_INITIALIZER,
-            deps: [CoreEnvironmentService, CoreAuthenticationService],
-            multi: true,
-            useFactory: (coreEnvironmentService: CoreEnvironmentService, coreAuthenticationService: CoreAuthenticationService) => (): Promise<void> => {
-                return coreEnvironmentService.initializeEnvironment().then(() => {
-                    return coreAuthenticationService.bootstrap();
+        provideAppInitializer(() => {
+            const initializerFn = ((environmentService: CoreEnvironmentService, authenticationService: CoreAuthenticationService) => (): Promise<void> => {
+                return environmentService.initializeEnvironment().then(() => {
+                    return authenticationService.bootstrap();
                 });
-            }
-        },
+            })(inject(CoreEnvironmentService), inject(CoreAuthenticationService));
+            return initializerFn();
+        }),
         {
             provide: HTTP_INTERCEPTORS,
             useClass: AuthorizationInterceptor,
