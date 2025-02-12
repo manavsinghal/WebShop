@@ -9,11 +9,11 @@
 
 */ 
 
-import { Directive, ElementRef, HostListener, Input, inject } from '@angular/core';
+import { Directive, ElementRef, HostListener, inject, input } from '@angular/core';
 
 @Directive({ selector: '[appInputRestriction]' })
 export class InputRestrictionDirective {
-    @Input('appInputRestriction') appInputRestriction: string = '';
+    readonly appInputRestriction = input<string>('');
     inputElement: ElementRef;
     arabicRegex = '[\u0600-\u06FF]';
 
@@ -61,10 +61,11 @@ export class InputRestrictionDirective {
 
     @HostListener('paste', ['$event']) onPaste(event: ClipboardEvent) {
         let regex = /[0-9]/g;
-        if (this.appInputRestriction === 'noSpecialChars') {
+        const appInputRestriction = this.appInputRestriction();
+        if (appInputRestriction === 'noSpecialChars') {
             regex = /[a-zA-Z0-9\-_.]/g;
         }
-        if (this.appInputRestriction === 'onlyAlphabets') {
+        if (appInputRestriction === 'onlyAlphabets') {
             regex = /[a-zA-Z]/g;
         }
         const e = <ClipboardEvent>event;
@@ -92,9 +93,10 @@ export class InputRestrictionDirective {
     }
 
     @HostListener('keypress', ['$event']) onKeyPress(event: KeyboardEvent) {
-        if (this.appInputRestriction === 'noSpecialChars') {
+        const appInputRestriction = this.appInputRestriction();
+        if (appInputRestriction === 'noSpecialChars') {
             this.noSpecialChars(event);
-        } else if (this.appInputRestriction === 'onlyAlphabets') {
+        } else if (appInputRestriction === 'onlyAlphabets') {
             this.onlyAlphabets(event);
         } else {
             this.integerOnly(event);
