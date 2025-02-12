@@ -9,7 +9,7 @@
 */
 
 // Import necessary Angular modules and services
-import { Component, OnInit, OnDestroy, ViewChild, inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject, viewChild } from '@angular/core';
 import { Router, NavigationExtras, ActivatedRoute, RouterLink } from '@angular/router';
 import { TranslateService, TranslateDirective, TranslatePipe } from '@ngx-translate/core';
 import { CoreSessionService } from '../../../../../core/services/core.session.service';
@@ -46,7 +46,7 @@ export class ViewCustomerComponent extends SharedComponent implements OnInit, On
     readonly coreSubscriptionService = inject(CoreSubscriptionService);
     private readonly translateService = inject(TranslateService);
 
-    @ViewChild('this.ViewCustomersTable', { static: false }) viewCustomersTable!: TreeTable;  
+    readonly viewCustomersTable = viewChild.required<TreeTable>('this.ViewCustomersTable');  
     manageCustomer: CustomTreeTableModel<TreeNode<Customer>> = new CustomTreeTableModel<TreeNode<Customer>>({
         data: new Array<TreeNode<Customer>>()
     });

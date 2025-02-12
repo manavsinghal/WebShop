@@ -9,7 +9,7 @@
 */
 
 // Import necessary Angular modules and services
-import { Component, OnInit, OnDestroy, ViewChild, inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject, viewChild } from '@angular/core';
 import { Router, NavigationExtras, ActivatedRoute, RouterLink } from '@angular/router';
 import { TranslateService, TranslateDirective, TranslatePipe } from '@ngx-translate/core';
 import { CoreSessionService } from '../../../../../core/services/core.session.service';
@@ -52,7 +52,7 @@ export class ViewShipperPhoneComponent extends SharedComponent implements OnInit
     readonly coreSubscriptionService = inject(CoreSubscriptionService);
     private readonly translateService = inject(TranslateService);
 
-    @ViewChild('this.ViewShipperPhonesTable', { static: false }) viewShipperPhonesTable!: TreeTable;  
+    readonly viewShipperPhonesTable = viewChild.required<TreeTable>('this.ViewShipperPhonesTable');  
     manageShipperPhone: CustomTreeTableModel<TreeNode<ShipperPhone>> = new CustomTreeTableModel<TreeNode<ShipperPhone>>({
         data: new Array<TreeNode<ShipperPhone>>()
     });

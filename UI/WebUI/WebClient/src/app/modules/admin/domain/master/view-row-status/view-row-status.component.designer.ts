@@ -9,7 +9,7 @@
 */
 
 // Import necessary Angular modules and services
-import { Component, OnInit, OnDestroy, ViewChild, TemplateRef, inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, TemplateRef, inject, viewChild } from '@angular/core';
 import { Router, NavigationExtras, ActivatedRoute, RouterLink } from '@angular/router';
 import { TranslateService, TranslateDirective, TranslatePipe } from '@ngx-translate/core';
 import { CoreSessionService } from '../../../../../core/services/core.session.service';
@@ -47,7 +47,7 @@ export class ViewRowStatusComponent extends SharedComponent implements OnInit, O
     readonly modalService = inject(NgbModal);
     private readonly translateService = inject(TranslateService);
 
-    @ViewChild('this.ViewRowStatusesTable', { static: false }) viewRowStatusesTable!: TreeTable;  
+    readonly viewRowStatusesTable = viewChild.required<TreeTable>('this.ViewRowStatusesTable');  
     manageRowStatus: CustomTreeTableModel<TreeNode<RowStatus>> = new CustomTreeTableModel<TreeNode<RowStatus>>({
         data: new Array<TreeNode<RowStatus>>()
     });

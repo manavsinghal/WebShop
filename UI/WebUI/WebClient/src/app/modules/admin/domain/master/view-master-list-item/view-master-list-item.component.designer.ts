@@ -9,7 +9,7 @@
 */
 
 // Import necessary Angular modules and services
-import { Component, OnInit, OnDestroy, ViewChild, TemplateRef, inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, TemplateRef, inject, viewChild } from '@angular/core';
 import { Router, NavigationExtras, ActivatedRoute, RouterLink } from '@angular/router';
 import { TranslateService, TranslateDirective, TranslatePipe } from '@ngx-translate/core';
 import { CoreSessionService } from '../../../../../core/services/core.session.service';
@@ -50,7 +50,7 @@ export class ViewMasterListItemComponent extends SharedComponent implements OnIn
     readonly modalService = inject(NgbModal);
     private readonly translateService = inject(TranslateService);
 
-    @ViewChild('this.ViewMasterListItemsTable', { static: false }) viewMasterListItemsTable!: TreeTable;  
+    readonly viewMasterListItemsTable = viewChild.required<TreeTable>('this.ViewMasterListItemsTable');  
     manageMasterListItem: CustomTreeTableModel<TreeNode<MasterListItem>> = new CustomTreeTableModel<TreeNode<MasterListItem>>({
         data: new Array<TreeNode<MasterListItem>>()
     });

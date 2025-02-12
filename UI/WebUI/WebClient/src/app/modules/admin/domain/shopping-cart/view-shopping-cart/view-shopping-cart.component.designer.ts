@@ -9,7 +9,7 @@
 */
 
 // Import necessary Angular modules and services
-import { Component, OnInit, OnDestroy, ViewChild, inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject, viewChild } from '@angular/core';
 import { Router, NavigationExtras, ActivatedRoute, RouterLink } from '@angular/router';
 import { TranslateService, TranslateDirective, TranslatePipe } from '@ngx-translate/core';
 import { CoreSessionService } from '../../../../../core/services/core.session.service';
@@ -49,7 +49,7 @@ export class ViewShoppingCartComponent extends SharedComponent implements OnInit
     readonly coreSubscriptionService = inject(CoreSubscriptionService);
     private readonly translateService = inject(TranslateService);
 
-    @ViewChild('this.ViewShoppingCartsTable', { static: false }) viewShoppingCartsTable!: TreeTable;  
+    readonly viewShoppingCartsTable = viewChild.required<TreeTable>('this.ViewShoppingCartsTable');  
     manageShoppingCart: CustomTreeTableModel<TreeNode<ShoppingCart>> = new CustomTreeTableModel<TreeNode<ShoppingCart>>({
         data: new Array<TreeNode<ShoppingCart>>()
     });

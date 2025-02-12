@@ -9,7 +9,7 @@
 
 */ 
 
-import { Component, OnInit, OnDestroy, ViewChild, TemplateRef, NgZone, inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, TemplateRef, NgZone, inject, viewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SharedComponent } from '../../shared/shared.component';
@@ -34,7 +34,7 @@ export class LoginComponent extends SharedComponent implements OnInit, OnDestroy
 	private readonly coreAuthenticationService = inject(CoreAuthenticationService);
 	private readonly ngZone = inject(NgZone);
 
-	@ViewChild('content', { static: true }) modalContent!: TemplateRef<string>;
+	readonly modalContent = viewChild.required<TemplateRef<string>>('content');
 	loading: boolean = false;
 	returnUrl!: string;
 	hasChild!: string;
@@ -91,7 +91,7 @@ export class LoginComponent extends SharedComponent implements OnInit, OnDestroy
 	}
 
 	confirmLogout(): void {
-		this.modalService.dismissAll(this.modalContent);
+		this.modalService.dismissAll(this.modalContent());
 		this.coreSessionService.clear();
 		if (this.coreEnvironmentService.environment) {
 			if (this.coreEnvironmentService.environment.AuthProvider === DefaultFields.AzureADAuthProvider) {

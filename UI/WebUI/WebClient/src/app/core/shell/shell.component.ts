@@ -9,10 +9,10 @@
 */
 
 // Import necessary Angular modules and services
-import { Component, OnInit, OnDestroy, inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject, viewChild } from '@angular/core';
 import { SharedComponent } from '../../shared/shared.component';
 import { HttpErrorResponse } from '@angular/common/http';
-import { TemplateRef, ViewChild } from '@angular/core';
+import { TemplateRef } from '@angular/core';
 import { Router, NavigationError, Event, RouterOutlet } from '@angular/router';
 import { TranslateService, TranslateDirective } from '@ngx-translate/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -47,7 +47,7 @@ export class ShellComponent extends SharedComponent implements OnInit, OnDestroy
     private readonly coreAuthenticationService = inject(CoreAuthenticationService);
     private readonly coreSubscriptionService = inject(CoreSubscriptionService);
 
-    @ViewChild('content', { static: false }) modalContent!: TemplateRef<string>;  
+    readonly modalContent = viewChild.required<TemplateRef<string>>('content');  
     closeResult!: string;
     direction!: string;
     idleHandler!: NodeJS.Timeout;
@@ -116,7 +116,7 @@ export class ShellComponent extends SharedComponent implements OnInit, OnDestroy
                 }
                 if (dt > (parseInt(idealTime.toString(), 10) * 60 * 1000)) {
                     this.coreSessionService.clear();
-                    this.modalService.open(this.modalContent, { backdrop: 'static', keyboard: false, size: 'sm', centered: true });
+                    this.modalService.open(this.modalContent(), { backdrop: 'static', keyboard: false, size: 'sm', centered: true });
                     this.clearTimers();
                 }
             }, 60 * 1000); // convert to milliseconds

@@ -9,7 +9,7 @@
 */
 
 // Import necessary Angular modules and services
-import { Component, OnInit, OnDestroy, ViewChild, inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject, viewChild } from '@angular/core';
 import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
 import { TranslateService, TranslateDirective, TranslatePipe } from '@ngx-translate/core';
 import { CoreSessionService } from '../../../../../core/services/core.session.service';
@@ -49,7 +49,7 @@ export class ViewProductCategoryLanguageComponent extends SharedComponent implem
     readonly coreSubscriptionService = inject(CoreSubscriptionService);
     private readonly translateService = inject(TranslateService);
 
-    @ViewChild('this.ViewProductCategoryLanguagesTable', { static: false }) viewProductCategoryLanguagesTable!: TreeTable;  
+    readonly viewProductCategoryLanguagesTable = viewChild.required<TreeTable>('this.ViewProductCategoryLanguagesTable');  
     manageProductCategoryLanguage: CustomTreeTableModel<TreeNode<ProductCategoryLanguage>> = new CustomTreeTableModel<TreeNode<ProductCategoryLanguage>>({
         data: new Array<TreeNode<ProductCategoryLanguage>>()
     });
