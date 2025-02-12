@@ -7,7 +7,7 @@
 // consent of the copyright owner.
 // </copyright>
 
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { map, catchError} from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -19,15 +19,12 @@ import { ShipperBankAccount } from '../../../../../shared/models/domain/shipper/
 // Define the ShipperBankAccountServiceBase class using the Injectable decorator, making it a singleton provided at the root level
 @Injectable({ providedIn: 'root' })
 export class ShipperBankAccountServiceBase {
+	protected readonly http = inject(HttpClient);
+	protected readonly coreEnvironmentService = inject(CoreEnvironmentService);
+
 
 	getShipperBankAccountsUrl! : string;
 	mergeShipperBankAccountsUrl! : string;
-
-    // Constructor for the ShipperBankAccountServiceBase class, injecting dependencies
-    constructor(
-        protected readonly http: HttpClient,
-        protected readonly coreEnvironmentService: CoreEnvironmentService) {
-    }
 
 	getShipperBankAccounts(shipperBankAccountUId?: string): Observable<Array<ShipperBankAccount>> {
          // Construct the URL for the API request

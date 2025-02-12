@@ -9,7 +9,7 @@
 
 */ 
 
-import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, inject } from '@angular/core';
 
 @Directive({ selector: '[appInputRestriction]' })
 export class InputRestrictionDirective {
@@ -17,7 +17,9 @@ export class InputRestrictionDirective {
     inputElement: ElementRef;
     arabicRegex = '[\u0600-\u06FF]';
 
-    constructor(el: ElementRef) {
+    constructor() {
+        const el = inject(ElementRef);
+
         this.inputElement = el;
     }
 

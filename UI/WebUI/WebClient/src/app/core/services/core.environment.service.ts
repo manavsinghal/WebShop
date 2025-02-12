@@ -10,7 +10,7 @@
 */ 
 
 // Import necessary modules and services
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
 import { CoreNotificationService } from './core.notification.service';
@@ -21,6 +21,8 @@ import { ApplicationEnvironment } from '../../shared/models/application-environm
     providedIn: 'root'
 })
 export class CoreEnvironmentService {
+    private readonly http = inject(HttpClient);
+
 
     // Static environment variable
     public static Environment: ApplicationEnvironment = new ApplicationEnvironment();
@@ -37,8 +39,7 @@ export class CoreEnvironmentService {
     getAPIEnvironmentUrl: string = 'api/Environment/GetConfiguration';
 
     // Constructor to inject HttpClient
-    constructor(
-        private readonly http: HttpClient) {
+    constructor() {
         // Log message to indicate service creation
         CoreNotificationService.logMessage('CoreEnvironmentService created');
     }

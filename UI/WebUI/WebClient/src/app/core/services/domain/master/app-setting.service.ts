@@ -7,7 +7,7 @@
 // consent of the copyright owner.
 // </copyright>
 
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CoreEnvironmentService } from '../../../services/core.environment.service';
 import { AppSettingServiceBase } from './__designer/app-setting.service.designer';
@@ -15,12 +15,19 @@ import { AppSettingServiceBase } from './__designer/app-setting.service.designer
 // Define the AppSettingService class using the Injectable decorator, making it a singleton provided at the root level
 @Injectable({ providedIn: 'root' })
 export class AppSettingService extends AppSettingServiceBase {
+    protected override readonly http: HttpClient;
+    protected override readonly coreEnvironmentService: CoreEnvironmentService;
+
 
     // Constructor for the  AppSettingService class, injecting dependencies 
-    constructor(
-        protected override readonly http: HttpClient,
-        protected override readonly coreEnvironmentService: CoreEnvironmentService) {
-        super(http, coreEnvironmentService);
+    constructor() {
+        const http = inject(HttpClient);
+        const coreEnvironmentService = inject(CoreEnvironmentService);
+
+        super();
+    
+        this.http = http;
+        this.coreEnvironmentService = coreEnvironmentService;
     }
 
 }

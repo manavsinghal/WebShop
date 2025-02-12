@@ -9,7 +9,7 @@
 
 */ 
 
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TreeNode } from 'primeng/api';
 import { TreeTable } from 'primeng/treetable';
 import { Guid } from '../core/helpers/guid';
@@ -23,11 +23,8 @@ import { ViewModelBase } from './models/view-model-base.model';
     template: '<div></div>'
 })
 export class SharedComponent {
+    protected coreSessionService = inject(CoreSessionService);
 
-    constructor(
-        protected coreSessionService: CoreSessionService
-    ) {
-    }
 
     onScrollTop(): void {
         const backToTop: HTMLElement | null = document.getElementById('backToTop');

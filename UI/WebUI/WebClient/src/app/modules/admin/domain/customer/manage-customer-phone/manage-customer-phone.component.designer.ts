@@ -9,7 +9,7 @@
 */
 
 // Import necessary Angular modules and services
-import { Component, OnInit, OnDestroy, TemplateRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, TemplateRef, inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Guid } from '../../../../../core/helpers/guid';
@@ -48,6 +48,19 @@ import { EmptyGuidValidatorDirective } from '../../../../../shared/directives/em
     imports: [TranslateDirective, FormsModule, WhiteSpaceValidatorDirective, InputRestrictionDirective, NgClass, EmptyGuidValidatorDirective, DatePipe, TranslatePipe]
 })
 export class ManageCustomerPhoneComponent extends SharedComponent implements OnInit, OnDestroy {
+    readonly route = inject(ActivatedRoute);
+    readonly router = inject(Router);
+    override readonly coreSessionService: CoreSessionService;
+    readonly coreSubscriptionService = inject(CoreSubscriptionService);
+    readonly translateService = inject(TranslateService);
+    readonly modalService = inject(NgbModal);
+    readonly customerPhoneService = inject(CustomerPhoneService);
+    readonly accountService = inject(AccountService);
+    readonly countryService = inject(CountryService);
+    readonly customerService = inject(CustomerService);
+    readonly masterListItemService = inject(MasterListItemService);
+    readonly rowStatusService = inject(RowStatusService);
+
     action!: string;
     countries!: Array<Country>;
     createdByAccounts!: Array<Account>;
@@ -64,20 +77,12 @@ export class ManageCustomerPhoneComponent extends SharedComponent implements OnI
     languageChangedSubscription!: Subscription;
 
     // Constructor for the component
-    constructor(readonly route: ActivatedRoute,
-        readonly router: Router,
-        override readonly coreSessionService: CoreSessionService,
-        readonly coreSubscriptionService: CoreSubscriptionService,
-        readonly translateService: TranslateService,
-        readonly modalService: NgbModal,
-        readonly customerPhoneService: CustomerPhoneService,
-        readonly accountService : AccountService,
-        readonly countryService : CountryService,
-        readonly customerService : CustomerService,
-        readonly masterListItemService : MasterListItemService,
-        readonly rowStatusService : RowStatusService,
-    ) {
-        super(coreSessionService);
+    constructor() {
+        const coreSessionService = inject(CoreSessionService);
+
+        super();
+        this.coreSessionService = coreSessionService;
+
         this.translateService.setDefaultLang(this.coreSessionService.getLanguage());
     }
  

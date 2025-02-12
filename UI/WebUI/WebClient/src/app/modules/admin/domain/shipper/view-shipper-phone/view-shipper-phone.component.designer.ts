@@ -9,7 +9,7 @@
 */
 
 // Import necessary Angular modules and services
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, inject } from '@angular/core';
 import { Router, NavigationExtras, ActivatedRoute, RouterLink } from '@angular/router';
 import { TranslateService, TranslateDirective, TranslatePipe } from '@ngx-translate/core';
 import { CoreSessionService } from '../../../../../core/services/core.session.service';
@@ -42,6 +42,16 @@ import { NgClass } from '@angular/common';
     imports: [RouterLink, TranslateDirective, TreeTableModule, PrimeTemplate, NgClass, TranslatePipe]
 })
 export class ViewShipperPhoneComponent extends SharedComponent implements OnInit, OnDestroy {
+    private readonly router = inject(Router);
+    private readonly route = inject(ActivatedRoute);
+    readonly countryService = inject(CountryService);
+    readonly masterListItemService = inject(MasterListItemService);
+    readonly shipperPhoneService = inject(ShipperPhoneService);
+    readonly shipperService = inject(ShipperService);
+    override readonly coreSessionService: CoreSessionService;
+    readonly coreSubscriptionService = inject(CoreSubscriptionService);
+    private readonly translateService = inject(TranslateService);
+
     @ViewChild('this.ViewShipperPhonesTable', { static: false }) viewShipperPhonesTable!: TreeTable;  
     manageShipperPhone: CustomTreeTableModel<TreeNode<ShipperPhone>> = new CustomTreeTableModel<TreeNode<ShipperPhone>>({
         data: new Array<TreeNode<ShipperPhone>>()
@@ -61,16 +71,12 @@ export class ViewShipperPhoneComponent extends SharedComponent implements OnInit
     shippers!: Array<Shipper>;
     languageChangedSubscription!: Subscription;
     // Constructor for the component
-    constructor(private readonly router: Router,
-        private readonly route: ActivatedRoute,
-        readonly countryService: CountryService,
-        readonly masterListItemService: MasterListItemService,
-        readonly shipperPhoneService: ShipperPhoneService,
-        readonly shipperService: ShipperService,
-        override readonly coreSessionService: CoreSessionService,
-        readonly coreSubscriptionService: CoreSubscriptionService,
-        private readonly translateService: TranslateService) {
-        super(coreSessionService);
+    constructor() {
+        const coreSessionService = inject(CoreSessionService);
+
+        super();
+        this.coreSessionService = coreSessionService;
+
         this.translateService.setDefaultLang(this.coreSessionService.getLanguage());
     }
  

@@ -9,7 +9,7 @@
 
 */ 
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { EventEmitter, Output } from '@angular/core';
 import { TranslateService, TranslateDirective, TranslatePipe } from '@ngx-translate/core';
@@ -28,6 +28,11 @@ import { FormsModule } from '@angular/forms';
     imports: [TranslateDirective, FormsModule, TranslatePipe]
 })
 export class UserSettingsComponent implements OnInit {
+	readonly coreSessionService = inject(CoreSessionService);
+	private readonly languageService = inject(LanguageService);
+	private readonly translateService = inject(TranslateService);
+	readonly sortPipe = inject(SortPipe);
+
 
 	@Output() closeActionPane: EventEmitter<boolean> = new EventEmitter<boolean>();
 
@@ -35,13 +40,6 @@ export class UserSettingsComponent implements OnInit {
 	selectedTheme!: Theme;
 	languages: Array<Language> = new Array<Language>(0);
 	selectedLanguage: Language = new Language();
-
-	constructor(public readonly coreSessionService: CoreSessionService,
-		private readonly languageService: LanguageService,
-		private readonly translateService: TranslateService,
-		readonly sortPipe: SortPipe) {
-
-	}
 
 	ngOnInit(): void {
 		this.selectedTheme = Theme.Themes[0];

@@ -9,7 +9,7 @@
 */
 
 // Import necessary Angular modules and services
-import { Component, OnInit, OnDestroy, TemplateRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, TemplateRef, inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Guid } from '../../../../../core/helpers/guid';
@@ -46,6 +46,18 @@ import { EmptyGuidValidatorDirective } from '../../../../../shared/directives/em
     imports: [TranslateDirective, FormsModule, WhiteSpaceValidatorDirective, InputRestrictionDirective, NgClass, EmptyGuidValidatorDirective, DatePipe, TranslatePipe]
 })
 export class ManageProductComponent extends SharedComponent implements OnInit, OnDestroy {
+    readonly route = inject(ActivatedRoute);
+    readonly router = inject(Router);
+    override readonly coreSessionService: CoreSessionService;
+    readonly coreSubscriptionService = inject(CoreSubscriptionService);
+    readonly translateService = inject(TranslateService);
+    readonly modalService = inject(NgbModal);
+    readonly productService = inject(ProductService);
+    readonly accountService = inject(AccountService);
+    readonly productCategoryService = inject(ProductCategoryService);
+    readonly rowStatusService = inject(RowStatusService);
+    readonly sellerService = inject(SellerService);
+
     action!: string;
     createdByAccounts!: Array<Account>;
     modifiedByAccounts!: Array<Account>;
@@ -61,19 +73,12 @@ export class ManageProductComponent extends SharedComponent implements OnInit, O
     languageChangedSubscription!: Subscription;
 
     // Constructor for the component
-    constructor(readonly route: ActivatedRoute,
-        readonly router: Router,
-        override readonly coreSessionService: CoreSessionService,
-        readonly coreSubscriptionService: CoreSubscriptionService,
-        readonly translateService: TranslateService,
-        readonly modalService: NgbModal,
-        readonly productService: ProductService,
-        readonly accountService : AccountService,
-        readonly productCategoryService : ProductCategoryService,
-        readonly rowStatusService : RowStatusService,
-        readonly sellerService : SellerService,
-    ) {
-        super(coreSessionService);
+    constructor() {
+        const coreSessionService = inject(CoreSessionService);
+
+        super();
+        this.coreSessionService = coreSessionService;
+
         this.translateService.setDefaultLang(this.coreSessionService.getLanguage());
     }
  

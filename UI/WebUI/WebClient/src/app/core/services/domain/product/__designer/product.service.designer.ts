@@ -7,7 +7,7 @@
 // consent of the copyright owner.
 // </copyright>
 
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { map, catchError} from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -19,16 +19,13 @@ import { CoreSessionService } from '../../../core.session.service';
 // Define the ProductServiceBase class using the Injectable decorator, making it a singleton provided at the root level
 @Injectable({ providedIn: 'root' })
 export class ProductServiceBase {
+	protected readonly http = inject(HttpClient);
+	protected readonly coreEnvironmentService = inject(CoreEnvironmentService);
+	protected readonly coreSessionService = inject(CoreSessionService);
+
 
 	getProductsUrl! : string;
 	mergeProductsUrl! : string;
-
-    // Constructor for the ProductServiceBase class, injecting dependencies
-    constructor(
-        protected readonly http: HttpClient,
-        protected readonly coreEnvironmentService: CoreEnvironmentService,
-        protected readonly coreSessionService: CoreSessionService ) {
-    }
 
 	getProducts(productUId?: string): Observable<Array<Product>> {
          // Construct the URL for the API request

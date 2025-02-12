@@ -7,7 +7,7 @@
 // consent of the copyright owner.
 // </copyright>
 
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { map, catchError} from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -19,15 +19,12 @@ import { OrderItem } from '../../../../../shared/models/domain/order/order-item.
 // Define the OrderItemServiceBase class using the Injectable decorator, making it a singleton provided at the root level
 @Injectable({ providedIn: 'root' })
 export class OrderItemServiceBase {
+	protected readonly http = inject(HttpClient);
+	protected readonly coreEnvironmentService = inject(CoreEnvironmentService);
+
 
 	getOrderItemsUrl! : string;
 	mergeOrderItemsUrl! : string;
-
-    // Constructor for the OrderItemServiceBase class, injecting dependencies
-    constructor(
-        protected readonly http: HttpClient,
-        protected readonly coreEnvironmentService: CoreEnvironmentService) {
-    }
 
 	getOrderItems(orderItemUId?: string): Observable<Array<OrderItem>> {
          // Construct the URL for the API request

@@ -9,7 +9,7 @@
 */
 
 // Import necessary Angular modules and services
-import { Component, OnInit, OnDestroy, TemplateRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, TemplateRef, inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Guid } from '../../../../../core/helpers/guid';
@@ -42,6 +42,16 @@ import { EmptyGuidValidatorDirective } from '../../../../../shared/directives/em
     imports: [TranslateDirective, FormsModule, WhiteSpaceValidatorDirective, InputRestrictionDirective, NgClass, EmptyGuidValidatorDirective, DatePipe, TranslatePipe]
 })
 export class ManageCountryComponent extends SharedComponent implements OnInit, OnDestroy {
+    readonly route = inject(ActivatedRoute);
+    readonly router = inject(Router);
+    override readonly coreSessionService: CoreSessionService;
+    readonly coreSubscriptionService = inject(CoreSubscriptionService);
+    readonly translateService = inject(TranslateService);
+    readonly modalService = inject(NgbModal);
+    readonly countryService = inject(CountryService);
+    readonly accountService = inject(AccountService);
+    readonly rowStatusService = inject(RowStatusService);
+
     action!: string;
     country!: Country;
     countryUId!: string;
@@ -55,17 +65,12 @@ export class ManageCountryComponent extends SharedComponent implements OnInit, O
     languageChangedSubscription!: Subscription;
 
     // Constructor for the component
-    constructor(readonly route: ActivatedRoute,
-        readonly router: Router,
-        override readonly coreSessionService: CoreSessionService,
-        readonly coreSubscriptionService: CoreSubscriptionService,
-        readonly translateService: TranslateService,
-        readonly modalService: NgbModal,
-        readonly countryService: CountryService,
-        readonly accountService : AccountService,
-        readonly rowStatusService : RowStatusService,
-    ) {
-        super(coreSessionService);
+    constructor() {
+        const coreSessionService = inject(CoreSessionService);
+
+        super();
+        this.coreSessionService = coreSessionService;
+
         this.translateService.setDefaultLang(this.coreSessionService.getLanguage());
     }
  

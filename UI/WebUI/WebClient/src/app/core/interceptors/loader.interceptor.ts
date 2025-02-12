@@ -10,7 +10,7 @@
 */ 
 
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpResponse } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
@@ -18,13 +18,14 @@ import { CoreTimeoutErrorHandlerService } from '../services/core.time-out-error-
 
 @Injectable()
 export class LoaderInterceptor<T> implements HttpInterceptor {
+    private readonly ngxService = inject(NgxUiLoaderService);
+    private readonly timeoutErrorHandlerService = inject(CoreTimeoutErrorHandlerService);
+
 
     public httpRequestArray: Array<HttpRequest<T>> = [];
     private isLoaderVisible: boolean = false;
 
-    constructor(private readonly ngxService: NgxUiLoaderService,
-        private readonly timeoutErrorHandlerService: CoreTimeoutErrorHandlerService,
-    ) {
+    constructor() {
         this.timeoutErrorHandlerService.timeoutErrorHandler.subscribe((url: string): void => {
             if (this.httpRequestArray && this.httpRequestArray.length > 0) {
                 this.httpRequestArray = this.httpRequestArray.filter((request: HttpRequest<T>): boolean => request.url !== url);

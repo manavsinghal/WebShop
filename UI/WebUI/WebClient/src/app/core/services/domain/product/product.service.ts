@@ -7,7 +7,7 @@
 // consent of the copyright owner.
 // </copyright>
 
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CoreEnvironmentService } from '../../../services/core.environment.service';
 import { ProductServiceBase } from './__designer/product.service.designer';
@@ -15,13 +15,22 @@ import { CoreSessionService } from '../../core.session.service';
 // Define the ProductService class using the Injectable decorator, making it a singleton provided at the root level
 @Injectable({ providedIn: 'root' })
 export class ProductService extends ProductServiceBase {
+    protected override readonly http: HttpClient;
+    protected override readonly coreEnvironmentService: CoreEnvironmentService;
+    protected override readonly coreSessionService: CoreSessionService;
+
 
     // Constructor for the  ProductService class, injecting dependencies 
-    constructor(
-        protected override readonly http: HttpClient,
-        protected override readonly coreEnvironmentService: CoreEnvironmentService,
-        protected override readonly coreSessionService: CoreSessionService ) {
-        super(http, coreEnvironmentService, coreSessionService);
+    constructor() {
+        const http = inject(HttpClient);
+        const coreEnvironmentService = inject(CoreEnvironmentService);
+        const coreSessionService = inject(CoreSessionService);
+
+        super();
+    
+        this.http = http;
+        this.coreEnvironmentService = coreEnvironmentService;
+        this.coreSessionService = coreSessionService;
     }
 
 }

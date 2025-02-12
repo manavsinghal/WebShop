@@ -9,7 +9,7 @@
 
 */ 
 
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -21,11 +21,11 @@ import { CoreSessionService } from '../services/core.session.service';
 
 @Injectable()
 export class AuthorizationInterceptor implements HttpInterceptor {
+    private readonly coreEnvironmentService = inject(CoreEnvironmentService);
+    private readonly coreAuthenticationService = inject(CoreAuthenticationService);
+    private readonly coreSessionService = inject(CoreSessionService);
+
     public static lastCalled: Date = new Date();
-    constructor(
-        private readonly coreEnvironmentService: CoreEnvironmentService,
-        private readonly coreAuthenticationService: CoreAuthenticationService,
-        private readonly coreSessionService: CoreSessionService) { }
 
     intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
         AuthorizationInterceptor.lastCalled = new Date();

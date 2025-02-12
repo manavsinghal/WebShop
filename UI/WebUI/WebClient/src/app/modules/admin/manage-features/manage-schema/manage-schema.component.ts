@@ -9,7 +9,7 @@
 */
 
 // Import necessary Angular modules and services
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { Router, NavigationExtras, RouterLink } from '@angular/router';
 import { TranslateService, TranslateDirective } from '@ngx-translate/core';
 import { CoreSessionService } from '../../../../core/services/core.session.service';
@@ -26,13 +26,19 @@ import { SharedComponent } from '../../../../shared/shared.component';
     imports: [RouterLink, TranslateDirective]
 })
 export class ManageSchemaComponent extends SharedComponent implements OnInit, OnDestroy {
+    private readonly router = inject(Router);
+    override readonly coreSessionService: CoreSessionService;
+    readonly coreSubscriptionService = inject(CoreSubscriptionService);
+    private readonly translateService = inject(TranslateService);
+
     languageChangedSubscription!: Subscription;
     // Constructor for the component
-    constructor(private readonly router: Router,
-        override readonly coreSessionService: CoreSessionService,
-        readonly coreSubscriptionService: CoreSubscriptionService,
-        private readonly translateService: TranslateService) {
-        super(coreSessionService);
+    constructor() {
+        const coreSessionService = inject(CoreSessionService);
+
+        super();
+        this.coreSessionService = coreSessionService;
+
         this.translateService.setDefaultLang(this.coreSessionService.getLanguage());
     }
  

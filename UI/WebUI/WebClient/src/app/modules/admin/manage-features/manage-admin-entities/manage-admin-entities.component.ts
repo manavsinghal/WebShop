@@ -9,7 +9,7 @@
 */
 
 // Import necessary Angular modules and services
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
 import { TranslateService, TranslateDirective, TranslatePipe } from '@ngx-translate/core';
 import { CoreSessionService } from '../../../../core/services/core.session.service';
@@ -26,17 +26,23 @@ import { SharedComponent } from '../../../../shared/shared.component';
     imports: [TranslateDirective, TranslatePipe]
 })
 export class ManageAdminEntitiesComponent extends SharedComponent implements OnInit, OnDestroy {
+    private readonly router = inject(Router);
+    private readonly route = inject(ActivatedRoute);
+    override readonly coreSessionService: CoreSessionService;
+    readonly coreSubscriptionService = inject(CoreSubscriptionService);
+    private readonly translateService = inject(TranslateService);
+
     screenGroup!: string;
     serviceGroup!: string;
     startIndex: number = 0;
     languageChangedSubscription!: Subscription;
     // Constructor for the component
-    constructor(private readonly router: Router,
-        private readonly route: ActivatedRoute,
-        override readonly coreSessionService: CoreSessionService,
-        readonly coreSubscriptionService: CoreSubscriptionService,
-        private readonly translateService: TranslateService) {
-        super(coreSessionService);
+    constructor() {
+        const coreSessionService = inject(CoreSessionService);
+
+        super();
+        this.coreSessionService = coreSessionService;
+
         this.translateService.setDefaultLang(this.coreSessionService.getLanguage());
     }
  

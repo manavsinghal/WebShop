@@ -8,7 +8,7 @@
 // </copyright> 
 
 */
-import { NgModule } from "@angular/core";
+import { NgModule, inject } from "@angular/core";
 import { NgxUiLoaderConfig } from "ngx-ui-loader";
 import { CoreNotificationService } from "./core/services/core.notification.service";
 
@@ -77,8 +77,7 @@ import { CoreNotificationService } from "./core/services/core.notification.servi
 //    bootstrap: [AppComponent]
     //} */
 )
-export class AppModule {
-    constructor(public coreNotificationService: CoreNotificationService) {
-    }
+export class AppModule {    coreNotificationService = inject(CoreNotificationService);
+
 }
 

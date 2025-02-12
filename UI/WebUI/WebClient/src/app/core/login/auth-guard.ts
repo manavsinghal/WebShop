@@ -9,7 +9,7 @@
 
 */ 
 
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, NavigationExtras } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { catchError, concatMap } from 'rxjs/operators';
@@ -20,14 +20,11 @@ import { CoreSessionService } from '../services/core.session.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-	constructor(
-		private readonly router: Router,
-		private readonly coreAuthenticationService: CoreAuthenticationService,
-        private readonly coreEnvironmentService: CoreEnvironmentService,
-        private readonly coreSessionService: CoreSessionService
-	) {
+	private readonly router = inject(Router);
+	private readonly coreAuthenticationService = inject(CoreAuthenticationService);
+	private readonly coreEnvironmentService = inject(CoreEnvironmentService);
+	private readonly coreSessionService = inject(CoreSessionService);
 
-	}
 
 	canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
 		const navigationExtras: NavigationExtras = {

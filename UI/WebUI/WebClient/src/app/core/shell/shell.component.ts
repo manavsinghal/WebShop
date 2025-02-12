@@ -9,7 +9,7 @@
 */
 
 // Import necessary Angular modules and services
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { SharedComponent } from '../../shared/shared.component';
 import { HttpErrorResponse } from '@angular/common/http';
 import { TemplateRef, ViewChild } from '@angular/core';
@@ -38,6 +38,15 @@ import { UserSettingsComponent } from './user-settings.component';
     imports: [TranslateDirective, NgClass, NgStyle, UserSettingsComponent, RouterOutlet]
 })
 export class ShellComponent extends SharedComponent implements OnInit, OnDestroy {
+    override coreSessionService: CoreSessionService;
+    private readonly router = inject(Router);
+    private readonly translateService = inject(TranslateService);
+    private readonly modalService = inject(NgbModal);
+    private readonly languageService = inject(LanguageService);
+    private readonly coreEnvironmentService = inject(CoreEnvironmentService);
+    private readonly coreAuthenticationService = inject(CoreAuthenticationService);
+    private readonly coreSubscriptionService = inject(CoreSubscriptionService);
+
     @ViewChild('content', { static: false }) modalContent!: TemplateRef<string>;  
     closeResult!: string;
     direction!: string;
@@ -57,16 +66,12 @@ export class ShellComponent extends SharedComponent implements OnInit, OnDestroy
     tokenHandler!: NodeJS.Timeout;
 
     // Constructor for the component
-    constructor(public override coreSessionService: CoreSessionService,
-        private readonly router: Router,
-        private readonly translateService: TranslateService,
-        private readonly modalService: NgbModal,
-        private readonly languageService: LanguageService,
-        private readonly coreEnvironmentService: CoreEnvironmentService,
-        private readonly coreAuthenticationService: CoreAuthenticationService,
-        private readonly coreSubscriptionService: CoreSubscriptionService        
-    ) {
-        super(coreSessionService);
+    constructor() {
+        const coreSessionService = inject(CoreSessionService);
+
+        super();
+        this.coreSessionService = coreSessionService;
+
         this.routeEvent(this.router);
         this.translateService.setDefaultLang(this.coreSessionService.getLanguage());
         this.selectedTheme = this.coreSessionService.getTheme();

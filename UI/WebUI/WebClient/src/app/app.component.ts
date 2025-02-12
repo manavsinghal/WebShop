@@ -9,7 +9,7 @@
 
 */ 
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { CoreSessionService, ThemeChanged } from './core/services/core.session.service';
@@ -24,6 +24,9 @@ import { RouterOutlet } from '@angular/router';
     imports: [NgxUiLoaderModule, RouterOutlet]
 })
 export class AppComponent implements OnInit {
+	private readonly translateService = inject(TranslateService);
+	readonly coreSessionService = inject(CoreSessionService);
+
 	title: string = 'Console';
 	isIframe: boolean = false;
 	loggedIn: boolean = false;
@@ -36,10 +39,7 @@ export class AppComponent implements OnInit {
 	loading!: string;
 	loaderTextChangedSubscription!: Subscription;
 
-	constructor(
-		private readonly translateService: TranslateService,
-		readonly coreSessionService: CoreSessionService
-	) {
+	constructor() {
 		this.selectedTheme = this.coreSessionService.getTheme();
 	}
 

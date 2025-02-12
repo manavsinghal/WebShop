@@ -9,7 +9,7 @@
 */
 
 // Import necessary Angular modules and services
-import { Component, OnInit, OnDestroy, TemplateRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, TemplateRef, inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Guid } from '../../../../../core/helpers/guid';
@@ -48,6 +48,19 @@ import { EmptyGuidValidatorDirective } from '../../../../../shared/directives/em
     imports: [TranslateDirective, FormsModule, WhiteSpaceValidatorDirective, InputRestrictionDirective, NgClass, EmptyGuidValidatorDirective, DatePipe, TranslatePipe]
 })
 export class ManageShipperAddressComponent extends SharedComponent implements OnInit, OnDestroy {
+    readonly route = inject(ActivatedRoute);
+    readonly router = inject(Router);
+    override readonly coreSessionService: CoreSessionService;
+    readonly coreSubscriptionService = inject(CoreSubscriptionService);
+    readonly translateService = inject(TranslateService);
+    readonly modalService = inject(NgbModal);
+    readonly shipperAddressService = inject(ShipperAddressService);
+    readonly accountService = inject(AccountService);
+    readonly countryService = inject(CountryService);
+    readonly masterListItemService = inject(MasterListItemService);
+    readonly rowStatusService = inject(RowStatusService);
+    readonly shipperService = inject(ShipperService);
+
     action!: string;
     addressTypes!: Array<MasterListItem>;
     countries!: Array<Country>;
@@ -64,20 +77,12 @@ export class ManageShipperAddressComponent extends SharedComponent implements On
     languageChangedSubscription!: Subscription;
 
     // Constructor for the component
-    constructor(readonly route: ActivatedRoute,
-        readonly router: Router,
-        override readonly coreSessionService: CoreSessionService,
-        readonly coreSubscriptionService: CoreSubscriptionService,
-        readonly translateService: TranslateService,
-        readonly modalService: NgbModal,
-        readonly shipperAddressService: ShipperAddressService,
-        readonly accountService : AccountService,
-        readonly countryService : CountryService,
-        readonly masterListItemService : MasterListItemService,
-        readonly rowStatusService : RowStatusService,
-        readonly shipperService : ShipperService,
-    ) {
-        super(coreSessionService);
+    constructor() {
+        const coreSessionService = inject(CoreSessionService);
+
+        super();
+        this.coreSessionService = coreSessionService;
+
         this.translateService.setDefaultLang(this.coreSessionService.getLanguage());
     }
  

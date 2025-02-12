@@ -10,7 +10,7 @@
 */ 
 
 // Import necessary modules and services
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { Observable, of } from 'rxjs';
@@ -28,22 +28,17 @@ import { DefaultFields } from '../../shared/models/default-fields.model';
     providedIn: 'root'
 })
 export class CoreAuthenticationService {
+    readonly coreEnvironmentService = inject(CoreEnvironmentService);
+    readonly coreSessionService = inject(CoreSessionService);
+    readonly router = inject(Router);
+    private location = inject(Location);
+
     // Initialize msalService, msalBroadcastService, accessToken, identityScopes, and apiScopes
     msalService!: MsalService;
     msalBroadcastService!: MsalBroadcastService;
     accessToken!: string;
     identityScopes: Array<string> = [];
     apiScopes: Array<string> = [];
-
-    // Constructor to inject dependencies
-    constructor(
-        readonly coreEnvironmentService: CoreEnvironmentService,
-        readonly coreSessionService: CoreSessionService,
-        readonly router: Router,
-        private location: Location
-    ) {
-
-    }
 
     // Login function to redirect to Azure AD login page
     login(): void {

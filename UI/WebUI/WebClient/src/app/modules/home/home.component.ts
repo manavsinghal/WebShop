@@ -11,7 +11,7 @@
 
 
 // Import necessary Angular modules and services
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { TranslateService, TranslateDirective } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { CoreSessionService, ThemeChanged } from '../../core/services/core.session.service';
@@ -26,13 +26,15 @@ import { Theme } from '../../shared/models/theme.model';
     imports: [TranslateDirective]
 })
 export class HomeComponent implements OnInit {
+	coreSessionService = inject(CoreSessionService);
+	private readonly translateService = inject(TranslateService);
+
 	languageChangedSubscription!: Subscription;
 	selectedTheme: Theme;
 	themeChangedSubscription!: Subscription;
 
     // Constructor for the component
-	constructor(public coreSessionService: CoreSessionService,
-		private readonly translateService: TranslateService) {
+	constructor() {
 		this.translateService.setDefaultLang(this.coreSessionService.getLanguage());
 		this.selectedTheme = this.coreSessionService.getTheme();
 	}

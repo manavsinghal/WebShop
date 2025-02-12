@@ -9,7 +9,7 @@
 
 */ 
 
-import { Component, OnInit, OnDestroy, ViewChild, TemplateRef, NgZone } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, TemplateRef, NgZone, inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SharedComponent } from '../../shared/shared.component';
@@ -25,6 +25,15 @@ import { CoreSubscriptionService } from '../services/core.subscription.service';
     templateUrl: './login.component.html'
 })
 export class LoginComponent extends SharedComponent implements OnInit, OnDestroy {
+	private readonly route = inject(ActivatedRoute);
+	private readonly router = inject(Router);
+	private readonly subscriptionService = inject(CoreSubscriptionService);
+	private readonly coreEnvironmentService = inject(CoreEnvironmentService);
+	private readonly modalService = inject(NgbModal);
+	override readonly coreSessionService: CoreSessionService;
+	private readonly coreAuthenticationService = inject(CoreAuthenticationService);
+	private readonly ngZone = inject(NgZone);
+
 	@ViewChild('content', { static: true }) modalContent!: TemplateRef<string>;
 	loading: boolean = false;
 	returnUrl!: string;
@@ -35,16 +44,12 @@ export class LoginComponent extends SharedComponent implements OnInit, OnDestroy
 	logoutUrl!: string;
 	showLoader: boolean = true;
 
-	constructor(private readonly route: ActivatedRoute,
-		private readonly router: Router,
-		private readonly subscriptionService: CoreSubscriptionService,
-		private readonly coreEnvironmentService: CoreEnvironmentService,
-		private readonly modalService: NgbModal,
-		public override readonly coreSessionService: CoreSessionService,
-		private readonly coreAuthenticationService: CoreAuthenticationService,
-		private readonly ngZone: NgZone
-	) {
-		super(coreSessionService);
+	constructor() {
+		const coreSessionService = inject(CoreSessionService);
+
+		super();
+	
+		this.coreSessionService = coreSessionService;
 	}
 
 	ngOnInit(): void {

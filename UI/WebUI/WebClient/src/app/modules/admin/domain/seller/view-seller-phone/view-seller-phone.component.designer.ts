@@ -9,7 +9,7 @@
 */
 
 // Import necessary Angular modules and services
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, inject } from '@angular/core';
 import { Router, NavigationExtras, ActivatedRoute, RouterLink } from '@angular/router';
 import { TranslateService, TranslateDirective, TranslatePipe } from '@ngx-translate/core';
 import { CoreSessionService } from '../../../../../core/services/core.session.service';
@@ -42,6 +42,16 @@ import { NgClass } from '@angular/common';
     imports: [RouterLink, TranslateDirective, TreeTableModule, PrimeTemplate, NgClass, TranslatePipe]
 })
 export class ViewSellerPhoneComponent extends SharedComponent implements OnInit, OnDestroy {
+    private readonly router = inject(Router);
+    private readonly route = inject(ActivatedRoute);
+    readonly countryService = inject(CountryService);
+    readonly masterListItemService = inject(MasterListItemService);
+    readonly sellerPhoneService = inject(SellerPhoneService);
+    readonly sellerService = inject(SellerService);
+    override readonly coreSessionService: CoreSessionService;
+    readonly coreSubscriptionService = inject(CoreSubscriptionService);
+    private readonly translateService = inject(TranslateService);
+
     @ViewChild('this.ViewSellerPhonesTable', { static: false }) viewSellerPhonesTable!: TreeTable;  
     manageSellerPhone: CustomTreeTableModel<TreeNode<SellerPhone>> = new CustomTreeTableModel<TreeNode<SellerPhone>>({
         data: new Array<TreeNode<SellerPhone>>()
@@ -61,16 +71,12 @@ export class ViewSellerPhoneComponent extends SharedComponent implements OnInit,
     serviceGroup!: string;
     languageChangedSubscription!: Subscription;
     // Constructor for the component
-    constructor(private readonly router: Router,
-        private readonly route: ActivatedRoute,
-        readonly countryService: CountryService,
-        readonly masterListItemService: MasterListItemService,
-        readonly sellerPhoneService: SellerPhoneService,
-        readonly sellerService: SellerService,
-        override readonly coreSessionService: CoreSessionService,
-        readonly coreSubscriptionService: CoreSubscriptionService,
-        private readonly translateService: TranslateService) {
-        super(coreSessionService);
+    constructor() {
+        const coreSessionService = inject(CoreSessionService);
+
+        super();
+        this.coreSessionService = coreSessionService;
+
         this.translateService.setDefaultLang(this.coreSessionService.getLanguage());
     }
  

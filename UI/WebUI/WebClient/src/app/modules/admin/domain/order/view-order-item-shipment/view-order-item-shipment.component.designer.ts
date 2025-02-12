@@ -9,7 +9,7 @@
 */
 
 // Import necessary Angular modules and services
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, inject } from '@angular/core';
 import { Router, NavigationExtras, ActivatedRoute, RouterLink } from '@angular/router';
 import { TranslateService, TranslateDirective, TranslatePipe } from '@ngx-translate/core';
 import { CoreSessionService } from '../../../../../core/services/core.session.service';
@@ -38,6 +38,14 @@ import { NgClass } from '@angular/common';
     imports: [RouterLink, TranslateDirective, TreeTableModule, PrimeTemplate, NgClass, TranslatePipe]
 })
 export class ViewOrderItemShipmentComponent extends SharedComponent implements OnInit, OnDestroy {
+    private readonly router = inject(Router);
+    private readonly route = inject(ActivatedRoute);
+    readonly orderItemService = inject(OrderItemService);
+    readonly orderItemShipmentService = inject(OrderItemShipmentService);
+    override readonly coreSessionService: CoreSessionService;
+    readonly coreSubscriptionService = inject(CoreSubscriptionService);
+    private readonly translateService = inject(TranslateService);
+
     @ViewChild('this.ViewOrderItemShipmentsTable', { static: false }) viewOrderItemShipmentsTable!: TreeTable;  
     manageOrderItemShipment: CustomTreeTableModel<TreeNode<OrderItemShipment>> = new CustomTreeTableModel<TreeNode<OrderItemShipment>>({
         data: new Array<TreeNode<OrderItemShipment>>()
@@ -55,14 +63,12 @@ export class ViewOrderItemShipmentComponent extends SharedComponent implements O
     serviceGroup!: string;
     languageChangedSubscription!: Subscription;
     // Constructor for the component
-    constructor(private readonly router: Router,
-        private readonly route: ActivatedRoute,
-        readonly orderItemService: OrderItemService,
-        readonly orderItemShipmentService: OrderItemShipmentService,
-        override readonly coreSessionService: CoreSessionService,
-        readonly coreSubscriptionService: CoreSubscriptionService,
-        private readonly translateService: TranslateService) {
-        super(coreSessionService);
+    constructor() {
+        const coreSessionService = inject(CoreSessionService);
+
+        super();
+        this.coreSessionService = coreSessionService;
+
         this.translateService.setDefaultLang(this.coreSessionService.getLanguage());
     }
  

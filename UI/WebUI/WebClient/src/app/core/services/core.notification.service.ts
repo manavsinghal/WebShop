@@ -10,7 +10,7 @@
 */ 
 
 // Import necessary modules and services
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
@@ -20,14 +20,15 @@ import { ToastrService } from 'ngx-toastr';
     providedIn: 'root'
 })
 export class CoreNotificationService {
+    private readonly toastr = inject(ToastrService);
+    private readonly translateService = inject(TranslateService);
+
     // Static toastr and translateService variables
     static toastr: ToastrService;
     static translateService: TranslateService;
 
     // Constructor to inject ToastrService and TranslateService
-    constructor(
-        private readonly toastr: ToastrService,
-        private readonly translateService: TranslateService) {
+    constructor() {
         // Set static variables
         CoreNotificationService.toastr = this.toastr;
         // Configure toastr settings
