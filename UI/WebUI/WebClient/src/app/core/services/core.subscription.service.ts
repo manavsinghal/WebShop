@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs';
 import { SharedComponent } from '../../shared/shared.component';
 
 // Define the CoreSubscriptionService
-@Injectable()
+@Injectable({providedIn:'root'})
 export class CoreSubscriptionService {
     /**
      * Unsubscribe all subscriptions in the given context.

@@ -5,17 +5,21 @@ import { enableProdMode, APP_INITIALIZER, importProvidersFrom } from '@angular/c
 import { environment } from './environments/environment';
 import { CoreEnvironmentService } from './app/core/services/core.environment.service';
 import { CoreAuthenticationService } from './app/core/services/core.authentication.service';
-import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { AuthorizationInterceptor } from './app/core/interceptors/authorization.interceptor';
 import { FormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app/app-routing.module';
-import { CoreModule } from './app/core/core.module';
+import { routes } from './app/app-routing.module';
+//import { CoreModule } from './app/core/core.module';
 import { CommonModule } from '@angular/common';
 import { ToastNoAnimationModule } from 'ngx-toastr';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { NgxUiLoaderModule, NgxUiLoaderConfig, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
 import { AppComponent } from './app/app.component';
 import { bootstrapApplication } from '@angular/platform-browser';
+import { LoaderInterceptor } from './app/core/interceptors/loader.interceptor';
+import { provideRouter } from '@angular/router';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { ResourceLoader } from './app/core/translator/resource-loader';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     fgsSize: 36,
@@ -32,10 +36,6 @@ export function getBaseUrl() {
     return document.getElementsByTagName('base')[0].href;
 }
 
-//const providers = [
-//    { provide: 'BASE_URL', useFactory: getBaseUrl, deps: [] }
-//];
-
 if (environment.production) {
     enableProdMode();
 }
@@ -43,8 +43,14 @@ if (environment.production) {
 bootstrapApplication(AppComponent, {
     providers: [
         importProvidersFrom(
-        /* BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),*/
-        FormsModule, AppRoutingModule, CoreModule, CommonModule, ToastNoAnimationModule.forRoot(), NgxUiLoaderModule.forRoot(ngxUiLoaderConfig), NgxUiLoaderRouterModule.forRoot({ showForeground: true })),
+            FormsModule, CommonModule, ToastNoAnimationModule.forRoot(), NgxUiLoaderModule.forRoot(ngxUiLoaderConfig), NgxUiLoaderRouterModule.forRoot({ showForeground: true }), NgxUiLoaderRouterModule.forRoot({ showForeground: true }),
+            TranslateModule.forRoot({
+                loader: {
+                    provide: TranslateLoader,
+                    useClass: ResourceLoader,
+                    deps: [HttpClient],
+                }
+            })),
         { provide: 'APP_ID', useValue: 'ng-cli-universal' },
         {
             provide: APP_INITIALIZER,
@@ -61,8 +67,14 @@ bootstrapApplication(AppComponent, {
             useClass: AuthorizationInterceptor,
             multi: true
         },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: LoaderInterceptor,
+            multi: true
+        },
         provideHttpClient(withInterceptorsFromDi()),
-        provideAnimations()
+        provideAnimations(),
+        provideRouter(routes)
     ]
 })
     .catch(err => console.error(err));

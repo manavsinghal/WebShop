@@ -16,7 +16,7 @@ import { DefaultFields } from '../../shared/models/default-fields.model';
 import { Theme } from '../../shared/models/theme.model';
 
 // Define the CoreSessionService
-@Injectable()
+@Injectable({providedIn:'root'})
 export class CoreSessionService {
     // EventEmitter to broadcast language change events.
     @Output() languageChanged: EventEmitter<LanguageChanged> = new EventEmitter<LanguageChanged>();

@@ -18,7 +18,7 @@ import { CoreAuthenticationService } from '../services/core.authentication.servi
 import { CoreEnvironmentService } from '../services/core.environment.service';
 import { CoreSessionService } from '../services/core.session.service';
 
-@Injectable()
+@Injectable({providedIn:'root'})
 export class AuthGuard implements CanActivate {
 	private readonly router = inject(Router);
 	private readonly coreAuthenticationService = inject(CoreAuthenticationService);

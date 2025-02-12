@@ -9,13 +9,12 @@
 
 */ 
 
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 import { AuthGuard } from './core/login/auth-guard';
 
 
 
-const routes: Routes = [
+export const routes: Routes = [
 	{
 		path: 'app',
 		loadComponent: () => import('./core/shell/shell.component').then(m => m.ShellComponent),
@@ -46,12 +45,4 @@ const routes: Routes = [
         path: '**', pathMatch: 'full', redirectTo: 'app/home',
 	}
 ];
-
-@NgModule({
-	imports: [RouterModule.forRoot(routes, {}),
-
-	],
-	exports: [RouterModule]
-})
-export class AppRoutingModule { }
 
