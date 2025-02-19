@@ -21,6 +21,8 @@ import { provideRouter } from '@angular/router';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { ResourceLoader } from './app/core/translator/resource-loader';
 import { SortPipe } from './app/shared/pipes/sort.pipe';
+import { providePrimeNG } from 'primeng/config';
+import  * as Aura  from '@primeng/themes/aura';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     fgsSize: 36,
@@ -74,7 +76,12 @@ bootstrapApplication(AppComponent, {
         },
         provideHttpClient(withInterceptorsFromDi()),
         provideAnimations(),
-        provideRouter(routes)
+        provideRouter(routes),
+        providePrimeNG({
+            theme: {
+                preset: Aura
+            }
+        })
     ]
 })
     .catch(err => console.error(err));
